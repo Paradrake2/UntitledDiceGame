@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   patternName: 
   patternDescription: 
-  tripleMultiplier: 1.4
-  pairMultiplier: 1.2
+  tripleMultiplier: 1.5
+  pairMultiplier: 1.5

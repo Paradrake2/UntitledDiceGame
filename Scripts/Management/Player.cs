@@ -15,6 +15,8 @@ public class Player : MonoBehaviour
     private int damageReduction;
     private int coinBonus;
     private int revivesRemaining;
+    private int healthRegen;
+    private int shieldRegen;
 
     public StatusEffectHandler StatusEffects => statusEffects;
     public int OutgoingDamageBonus => outgoingDamageBonus;
@@ -39,6 +41,8 @@ public class Player : MonoBehaviour
             damageReduction     = UpgradeManager.Instance.GetTotalInt(UpgradeType.DamageReduction);
             coinBonus           = UpgradeManager.Instance.GetTotalInt(UpgradeType.CoinBonus);
             revivesRemaining    = UpgradeManager.Instance.GetTotalInt(UpgradeType.Revive);
+            healthRegen         = UpgradeManager.Instance.GetTotalInt(UpgradeType.HealthRegen);
+            shieldRegen         = UpgradeManager.Instance.GetTotalInt(UpgradeType.ShieldRegen);
         }
     }
 
