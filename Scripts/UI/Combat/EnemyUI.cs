@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
@@ -11,6 +12,7 @@ public class EnemyUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI enemyShieldText;
     [SerializeField] private TextMeshProUGUI physicalDamageText;
     [SerializeField] private TextMeshProUGUI magicalDamageText;
+
     public void UpdateTexts()
     {
         if (enemy != null)
@@ -22,6 +24,7 @@ public class EnemyUI : MonoBehaviour
             magicalDamageText.text = enemy.EnemyStats.magicalAttackDamage.ToString() + " x" + enemy.EnemyStats.magicalAttackAmount.ToString();
         }
     }
+
     public void SetEnemy(Enemy newEnemy)
     {
         enemy = newEnemy;
@@ -31,13 +34,42 @@ public class EnemyUI : MonoBehaviour
         }
         UpdateTexts();
     }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    public void FlashPhysicalDamageText() => StartCoroutine(FlashText(physicalDamageText));
+    public void FlashMagicalDamageText()  => StartCoroutine(FlashText(magicalDamageText));
+
+    private IEnumerator FlashText(TextMeshProUGUI text)
+    {
+        if (text == null) yield break;
+
+        Color originalColor = text.color;
+        Color purple = new Color(0.6f, 0f, 1f);
+        float duration = 0.5f;
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            text.color = Color.Lerp(originalColor, purple, elapsed / duration);
+            yield return null;
+        }
+
+        elapsed = 0f;
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            text.color = Color.Lerp(purple, originalColor, elapsed / duration);
+            yield return null;
+        }
+
+        text.color = originalColor;
+    }
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         

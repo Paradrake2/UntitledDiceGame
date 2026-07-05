@@ -105,8 +105,25 @@ public class CombatManager : MonoBehaviour
 
         currentEnemy.TriggerSpecialEffect(SpecialEffectTrigger.StartOfTurn, turnNumber, player);
         enemyUI.UpdateTexts();
-        currentEnemy.Attack(player);
-        playerUI.UpdateTexts();
+
+        // Physical attacks — one per hit, each with a flash and a delay.
+        for (int i = 0; i < currentEnemy.EnemyStats.physicalAttackAmount; i++)
+        {
+            enemyUI.FlashPhysicalDamageText();
+            player.TakeDamage(currentEnemy.EnemyStats.physicalAttackDamage, false);
+            playerUI.UpdateTexts();
+            yield return new WaitForSeconds(1f);
+        }
+
+        // Magical attacks — one per hit, each with a flash and a delay.
+        for (int i = 0; i < currentEnemy.EnemyStats.magicalAttackAmount; i++)
+        {
+            enemyUI.FlashMagicalDamageText();
+            player.TakeDamage(currentEnemy.EnemyStats.magicalAttackDamage, true);
+            playerUI.UpdateTexts();
+            yield return new WaitForSeconds(1f);
+        }
+
         currentEnemy.TriggerSpecialEffect(SpecialEffectTrigger.EndOfTurn, turnNumber, player);
         enemyUI.UpdateTexts();
         currentEnemy.TriggerSpecialEffect(SpecialEffectTrigger.AfterNTurns, turnNumber, player);
