@@ -63,8 +63,15 @@ public class Enemy : ScriptableObject
             int remaining = amount - shieldAbsorbed;
             currentHealth = Mathf.Max(0, currentHealth - remaining);
         }
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
     }
-
+    public void Die()
+    {
+        Debug.Log($"{enemyName} has been defeated!");
+    }
     public void Heal(int amount)
     {
         currentHealth = Mathf.Min(enemyStats.maxHealth, currentHealth + amount);

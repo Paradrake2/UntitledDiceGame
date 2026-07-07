@@ -3,19 +3,28 @@ using UnityEngine;
 
 public class CombatManager : MonoBehaviour
 {
+    public static CombatManager Instance { get; private set; }
+
     [SerializeField] private Enemy currentEnemy;
     [SerializeField] private EnemyUI enemyUI;
     [SerializeField] private int currentStage = 1;
     [SerializeField] private Player player;
     [SerializeField] private PlayerUI playerUI;
     [SerializeField] private DiceManager diceManager;
-    [SerializeField] private CardManager cardManager;
+    [SerializeField] private BattleCardManager cardManager;
+    [SerializeField] private CardManagerUI cardManagerUI;
 
     private int turnNumber;
     private bool battleActive;
     private int enemiesDefeated;
 
     [SerializeField] private int gemsPerEnemy = 5;
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this) { Destroy(gameObject); return; }
+        Instance = this;
+    }
 
     public void StartBattle(int stage)
     {
@@ -29,10 +38,18 @@ public class CombatManager : MonoBehaviour
         turnNumber = 0;
         battleActive = true;
 
+        cardManagerUI?.RefreshUI();
         enemyUI.SetEnemy(currentEnemy);
         currentEnemy.TriggerSpecialEffect(SpecialEffectTrigger.StartOfBattle, turnNumber, player);
 
         StartCoroutine(BattleLoop());
+    }
+
+    /// <summary>Called by ShopManager after the shop closes to advance to the next stage.</summary>
+    public void StartNextBattle()
+    {
+        IncreaseStage();
+        StartBattle(currentStage);
     }
 
     private IEnumerator BattleLoop()
@@ -78,6 +95,8 @@ public class CombatManager : MonoBehaviour
         int[] values = diceManager.GetValues();
         foreach (int value in values)
         {
+            if (!currentEnemy.IsAlive) break;
+
             float multiplier = diceManager.GetMultiplierForValue(value);
             cardManager.PlayCard(value, currentEnemy, player, multiplier);
             enemyUI.UpdateTexts();
@@ -165,8 +184,7 @@ public class CombatManager : MonoBehaviour
 
     public void EndBattle()
     {
-        // display results
-        // open shop
+        ShopManager.Instance.OpenShop();
     }
 
     public void IncreaseStage()
@@ -182,6 +200,7 @@ public class CombatManager : MonoBehaviour
     public Enemy DetermineEnemy()
     {
         // Choose which enemy to spawn from a pool based on current stage
+       // Enemy enemyToSpawn = EnemyPool.Instance.GetEnemyForStage(currentStage);
         return currentEnemy; // placeholder
     }
     public void Start()

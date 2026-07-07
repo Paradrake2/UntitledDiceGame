@@ -28,6 +28,7 @@ public abstract class Card : ScriptableObject
     [SerializeField] protected Color line1Color = Color.white;
     [SerializeField] protected Color line2Color = Color.white;
     [SerializeField] protected Color line3Color = Color.white;
+    [SerializeField] protected bool isUnlockedByDefault = false;
     public string CardName => cardName;
     public string CardDescription => cardDescription;
     public Sprite CardSprite => cardSprite;
@@ -37,5 +38,8 @@ public abstract class Card : ScriptableObject
     public Color Line1Color => line1Color;
     public Color Line2Color => line2Color;
     public Color Line3Color => line3Color;
+    public int UpgradeLevel => upgradeLevel;
+    public int MaxUpgradeLevel => maxUpgradeLevel;
+    public bool IsUnlockedByDefault => isUnlockedByDefault;
     public abstract void PlayCard(Enemy enemy, Player player, float multiplier = 1f);
 }

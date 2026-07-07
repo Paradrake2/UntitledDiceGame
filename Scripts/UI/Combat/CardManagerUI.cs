@@ -2,13 +2,21 @@ using UnityEngine;
 
 public class CardManagerUI : MonoBehaviour
 {
-    [SerializeField] private CardManager cardManager;
+    [SerializeField] private BattleCardManager cardManager;
     [SerializeField] private GameObject card1;
     [SerializeField] private GameObject card2;
     [SerializeField] private GameObject card3;
     [SerializeField] private GameObject card4;
     [SerializeField] private GameObject card5;
     [SerializeField] private GameObject card6;
+    void OnEnable()
+    {
+    }
+
+    void OnDisable()
+    {
+    }
+
     public void UpdateCardUI(int position, Card newCard)
     {
         GameObject cardObject = null;
@@ -50,8 +58,17 @@ public class CardManagerUI : MonoBehaviour
             }
         }
     }
+    public void RefreshHandler(bool isOpened)
+    {
+        Debug.Log($"Shop opened: {isOpened}. Refreshing UI...");
+        if (!isOpened)
+        {
+            RefreshUI();
+        }
+    }
     public void RefreshUI()
     {
+        Debug.Log("Refreshing CardManagerUI...");
         UpdateCardUI(1, cardManager.GetCard(1));
         UpdateCardUI(2, cardManager.GetCard(2));
         UpdateCardUI(3, cardManager.GetCard(3));

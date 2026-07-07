@@ -3,7 +3,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] private int maxHealth = 100;
-    [SerializeField] private CardManager cardManager;
+    [SerializeField] private BattleCardManager cardManager;
     [SerializeField] private PlayerUI playerUI;
 
     private int currentHealth;
@@ -28,7 +28,7 @@ public class Player : MonoBehaviour
     public int Coins => coins;
     public int RevivesRemaining => revivesRemaining;
     public bool IsAlive => currentHealth > 0;
-    public CardManager CardManager => cardManager;
+    public BattleCardManager CardManager => cardManager;
 
     public void InitForBattle()
     {

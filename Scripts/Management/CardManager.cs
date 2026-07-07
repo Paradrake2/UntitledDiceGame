@@ -1,112 +1,43 @@
+using System;
 using UnityEngine;
 
-
-
+// Manages the player's collection of unlocked cards.
 public class CardManager : MonoBehaviour
 {
-    [SerializeField] private Card pos1Card;
-    [SerializeField] private Card pos2Card;
-    [SerializeField] private Card pos3Card;
-    [SerializeField] private Card pos4Card;
-    [SerializeField] private Card pos5Card;
-    [SerializeField] private Card pos6Card;
-
-    [SerializeField] private CardUI pos1CardUI;
-    [SerializeField] private CardUI pos2CardUI;
-    [SerializeField] private CardUI pos3CardUI;
-    [SerializeField] private CardUI pos4CardUI;
-    [SerializeField] private CardUI pos5CardUI;
-    [SerializeField] private CardUI pos6CardUI;
-
-    public void PlayCard(int position, Enemy enemy, Player player, float multiplier = 1f)
+    public static event Action<Card> OnCardUnlocked; // Event triggered when a card is unlocked.
+    void OnEnable()
     {
-        switch (position)
-        {
-            case 1:
-                pos1Card.PlayCard(enemy, player, multiplier);
-                pos1CardUI?.PlayFlashAnimation();
-                break;
-            case 2:
-                pos2Card.PlayCard(enemy, player, multiplier);
-                pos2CardUI?.PlayFlashAnimation();
-                break;
-            case 3:
-                pos3Card.PlayCard(enemy, player, multiplier);
-                pos3CardUI?.PlayFlashAnimation();
-                break;
-            case 4:
-                pos4Card.PlayCard(enemy, player, multiplier);
-                pos4CardUI?.PlayFlashAnimation();
-                break;
-            case 5:
-                pos5Card.PlayCard(enemy, player, multiplier);
-                pos5CardUI?.PlayFlashAnimation();
-                break;
-            case 6:
-                pos6Card.PlayCard(enemy, player, multiplier);
-                pos6CardUI?.PlayFlashAnimation();
-                break;
-            default:
-                Debug.LogError("Invalid card position: " + position);
-                break;
-        }
+        OnCardUnlocked += UnlockCard;
     }
-    public void SetCard(int position, Card newCard)
+    void OnDisable()
     {
-        switch (position)
-        {
-            case 1:
-                pos1Card = newCard;
-                break;
-            case 2:
-                pos2Card = newCard;
-                break;
-            case 3:
-                pos3Card = newCard;
-                break;
-            case 4:
-                pos4Card = newCard;
-                break;
-            case 5:
-                pos5Card = newCard;
-                break;
-            case 6:
-                pos6Card = newCard;
-                break;
-            default:
-                Debug.LogError("Invalid card position: " + position);
-                break;
-        }
-    }
-    public Card GetCard(int index)
-    {
-        switch (index)
-        {
-            case 1:
-                return pos1Card;
-            case 2:
-                return pos2Card;
-            case 3:
-                return pos3Card;
-            case 4:
-                return pos4Card;
-            case 5:
-                return pos5Card;
-            case 6:
-                return pos6Card;
-            default:
-                Debug.LogError("Invalid card index: " + index);
-                return null;
-        }
-    }
-    void Start()
-    {
-        
+        OnCardUnlocked -= UnlockCard;
     }
 
-    // Update is called once per frame
-    void Update()
+    public Card[] unlockedCards; // Array of cards that the player has unlocked.
+    public Card[] AllCards; // Array of all available cards in the game.
+    public void UnlockCard(Card card)
     {
-        
+        // Check if the card is already unlocked
+        foreach (var unlockedCard in unlockedCards)
+        {
+            if (unlockedCard == card)
+            {
+                Debug.Log("Card already unlocked: " + card.name);
+                return; // Card is already unlocked, exit the method
+            }
+        }
+
+        // Add the card to the unlocked cards array
+        int newSize = unlockedCards.Length + 1;
+        Card[] newUnlockedCards = new Card[newSize];
+        for (int i = 0; i < unlockedCards.Length; i++)
+        {
+            newUnlockedCards[i] = unlockedCards[i];
+        }
+        newUnlockedCards[newSize - 1] = card;
+        unlockedCards = newUnlockedCards;
+
+        Debug.Log("Card unlocked: " + card.name);
     }
 }
