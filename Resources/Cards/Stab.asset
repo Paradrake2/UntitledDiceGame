@@ -14,38 +14,89 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Stab
   cardDescription: Basic Physical Damage
-  cardSprite: {fileID: 3338182679209234372, guid: a200681775cba624ba011bfe75fbe1d0, type: 3}
+  cardSprite: {fileID: -3069660206326451350, guid: 84f330c728fea4a45804dbaf5c1d46d3, type: 3}
   upgradeLevels:
   - damage: 15
     shield: 0
     heal: 0
+    percentage1: 0
+    int1: 0
+    line1: 15
+    line2: 
+    line3: 
   - damage: 18
     shield: 0
     heal: 0
+    percentage1: 0
+    int1: 0
+    line1: 18
+    line2: 
+    line3: 
   - damage: 21
     shield: 0
     heal: 0
+    percentage1: 0
+    int1: 0
+    line1: 21
+    line2: 
+    line3: 
   - damage: 24
     shield: 0
     heal: 0
+    percentage1: 0
+    int1: 0
+    line1: 24
+    line2: 
+    line3: 
   - damage: 27
     shield: 0
     heal: 0
+    percentage1: 0
+    int1: 0
+    line1: 27
+    line2: 
+    line3: 
   - damage: 30
     shield: 0
     heal: 0
+    percentage1: 0
+    int1: 0
+    line1: 30
+    line2: 
+    line3: 
   - damage: 33
     shield: 0
     heal: 0
+    percentage1: 0
+    int1: 0
+    line1: 33
+    line2: 
+    line3: 
   - damage: 36
     shield: 0
     heal: 0
+    percentage1: 0
+    int1: 0
+    line1: 36
+    line2: 
+    line3: 
   - damage: 39
     shield: 0
     heal: 0
-  - damage: 39
+    percentage1: 0
+    int1: 0
+    line1: 39
+    line2: 
+    line3: 
+  - damage: 45
     shield: 0
     heal: 0
+    percentage1: 0
+    int1: 0
+    line1: 45
+    line2: 
+    line3: 
   upgradeLevel: 0
   baseUpgradeCost: 0
+  baseShopCost: 0
   maxUpgradeLevel: 10

@@ -4,6 +4,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private int maxHealth = 100;
     [SerializeField] private CardManager cardManager;
+    [SerializeField] private PlayerUI playerUI;
 
     private int currentHealth;
     private int currentShield;
@@ -69,16 +70,29 @@ public class Player : MonoBehaviour
     public void Heal(int amount)
     {
         currentHealth = Mathf.Min(maxHealth, currentHealth + amount);
+        Debug.Log($"Player healed for {amount}. Current health: {currentHealth}/{maxHealth}");
+        if (playerUI != null)
+        {
+            playerUI.UpdateTexts();
+        }
     }
 
     public void AddShield(int amount)
     {
         currentShield += amount;
+        if (playerUI != null)
+        {
+            playerUI.UpdateTexts();
+        }
     }
 
     public void AddCoins(int amount)
     {
         coins += amount + coinBonus;
+        if (playerUI != null)
+        {
+            playerUI.UpdateTexts();
+        }
     }
 
     /// <summary>

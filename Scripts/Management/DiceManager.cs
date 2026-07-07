@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class DiceManager : MonoBehaviour
 {
+    public static DiceManager Instance { get; private set; }
+
     public DiceManagerUI diceManagerUI;
     [SerializeField] private int diceCount = 3;
     [SerializeField] private int rerollsPerTurn = 3;
@@ -19,16 +21,30 @@ public class DiceManager : MonoBehaviour
     /// </summary>
     [SerializeField] private DicePattern[] specialPatterns;
 
+    /// <summary>Number of faces on the secondary die (e.g. 6 for D6, 20 for D20).</summary>
+    [SerializeField] private int secondaryDieFaces = 6;
+
     [SerializeField] private int[] diceValues;
     private int rerollsRemaining;
     private bool diceFinalized;
+    private int secondaryDieValue;
 
     public int DiceCount => diceValues != null ? diceValues.Length : diceCount;
     public int RerollsRemaining => rerollsRemaining;
     public bool DiceFinalized => diceFinalized;
+    /// <summary>The result of the most recent RollSecondaryDie() call. 0 if never rolled.</summary>
+    public int SecondaryDieValue => secondaryDieValue;
 
     /// <summary>Fired when the player accepts the dice or exhausts all rerolls.</summary>
     public event Action<int[]> OnDiceFinalized;
+    /// <summary>Fired every time RollSecondaryDie() is called, passing the new result.</summary>
+    public event Action<int> OnSecondaryDieRolled;
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this) { Destroy(gameObject); return; }
+        Instance = this;
+    }
 
     /// <summary>Roll all dice fresh at the start of the player's turn.</summary>
     public void StartRoll()
@@ -99,6 +115,18 @@ public class DiceManager : MonoBehaviour
         
         Debug.Log("Dice finalized: " + string.Join(", ", diceValues));
     }
+
+    /// <summary>
+    /// Rolls the secondary die (1 to secondaryDieFaces), stores the result, and fires OnSecondaryDieRolled.
+    /// Cards and enemies can call DiceManager.Instance.RollSecondaryDie() to use it.
+    /// </summary>
+    public int RollSecondaryDie()
+    {
+        secondaryDieValue = UnityEngine.Random.Range(1, secondaryDieFaces + 1);
+        OnSecondaryDieRolled?.Invoke(secondaryDieValue);
+        return secondaryDieValue;
+    }
+
     public int GetDieValue(int index)
     {
         if (index < 0 || index >= diceCount)

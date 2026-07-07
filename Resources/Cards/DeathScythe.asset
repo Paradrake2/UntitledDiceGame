@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8eba06d6caa86c04ca60811a760e24fd, type: 3}
+  m_Name: DeathScythe
+  m_EditorClassIdentifier: 
+  cardName: Death Scythe
+  cardDescription: Damage plus healing based on damage
+  cardSprite: {fileID: -3761623330065976427, guid: a39bb8531147496438477882ccd5bb2c, type: 3}
+  upgradeLevels:
+  - damage: 20
+    shield: 0
+    heal: 0
+    percentage1: 0.5
+    int1: 0
+    line1: 20
+    line2: 50% DMG Heal
+    line3: 
+  - damage: 25
+    shield: 0
+    heal: 0
+    percentage1: 0.55
+    int1: 0
+    line1: 25
+    line2: 55% DMG Heal
+    line3: 
+  - damage: 30
+    shield: 0
+    heal: 0
+    percentage1: 0.6
+    int1: 0
+    line1: 30
+    line2: 60% DMG Heal
+    line3: 
+  - damage: 35
+    shield: 0
+    heal: 0
+    percentage1: 0.65
+    int1: 0
+    line1: 35
+    line2: 65% DMG Heal
+    line3: 
+  - damage: 40
+    shield: 0
+    heal: 0
+    percentage1: 0.7
+    int1: 0
+    line1: 40
+    line2: 70% DMG Heal
+    line3: 
+  - damage: 45
+    shield: 0
+    heal: 0
+    percentage1: 0.75
+    int1: 0
+    line1: 45
+    line2: 75% DMG Heal
+    line3: 
+  - damage: 50
+    shield: 0
+    heal: 0
+    percentage1: 0.8
+    int1: 0
+    line1: 50
+    line2: 80% DMG Heal
+    line3: 
+  - damage: 55
+    shield: 0
+    heal: 0
+    percentage1: 0.85
+    int1: 0
+    line1: 55
+    line2: 85% DMG Heal
+    line3: 
+  - damage: 60
+    shield: 0
+    heal: 0
+    percentage1: 0.9
+    int1: 0
+    line1: 60
+    line2: 90% DMG Heal
+    line3: 
+  - damage: 70
+    shield: 0
+    heal: 0
+    percentage1: 1
+    int1: 0
+    line1: 70
+    line2: 100% DMG Heal
+    line3: 
+  upgradeLevel: 0
+  baseUpgradeCost: 0
+  baseShopCost: 0
+  maxUpgradeLevel: 10
+  line1Color: {r: 0.5660378, g: 0, b: 0, a: 1}
+  line2Color: {r: 0.3533913, g: 0, b: 0.8773585, a: 1}
+  line3Color: {r: 1, g: 1, b: 1, a: 1}

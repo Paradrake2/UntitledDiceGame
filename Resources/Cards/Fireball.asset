@@ -14,38 +14,89 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Fireball
   cardDescription: Basic Magic Damage
-  cardSprite: {fileID: -4134337327994304922, guid: 320359617b0580e4888313ba18e098b4, type: 3}
+  cardSprite: {fileID: -1067434589984454019, guid: bb4756d4da1f0f04cb99853aacab75fe, type: 3}
   upgradeLevels:
   - damage: 10
     shield: 0
     heal: 0
+    percentage1: 0
+    int1: 0
+    line1: 10
+    line2: 
+    line3: 
   - damage: 12
     shield: 0
     heal: 0
+    percentage1: 0
+    int1: 0
+    line1: 12
+    line2: 
+    line3: 
   - damage: 14
     shield: 0
     heal: 0
+    percentage1: 0
+    int1: 0
+    line1: 14
+    line2: 
+    line3: 
   - damage: 16
     shield: 0
     heal: 0
+    percentage1: 0
+    int1: 0
+    line1: 18
+    line2: 
+    line3: 
   - damage: 18
     shield: 0
     heal: 0
+    percentage1: 0
+    int1: 0
+    line1: 18
+    line2: 
+    line3: 
   - damage: 20
     shield: 0
     heal: 0
+    percentage1: 0
+    int1: 0
+    line1: 20
+    line2: 
+    line3: 
   - damage: 22
     shield: 0
     heal: 0
+    percentage1: 0
+    int1: 0
+    line1: 22
+    line2: 
+    line3: 
   - damage: 24
     shield: 0
     heal: 0
+    percentage1: 0
+    int1: 0
+    line1: 24
+    line2: 
+    line3: 
   - damage: 26
     shield: 0
     heal: 0
-  - damage: 26
+    percentage1: 0
+    int1: 0
+    line1: 26
+    line2: 
+    line3: 
+  - damage: 30
     shield: 0
     heal: 0
+    percentage1: 0
+    int1: 0
+    line1: 30
+    line2: 
+    line3: 
   upgradeLevel: 0
   baseUpgradeCost: 10
+  baseShopCost: 0
   maxUpgradeLevel: 10
