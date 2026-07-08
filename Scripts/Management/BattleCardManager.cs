@@ -81,6 +81,20 @@ public class BattleCardManager : MonoBehaviour
         }
     }
 
+    public CardUI GetCardUI(int index)
+    {
+        switch (index)
+        {
+            case 1: return pos1CardUI;
+            case 2: return pos2CardUI;
+            case 3: return pos3CardUI;
+            case 4: return pos4CardUI;
+            case 5: return pos5CardUI;
+            case 6: return pos6CardUI;
+            default: Debug.LogError("Invalid card UI index: " + index); return null;
+        }
+    }
+
     void Start() { }
     void Update() { }
 }

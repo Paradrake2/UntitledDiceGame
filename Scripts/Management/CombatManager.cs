@@ -21,6 +21,7 @@ public class CombatManager : MonoBehaviour
 
     public event Action<int> PlayerDamageTaken;
     public event Action<int> PlayerHealingReceived;
+    public event Action BattleStarted;
 
     private void Awake()
     {
@@ -40,12 +41,12 @@ public class CombatManager : MonoBehaviour
         turnNumber = 0;
         battleActive = true;
 
-        cardManagerUI?.RefreshUI();
         enemyUI.SetEnemy(currentEnemy);
         var context = new SpecialEffectContext(currentEnemy, player, turnNumber, damageAttempted: 0, damageTaken: 0, isMagic: false);
         currentEnemy.TriggerSpecialEffect(SpecialEffectTrigger.StartOfBattle, context);
 
         StartCoroutine(BattleLoop());
+        BattleStarted?.Invoke();
     }
 
     /// <summary>Called by ShopManager after the shop closes to advance to the next stage.</summary>
@@ -57,6 +58,7 @@ public class CombatManager : MonoBehaviour
 
     private IEnumerator BattleLoop()
     {
+        cardManagerUI?.RefreshUI();
         while (battleActive)
         {
             yield return StartCoroutine(RunPlayerTurn());

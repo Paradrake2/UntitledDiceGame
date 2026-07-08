@@ -3,68 +3,41 @@ using UnityEngine;
 public class CardManagerUI : MonoBehaviour
 {
     [SerializeField] private BattleCardManager cardManager;
-    [SerializeField] private GameObject card1;
-    [SerializeField] private GameObject card2;
-    [SerializeField] private GameObject card3;
-    [SerializeField] private GameObject card4;
-    [SerializeField] private GameObject card5;
-    [SerializeField] private GameObject card6;
+    
     void OnEnable()
     {
+        CombatManager.Instance.BattleStarted += RefreshHandler;
     }
 
     void OnDisable()
     {
+        CombatManager.Instance.BattleStarted -= RefreshHandler;
     }
 
     public void UpdateCardUI(int position, Card newCard)
     {
-        GameObject cardObject = null;
-        switch (position)
+        if (cardManager == null) 
         {
-            case 1:
-                cardObject = card1;
-                break;
-            case 2:
-                cardObject = card2;
-                break;
-            case 3:
-                cardObject = card3;
-                break;
-            case 4:
-                cardObject = card4;
-                break;
-            case 5:
-                cardObject = card5;
-                break;
-            case 6:
-                cardObject = card6;
-                break;
-            default:
-                Debug.LogError("Invalid card position: " + position);
-                return;
+            Debug.LogError("BattleCardManager is not assigned to CardManagerUI");
+            return;
         }
 
-        if (cardObject != null)
+        CardUI cardUI = cardManager.GetCardUI(position);
+        
+        if (cardUI != null)
         {
-            CardUI cardUI = cardObject.GetComponent<CardUI>();
-            if (cardUI != null)
-            {
-                cardUI.SetCard(newCard);
-            }
-            else
-            {
-                Debug.LogError("CardUI component not found on the card GameObject.");
-            }
+            Debug.Log($"Updating card UI at position {position} with new card: {newCard?.name ?? "null"}");
+            cardUI.SetCard(newCard);
+        }
+        else
+        {
+            Debug.LogError($"CardUI at position {position} is not assigned in BattleCardManager.");
         }
     }
-    public void RefreshHandler(bool isOpened)
+    public void RefreshHandler()
     {
-        Debug.Log($"Shop opened: {isOpened}. Refreshing UI...");
-        if (!isOpened)
-        {
-            RefreshUI();
-        }
+        Debug.Log("Battle started. Refreshing UI...");
+        RefreshUI();
     }
     public void RefreshUI()
     {

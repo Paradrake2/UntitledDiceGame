@@ -5085,12 +5085,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba39d25c6d6117b4b8d6e21da14d0572, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pos1Card: {fileID: 11400000, guid: 99be91b13fce9614ebdbc56f3112a801, type: 2}
-  pos2Card: {fileID: 11400000, guid: 99be91b13fce9614ebdbc56f3112a801, type: 2}
-  pos3Card: {fileID: 11400000, guid: 99be91b13fce9614ebdbc56f3112a801, type: 2}
-  pos4Card: {fileID: 11400000, guid: 99be91b13fce9614ebdbc56f3112a801, type: 2}
-  pos5Card: {fileID: 11400000, guid: 99be91b13fce9614ebdbc56f3112a801, type: 2}
-  pos6Card: {fileID: 11400000, guid: 99be91b13fce9614ebdbc56f3112a801, type: 2}
+  pos1Card: {fileID: 11400000, guid: 65a6daa855b0df643bf2fc3c40e257cc, type: 2}
+  pos2Card: {fileID: 11400000, guid: 65a6daa855b0df643bf2fc3c40e257cc, type: 2}
+  pos3Card: {fileID: 11400000, guid: 65a6daa855b0df643bf2fc3c40e257cc, type: 2}
+  pos4Card: {fileID: 11400000, guid: 65a6daa855b0df643bf2fc3c40e257cc, type: 2}
+  pos5Card: {fileID: 11400000, guid: 65a6daa855b0df643bf2fc3c40e257cc, type: 2}
+  pos6Card: {fileID: 11400000, guid: 65a6daa855b0df643bf2fc3c40e257cc, type: 2}
   pos1CardUI: {fileID: 284082387}
   pos2CardUI: {fileID: 1744170960}
   pos3CardUI: {fileID: 2115949241}

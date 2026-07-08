@@ -20,6 +20,8 @@ MonoBehaviour:
   baseMagicalAttackDamage: 5
   basePhysicalAttackAmount: 2
   baseMagicalAttackAmount: 1
+  baseHealAmount: 0
+  baseShieldAmount: 0
   coinReward: 50
   enemyStats:
     maxHealth: 1025
@@ -28,4 +30,6 @@ MonoBehaviour:
     physicalAttackAmount: 2
     magicalAttackDamage: 10
     magicalAttackAmount: 1
-  specialEffect: {fileID: 11400000, guid: 087197e6f0233a043bc6fe9781cca886, type: 2}
+    healAmount: 5
+    shieldAmount: 5
+  specialEffect: {fileID: 11400000, guid: c0d448f2cec472542b1b3d2079a6fe49, type: 2}

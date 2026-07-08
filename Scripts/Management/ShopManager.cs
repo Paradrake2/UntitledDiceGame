@@ -14,12 +14,12 @@ public class ShopManager : MonoBehaviour
     void OnEnable()
     {
         OnCardPurchased += HandleCardPurchased;
-        OnShopOpened += OpenShopTest;
+        OnShopOpened += RunShop;
     }
     void OnDisable()
     {
         OnCardPurchased -= HandleCardPurchased;
-        OnShopOpened -= OpenShopTest;
+        OnShopOpened -= RunShop;
     }
     public void OpenShop()
     {
@@ -28,12 +28,18 @@ public class ShopManager : MonoBehaviour
     public void CloseShop()
     {
         OnShopOpened?.Invoke(false);
+        Debug.Log("Shop closed. Starting next battle...");
         // Start the next battle after all shop-close subscribers (e.g. FinalizeCardSelection) have run.
-        CombatManager.Instance?.StartNextBattle();
     }
-    public void OpenShopTest(bool isOpened)
+    public void RunShop(bool isOpened)
     {
-        shopUI.gameObject.SetActive(true);
+        //shopUI.gameObject.SetActive(isOpened);
+        if (!isOpened)
+        {
+            // Shop is closing, finalize card selection
+            CombatManager.Instance?.StartNextBattle();
+
+        }
     }
     private void Awake()
     {

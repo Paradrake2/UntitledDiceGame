@@ -69,14 +69,4 @@ public class CardUI : MonoBehaviour
 
         cardImage.color = originalColor;
     }
-
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
 }
