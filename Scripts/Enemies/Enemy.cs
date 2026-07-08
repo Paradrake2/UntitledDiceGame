@@ -22,7 +22,7 @@ public class Enemy : ScriptableObject
     [SerializeField] private int baseMagicalAttackDamage;
     [SerializeField] private int basePhysicalAttackAmount;
     [SerializeField] private int baseMagicalAttackAmount;
-    [SerializeField] private int coinReward = 50;
+    [SerializeField] private int coinReward = 10;
     [SerializeField] private EnemyStats enemyStats;
     [SerializeField] private SpecialEffect specialEffect;
 
@@ -50,8 +50,13 @@ public class Enemy : ScriptableObject
     }
 
     /// <summary>Physical damage hits shield first; magic damage bypasses shield entirely.</summary>
-    public void TakeDamage(int amount, bool isMagic)
+    public void TakeDamage(int amount, bool isMagic, float modifier = 1f)
     {
+        amount = Mathf.RoundToInt(amount * modifier);
+
+        DamageContext context = new DamageContext(amount, isMagic, currentShield > 0, this, null);
+        if (specialEffect != null) specialEffect.ModifyIncomingDamage(context);
+        amount = context.Amount;
         if (isMagic)
         {
             currentHealth = Mathf.Max(0, currentHealth - amount);

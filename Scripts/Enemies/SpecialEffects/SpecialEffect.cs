@@ -5,7 +5,8 @@ public enum SpecialEffectTrigger
     StartOfBattle,
     StartOfTurn,
     EndOfTurn,
-    AfterNTurns
+    AfterNTurns,
+    PlayerTurn
 }
 
 // Abstract — use [CreateAssetMenu] on concrete subclasses, not here.
@@ -25,5 +26,6 @@ public abstract class SpecialEffect : ScriptableObject
         return true;
     }
 
-    public abstract void ApplyEffect(Enemy enemy, Player player);
+    public virtual void ApplyEffect(Enemy enemy, Player player) { }
+    public virtual void ModifyIncomingDamage(DamageContext context) { }
 }

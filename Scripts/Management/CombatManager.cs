@@ -89,7 +89,7 @@ public class CombatManager : MonoBehaviour
         // Wait until the player accepts the dice or runs out of rerolls.
         // The UI calls diceManager.RerollDie(index) or diceManager.AcceptDice().
         yield return new WaitUntil(() => diceManager.DiceFinalized);
-
+        currentEnemy.TriggerSpecialEffect(SpecialEffectTrigger.PlayerTurn, turnNumber, player);
         // Play cards in the order the dice appear left-to-right.
         // Each die value maps directly to a card position (1–6).
         int[] values = diceManager.GetValues();
