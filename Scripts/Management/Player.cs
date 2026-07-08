@@ -51,7 +51,7 @@ public class Player : MonoBehaviour
     /// Physical damage hits shield first; magic damage bypasses shield entirely.
     /// Damage reduction from upgrades is applied before shield calculations.
     /// </summary>
-    public void TakeDamage(int amount, bool isMagic)
+    public int TakeDamage(int amount, bool isMagic)
     {
         // DamageContext context = new DamageContext(amount, isMagic, currentShield > 0, null, this); // will be used later
         int reduced = Mathf.Max(0, amount - damageReduction);
@@ -66,6 +66,7 @@ public class Player : MonoBehaviour
             int remaining = reduced - shieldAbsorbed;
             currentHealth = Mathf.Max(0, currentHealth - remaining);
         }
+        return reduced;
     }
 
     public void Heal(int amount)

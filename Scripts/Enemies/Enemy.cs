@@ -9,6 +9,8 @@ public class EnemyStats
     public int physicalAttackAmount;
     public int magicalAttackDamage;
     public int magicalAttackAmount;
+    public int healAmount;
+    public int shieldAmount;
 }
 
 [CreateAssetMenu(fileName = "Enemy", menuName = "Scriptable Objects/Enemy")]
@@ -22,6 +24,8 @@ public class Enemy : ScriptableObject
     [SerializeField] private int baseMagicalAttackDamage;
     [SerializeField] private int basePhysicalAttackAmount;
     [SerializeField] private int baseMagicalAttackAmount;
+    [SerializeField] private int baseHealAmount;
+    [SerializeField] private int baseShieldAmount;
     [SerializeField] private int coinReward = 10;
     [SerializeField] private EnemyStats enemyStats;
     [SerializeField] private SpecialEffect specialEffect;
@@ -80,11 +84,13 @@ public class Enemy : ScriptableObject
     public void Heal(int amount)
     {
         currentHealth = Mathf.Min(enemyStats.maxHealth, currentHealth + amount);
+        Debug.Log("" + enemyName + " healed for " + amount + " health. Current health: " + currentHealth);
     }
 
     public void AddShield(int amount)
     {
         currentShield += amount;
+        Debug.Log("" + enemyName + " gained " + amount + " shield. Current shield: " + currentShield);
     }
 
     /// <summary>Deals all physical and magical attacks to the player.</summary>
@@ -98,11 +104,11 @@ public class Enemy : ScriptableObject
     }
 
     /// <summary>Fires the special effect if its trigger condition is met.</summary>
-    public void TriggerSpecialEffect(SpecialEffectTrigger trigger, int turnNumber, Player player)
+    public void TriggerSpecialEffect(SpecialEffectTrigger trigger, SpecialEffectContext ctx)
     {
         if (specialEffect == null) return;
-        if (specialEffect.ShouldTrigger(trigger, turnNumber))
-            specialEffect.ApplyEffect(this, player);
+        if (specialEffect.ShouldTrigger(trigger, ctx.turnNumber))
+            specialEffect.ApplyEffect(ctx);
     }
 
     public void ModifyStats(int stage)
@@ -111,5 +117,7 @@ public class Enemy : ScriptableObject
         enemyStats.shield = baseShield + stage * 10;
         enemyStats.physicalAttackDamage = basePhysicalAttackDamage + stage * 5;
         enemyStats.magicalAttackDamage = baseMagicalAttackDamage + stage * 5;
+        enemyStats.healAmount = baseHealAmount + stage * 5;
+        enemyStats.shieldAmount = baseShieldAmount + stage * 5;
     }
 }

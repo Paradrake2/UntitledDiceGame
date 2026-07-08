@@ -1,6 +1,6 @@
 using System.Collections;
 using UnityEngine;
-
+using System;
 public class CombatManager : MonoBehaviour
 {
     public static CombatManager Instance { get; private set; }
@@ -17,8 +17,10 @@ public class CombatManager : MonoBehaviour
     private int turnNumber;
     private bool battleActive;
     private int enemiesDefeated;
-
     [SerializeField] private int gemsPerEnemy = 5;
+
+    public event Action<int> PlayerDamageTaken;
+    public event Action<int> PlayerHealingReceived;
 
     private void Awake()
     {
@@ -40,7 +42,8 @@ public class CombatManager : MonoBehaviour
 
         cardManagerUI?.RefreshUI();
         enemyUI.SetEnemy(currentEnemy);
-        currentEnemy.TriggerSpecialEffect(SpecialEffectTrigger.StartOfBattle, turnNumber, player);
+        var context = new SpecialEffectContext(currentEnemy, player, turnNumber, damageAttempted: 0, damageTaken: 0, isMagic: false);
+        currentEnemy.TriggerSpecialEffect(SpecialEffectTrigger.StartOfBattle, context);
 
         StartCoroutine(BattleLoop());
     }
@@ -89,9 +92,10 @@ public class CombatManager : MonoBehaviour
         // Wait until the player accepts the dice or runs out of rerolls.
         // The UI calls diceManager.RerollDie(index) or diceManager.AcceptDice().
         yield return new WaitUntil(() => diceManager.DiceFinalized);
-        currentEnemy.TriggerSpecialEffect(SpecialEffectTrigger.PlayerTurn, turnNumber, player);
+        var context = new SpecialEffectContext(currentEnemy, player, turnNumber, damageAttempted: 0, damageTaken: 0, isMagic: false);
+        currentEnemy.TriggerSpecialEffect(SpecialEffectTrigger.PlayerTurn, context);
         // Play cards in the order the dice appear left-to-right.
-        // Each die value maps directly to a card position (1–6).
+        // Each die value maps directly to a card position (1-6).
         int[] values = diceManager.GetValues();
         foreach (int value in values)
         {
@@ -123,15 +127,22 @@ public class CombatManager : MonoBehaviour
         currentEnemy.StatusEffects.TriggerEffects(StatusEffectTrigger.StartOfTurn, ctx);
         enemyUI.UpdateTexts();
 
-        currentEnemy.TriggerSpecialEffect(SpecialEffectTrigger.StartOfTurn, turnNumber, player);
+        var context = new SpecialEffectContext(currentEnemy, player, turnNumber, damageAttempted: 0, damageTaken: 0, isMagic: false);
+        currentEnemy.TriggerSpecialEffect(SpecialEffectTrigger.StartOfTurn, context);
         enemyUI.UpdateTexts();
 
         // Physical attacks — one per hit, each with a flash and a delay.
         for (int i = 0; i < currentEnemy.EnemyStats.physicalAttackAmount; i++)
         {
             enemyUI.FlashPhysicalDamageText();
-            player.TakeDamage(currentEnemy.EnemyStats.physicalAttackDamage, false);
+            int damage = currentEnemy.EnemyStats.physicalAttackDamage;
+            int damageTaken = player.TakeDamage(damage, false);
+            PlayerDamageTaken?.Invoke(damage);
+            var pcontext = new SpecialEffectContext(currentEnemy, player, turnNumber, damageAttempted: damage, damageTaken: damageTaken, isMagic: false);
+            currentEnemy.TriggerSpecialEffect(SpecialEffectTrigger.OnDamageDealt, pcontext);
+
             playerUI.UpdateTexts();
+            enemyUI.UpdateTexts();
             yield return new WaitForSeconds(1f);
         }
 
@@ -139,14 +150,22 @@ public class CombatManager : MonoBehaviour
         for (int i = 0; i < currentEnemy.EnemyStats.magicalAttackAmount; i++)
         {
             enemyUI.FlashMagicalDamageText();
-            player.TakeDamage(currentEnemy.EnemyStats.magicalAttackDamage, true);
+            int damage = currentEnemy.EnemyStats.magicalAttackDamage;
+            int damageTaken = player.TakeDamage(damage, true);
+            PlayerDamageTaken?.Invoke(damageTaken);
+            var mcontext = new SpecialEffectContext(currentEnemy, player, turnNumber, damageAttempted: damage, damageTaken: damageTaken, isMagic: true);
+            currentEnemy.TriggerSpecialEffect(SpecialEffectTrigger.OnDamageDealt, mcontext);
+
             playerUI.UpdateTexts();
+            enemyUI.UpdateTexts();
             yield return new WaitForSeconds(1f);
         }
-
-        currentEnemy.TriggerSpecialEffect(SpecialEffectTrigger.EndOfTurn, turnNumber, player);
+        currentEnemy.Heal(currentEnemy.EnemyStats.healAmount);
+        currentEnemy.AddShield(currentEnemy.EnemyStats.shieldAmount);
+        var eotContext = new SpecialEffectContext(currentEnemy, player, turnNumber, damageAttempted: 0, damageTaken: 0, isMagic: false);
+        currentEnemy.TriggerSpecialEffect(SpecialEffectTrigger.EndOfTurn, eotContext);
         enemyUI.UpdateTexts();
-        currentEnemy.TriggerSpecialEffect(SpecialEffectTrigger.AfterNTurns, turnNumber, player);
+        currentEnemy.TriggerSpecialEffect(SpecialEffectTrigger.AfterNTurns, eotContext);
         enemyUI.UpdateTexts();
 
         currentEnemy.StatusEffects.TriggerEffects(StatusEffectTrigger.EndOfTurn, ctx);
@@ -154,7 +173,10 @@ public class CombatManager : MonoBehaviour
 
         yield return null;
     }
-
+    private SpecialEffectContext CreateSpecialEffectContext()
+    {
+        return new SpecialEffectContext(currentEnemy, player, turnNumber, 0, 0, false);
+    }
     private void OnPlayerWon()
     {
         enemiesDefeated++;

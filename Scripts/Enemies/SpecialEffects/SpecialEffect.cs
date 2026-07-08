@@ -6,7 +6,9 @@ public enum SpecialEffectTrigger
     StartOfTurn,
     EndOfTurn,
     AfterNTurns,
-    PlayerTurn
+    PlayerTurn,
+    OnDamageTaken,
+    OnDamageDealt,
 }
 
 // Abstract — use [CreateAssetMenu] on concrete subclasses, not here.
@@ -26,6 +28,8 @@ public abstract class SpecialEffect : ScriptableObject
         return true;
     }
 
-    public virtual void ApplyEffect(Enemy enemy, Player player) { }
+    public virtual void ApplyEffect(SpecialEffectContext context) { }
     public virtual void ModifyIncomingDamage(DamageContext context) { }
+    public virtual void ModifyOutgoingDamage(DamageContext context) { }
+    public virtual void ModifyEnemyHealing(Enemy enemy, int amount) { }
 }
