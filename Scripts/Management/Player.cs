@@ -53,6 +53,7 @@ public class Player : MonoBehaviour
     /// </summary>
     public void TakeDamage(int amount, bool isMagic)
     {
+        // DamageContext context = new DamageContext(amount, isMagic, currentShield > 0, null, this); // will be used later
         int reduced = Mathf.Max(0, amount - damageReduction);
         if (isMagic)
         {

@@ -39,6 +39,8 @@ public class DiceManager : MonoBehaviour
     public event Action<int[]> OnDiceFinalized;
     /// <summary>Fired every time RollSecondaryDie() is called, passing the new result.</summary>
     public event Action<int> OnSecondaryDieRolled;
+    /// <summary>Fired when a die is rerolled, so all dice can update their multipliers.</summary>
+    public event Action OnDieRerolled;
 
     private void Awake()
     {
@@ -69,6 +71,8 @@ public class DiceManager : MonoBehaviour
 
         diceValues[index] = RollSingle();
         rerollsRemaining--;
+        
+        OnDieRerolled?.Invoke();
 
         if (rerollsRemaining <= 0)
             FinalizeDice();
@@ -111,7 +115,7 @@ public class DiceManager : MonoBehaviour
     {
         diceFinalized = true;
         OnDiceFinalized?.Invoke(GetValues());
-        diceManagerUI.ClearDiceUI();
+        
         
         Debug.Log("Dice finalized: " + string.Join(", ", diceValues));
     }

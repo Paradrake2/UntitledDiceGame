@@ -16,12 +16,12 @@ MonoBehaviour:
   cardDescription: Basic Physical Damage
   cardSprite: {fileID: -3069660206326451350, guid: 84f330c728fea4a45804dbaf5c1d46d3, type: 3}
   upgradeLevels:
-  - damage: 15
+  - damage: 10
     shield: 0
     heal: 0
     percentage1: 0
     int1: 0
-    line1: 15
+    line1: 10
     line2: 
     line3: 
   - damage: 18
@@ -100,3 +100,7 @@ MonoBehaviour:
   baseUpgradeCost: 0
   baseShopCost: 0
   maxUpgradeLevel: 10
+  line1Color: {r: 1, g: 1, b: 1, a: 1}
+  line2Color: {r: 1, g: 1, b: 1, a: 1}
+  line3Color: {r: 1, g: 1, b: 1, a: 1}
+  isUnlockedByDefault: 0

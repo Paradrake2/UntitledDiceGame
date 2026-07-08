@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df47c7a7edcdb674e94128751c90c3a2, type: 3}
   m_Name: New Shield DMG Reduction
   m_EditorClassIdentifier: 
-  effectName: 
+  effectName: ReduceShieldDamage
   effectDescription: 
-  trigger: 0
+  trigger: 4
   turnThreshold: 1
   damageReductionPercentage: 0.3

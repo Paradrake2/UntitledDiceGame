@@ -110,6 +110,7 @@ public class CombatManager : MonoBehaviour
     private IEnumerator RunEnemyTurn()
     {
         turnNumber++;
+        diceManager.diceManagerUI.ClearDiceUI(); // clear dice
 
         var ctx = new StatusEffectContext(player, currentEnemy, isPlayerEffect: false);
 

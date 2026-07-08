@@ -6,6 +6,19 @@ public class RollButton : MonoBehaviour
     [SerializeField] private DiceManagerUI diceManagerUI;
     [SerializeField] private TextMeshProUGUI buttonText;
     [SerializeField] private bool hasRolled = false; // used to determine whether this is rolling or confirming the roll
+    void OnEnable()
+    {
+        diceManager.OnDiceFinalized += SetHasRolled;
+    }
+    void OnDisable()
+    {
+        diceManager.OnDiceFinalized -= SetHasRolled;
+    }
+    public void SetHasRolled(int[] i)
+    {
+        hasRolled = false;
+        buttonText.text = hasRolled ? "OK" : "Roll";
+    }
     public void RollDice()
     {
         if (diceManager != null && !hasRolled)
@@ -18,7 +31,7 @@ public class RollButton : MonoBehaviour
         else if (diceManager != null && hasRolled)
         {
             diceManager.AcceptDice();
-            diceManagerUI.ClearDiceUI();
+            //diceManagerUI.ClearDiceUI();
             buttonText.text = "Roll";
             hasRolled = false;
         }
