@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Basic Enemy
   enemySprite: {fileID: 2978210052877208851, guid: a6ed91939166be44b8c63090ca94b4e0, type: 3}
-  baseMaxHealth: 1000
+  baseMaxHealth: 1
   baseShield: 100
   basePhysicalAttackDamage: 10
   baseMagicalAttackDamage: 5
@@ -24,12 +24,12 @@ MonoBehaviour:
   baseShieldAmount: 0
   coinReward: 50
   enemyStats:
-    maxHealth: 1025
-    shield: 110
-    physicalAttackDamage: 15
+    maxHealth: 51
+    shield: 120
+    physicalAttackDamage: 20
     physicalAttackAmount: 2
-    magicalAttackDamage: 10
+    magicalAttackDamage: 15
     magicalAttackAmount: 1
-    healAmount: 5
-    shieldAmount: 5
+    healAmount: 10
+    shieldAmount: 10
   specialEffect: {fileID: 11400000, guid: c0d448f2cec472542b1b3d2079a6fe49, type: 2}
