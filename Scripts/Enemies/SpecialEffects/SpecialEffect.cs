@@ -19,7 +19,8 @@ public abstract class SpecialEffect : ScriptableObject
     [SerializeField] private SpecialEffectTrigger trigger;
     /// <summary>Only used when trigger is AfterNTurns. Effect fires once turn count reaches this value.</summary>
     [SerializeField] private int turnThreshold = 1;
-
+    public string EffectName => effectName;
+    public string EffectDescription => effectDescription;
     public bool ShouldTrigger(SpecialEffectTrigger checkTrigger, int turnNumber)
     {
         if (trigger != checkTrigger) return false;

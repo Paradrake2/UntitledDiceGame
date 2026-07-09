@@ -30,6 +30,10 @@ public class Enemy : ScriptableObject
     [SerializeField] private EnemyStats enemyStats;
     [SerializeField] private SpecialEffect specialEffect;
     [SerializeField] private int tier;
+    [SerializeField] private int shieldTurnIncrease = 0; // How much shield increases per turn, if any.
+    [SerializeField] private int healTurnIncrease = 0; // How much healing increases per turn, if any.
+    [SerializeField] private int physicalAttackTurnIncrease = 0; // How much physical attack increases per turn, if any.
+    [SerializeField] private int magicalAttackTurnIncrease = 0; // How much magical
 
     // Runtime state — reset each battle via InitForBattle()
     private int currentHealth;
@@ -83,6 +87,13 @@ public class Enemy : ScriptableObject
         {
             Die();
         }
+    }
+    public void IncreaseTurnStats()
+    {
+        enemyStats.shield += shieldTurnIncrease;
+        enemyStats.healAmount += healTurnIncrease;
+        enemyStats.physicalAttackDamage += physicalAttackTurnIncrease;
+        enemyStats.magicalAttackDamage += magicalAttackTurnIncrease;
     }
     public void Die()
     {

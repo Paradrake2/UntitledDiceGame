@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Shield DMG Reduction
   m_EditorClassIdentifier: 
   effectName: ReduceShieldDamage
-  effectDescription: 
+  effectDescription: Reduces physical damage to the shield by 30%
   trigger: 4
   turnThreshold: 1
   damageReductionPercentage: 0.3

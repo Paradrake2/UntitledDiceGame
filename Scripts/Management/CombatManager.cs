@@ -117,7 +117,6 @@ public class CombatManager : MonoBehaviour
     {
         turnNumber++;
         diceManager.diceManagerUI.ClearDiceUI(); // clear dice
-
         var ctx = new StatusEffectContext(player, currentEnemy, isPlayerEffect: false);
 
         if (currentEnemy.StatusEffects.ConsumeSkipTurn())
@@ -171,6 +170,8 @@ public class CombatManager : MonoBehaviour
         enemyUI.UpdateTexts();
 
         currentEnemy.StatusEffects.TriggerEffects(StatusEffectTrigger.EndOfTurn, ctx);
+        currentEnemy.IncreaseTurnStats(); // Increase enemy stats based on turn increases
+
         enemyUI.UpdateTexts();
 
         yield return null;
