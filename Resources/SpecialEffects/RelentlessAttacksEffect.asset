@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a6fad06798677f4cbe025f63592bdb7, type: 3}
   m_Name: RelentlessAttacksEffect
   m_EditorClassIdentifier: 
-  effectName: 
-  effectDescription: 
-  trigger: 0
-  turnThreshold: 1
-  turnsToGainAttack: 3
+  effectName: RelentlessAttacks
+  effectDescription: After 3 turns, gains another attack
+  trigger: 3
+  turnThreshold: 3
   maxPhysicalAttacks: 10
   maxMagicalAttacks: 10

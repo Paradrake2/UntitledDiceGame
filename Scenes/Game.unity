@@ -1997,6 +1997,7 @@ GameObject:
   - component: {fileID: 532853634}
   - component: {fileID: 532853636}
   - component: {fileID: 532853635}
+  - component: {fileID: 532853637}
   m_Layer: 5
   m_Name: SecondaryDiceHolder
   m_TagString: Untagged
@@ -2061,6 +2062,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 532853633}
   m_CullTransparentMesh: 1
+--- !u!114 &532853637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 532853633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53f1a8b98c5941c4d95947208b41198b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dicePrefab: {fileID: 1213594387891629678, guid: d1f012da79172f0498be2a5e52e21db6, type: 3}
 --- !u!1 &572409103
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,10 +15,6 @@ MonoBehaviour:
   enemyTiers:
   - tier: 1
     enemies:
-    - enemy: {fileID: 11400000, guid: da21787679cabb54a967b01742207fff, type: 2}
-      weight: 1
-    - enemy: {fileID: 11400000, guid: 0cefeb95dea30a640b50911f6a62d5cf, type: 2}
-      weight: 1
     - enemy: {fileID: 11400000, guid: c86b4ce92a0ff4b44a8ec929cfa0520b, type: 2}
       weight: 1
   - tier: 2

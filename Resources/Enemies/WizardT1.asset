@@ -19,7 +19,7 @@ MonoBehaviour:
   basePhysicalAttackDamage: 0
   baseMagicalAttackDamage: 20
   basePhysicalAttackAmount: 0
-  baseMagicalAttackAmount: 1
+  baseMagicalAttackAmount: 2
   baseHealAmount: 10
   baseShieldAmount: 0
   coinReward: 10
@@ -29,8 +29,12 @@ MonoBehaviour:
     physicalAttackDamage: 0
     physicalAttackAmount: 0
     magicalAttackDamage: 0
-    magicalAttackAmount: 3
+    magicalAttackAmount: 0
     healAmount: 0
     shieldAmount: 0
-  specialEffect: {fileID: 0}
+  specialEffect: {fileID: 11400000, guid: c74a38185a580a849bbc81d81b8f1c09, type: 2}
   tier: 1
+  shieldTurnIncrease: 0
+  healTurnIncrease: 0
+  physicalAttackTurnIncrease: 0
+  magicalAttackTurnIncrease: 5

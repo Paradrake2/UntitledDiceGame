@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7622e3480e52dd40935ce3fc811cc7a, type: 3}
   m_Name: RetaliateEffect
   m_EditorClassIdentifier: 
-  effectName: 
-  effectDescription: 
-  trigger: 0
+  effectName: Retaliate
+  effectDescription: When the shield is damaged, deal 50% of that damage to you
+  trigger: 5
   turnThreshold: 1
   retaliatePercentage: 0.5
