@@ -10,27 +10,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f909a1119f74d44aab54973ea6ac8a0, type: 3}
-  m_Name: StoneGolemT1
+  m_Name: WizardT1
   m_EditorClassIdentifier: 
-  enemyName: Stone Golem Tier 1
-  enemySprite: {fileID: -936910160158887385, guid: a6ed91939166be44b8c63090ca94b4e0, type: 3}
-  baseMaxHealth: 150
-  baseShield: 50
-  basePhysicalAttackDamage: 50
-  baseMagicalAttackDamage: 0
-  basePhysicalAttackAmount: 1
-  baseMagicalAttackAmount: 0
-  baseHealAmount: 0
+  enemyName: Wizard
+  enemySprite: {fileID: 0}
+  baseMaxHealth: 75
+  baseShield: 20
+  basePhysicalAttackDamage: 0
+  baseMagicalAttackDamage: 20
+  basePhysicalAttackAmount: 0
+  baseMagicalAttackAmount: 1
+  baseHealAmount: 10
   baseShieldAmount: 0
   coinReward: 10
   enemyStats:
     maxHealth: 0
     shield: 0
     physicalAttackDamage: 0
-    physicalAttackAmount: 1
+    physicalAttackAmount: 0
     magicalAttackDamage: 0
-    magicalAttackAmount: 0
+    magicalAttackAmount: 3
     healAmount: 0
     shieldAmount: 0
-  specialEffect: {fileID: 11400000, guid: 087197e6f0233a043bc6fe9781cca886, type: 2}
+  specialEffect: {fileID: 0}
   tier: 1

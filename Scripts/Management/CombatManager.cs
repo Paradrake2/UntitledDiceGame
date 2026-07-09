@@ -133,7 +133,7 @@ public class CombatManager : MonoBehaviour
         currentEnemy.TriggerSpecialEffect(SpecialEffectTrigger.StartOfTurn, context);
         enemyUI.UpdateTexts();
 
-        // Physical attacks — one per hit, each with a flash and a delay.
+        // Physical attacks - one per hit, each with a flash and a delay.
         for (int i = 0; i < currentEnemy.EnemyStats.physicalAttackAmount; i++)
         {
             enemyUI.FlashPhysicalDamageText();
@@ -225,8 +225,8 @@ public class CombatManager : MonoBehaviour
     public Enemy DetermineEnemy()
     {
         // Choose which enemy to spawn from a pool based on current stage
-       // Enemy enemyToSpawn = EnemyPool.Instance.GetEnemyForStage(currentStage);
-        return currentEnemy; // placeholder
+        currentEnemy = EnemySelector.Instance.DetermineEnemy(currentStage);
+        return currentEnemy;
     }
     public void Start()
     {

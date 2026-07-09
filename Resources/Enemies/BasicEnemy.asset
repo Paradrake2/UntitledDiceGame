@@ -24,12 +24,13 @@ MonoBehaviour:
   baseShieldAmount: 0
   coinReward: 50
   enemyStats:
-    maxHealth: 51
-    shield: 120
-    physicalAttackDamage: 20
-    physicalAttackAmount: 2
-    magicalAttackDamage: 15
-    magicalAttackAmount: 1
-    healAmount: 10
-    shieldAmount: 10
+    maxHealth: 0
+    shield: 0
+    physicalAttackDamage: 0
+    physicalAttackAmount: 1
+    magicalAttackDamage: 0
+    magicalAttackAmount: 0
+    healAmount: 0
+    shieldAmount: 0
   specialEffect: {fileID: 11400000, guid: c0d448f2cec472542b1b3d2079a6fe49, type: 2}
+  tier: 1

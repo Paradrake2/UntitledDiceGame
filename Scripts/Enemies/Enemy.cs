@@ -29,6 +29,7 @@ public class Enemy : ScriptableObject
     [SerializeField] private int coinReward = 10;
     [SerializeField] private EnemyStats enemyStats;
     [SerializeField] private SpecialEffect specialEffect;
+    [SerializeField] private int tier;
 
     // Runtime state — reset each battle via InitForBattle()
     private int currentHealth;
@@ -44,12 +45,18 @@ public class Enemy : ScriptableObject
     public string EnemyName => enemyName;
     public Sprite Icon => enemySprite;
     public EnemyStats EnemyStats => enemyStats;
+    public SpecialEffect SpecialEffect => specialEffect;
+    public int Tier => tier;
 
     /// <summary>Call after ModifyStats to set runtime health/shield for a new battle.</summary>
     public void InitForBattle()
     {
         currentHealth = enemyStats.maxHealth;
         currentShield = enemyStats.shield;
+        enemyStats.physicalAttackAmount = basePhysicalAttackAmount;
+        enemyStats.magicalAttackAmount = baseMagicalAttackAmount;
+        enemyStats.healAmount = baseHealAmount;
+        enemyStats.shieldAmount = baseShieldAmount;
         statusEffects.Clear();
     }
 

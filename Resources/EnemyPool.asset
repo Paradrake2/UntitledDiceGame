@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 305f6a881a7275a40a40687f836321df, type: 3}
+  m_Name: EnemyPool
+  m_EditorClassIdentifier: 
+  enemyTiers:
+  - tier: 1
+    enemies:
+    - enemy: {fileID: 11400000, guid: da21787679cabb54a967b01742207fff, type: 2}
+      weight: 1
+    - enemy: {fileID: 11400000, guid: 0cefeb95dea30a640b50911f6a62d5cf, type: 2}
+      weight: 1
+    - enemy: {fileID: 11400000, guid: c86b4ce92a0ff4b44a8ec929cfa0520b, type: 2}
+      weight: 1
+  - tier: 2
+    enemies: []
+  - tier: 3
+    enemies: []
+  - tier: 4
+    enemies: []
+  - tier: 5
+    enemies: []
+  - tier: 6
+    enemies: []
