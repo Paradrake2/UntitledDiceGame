@@ -25,7 +25,6 @@ public class ShopCardEquipUI : MonoBehaviour
             // populate the selectedCards array with the cards currently in the BattleCardManager
             PopulateSelectedCards();
         }
-        
     }
     private void FinalizeCardSelection()
     {
@@ -38,8 +37,6 @@ public class ShopCardEquipUI : MonoBehaviour
         bcm.SetCard(5, selectedCards[4]);
         bcm.SetCard(6, selectedCards[5]);
     }
-
-    
 
     // this is called when shop is opened
     private void PopulateSelectedCards()
@@ -61,11 +58,5 @@ public class ShopCardEquipUI : MonoBehaviour
     {
         if (selectedCards == null || selectedCards.Length != 6)
             selectedCards = new Card[6];
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
