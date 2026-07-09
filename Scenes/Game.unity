@@ -354,10 +354,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 80b6d31a3ad9185419d032ac8bbb0b06, type: 2}
   - {fileID: 11400000, guid: 65a6daa855b0df643bf2fc3c40e257cc, type: 2}
   - {fileID: 11400000, guid: 99be91b13fce9614ebdbc56f3112a801, type: 2}
+  - {fileID: 11400000, guid: b698a40cb5ff79a48a132ddf219ae90b, type: 2}
   AllCards:
   - {fileID: 11400000, guid: 80b6d31a3ad9185419d032ac8bbb0b06, type: 2}
   - {fileID: 11400000, guid: 65a6daa855b0df643bf2fc3c40e257cc, type: 2}
   - {fileID: 11400000, guid: 99be91b13fce9614ebdbc56f3112a801, type: 2}
+  - {fileID: 11400000, guid: b698a40cb5ff79a48a132ddf219ae90b, type: 2}
 --- !u!4 &73868604
 Transform:
   m_ObjectHideFlags: 0
@@ -2016,7 +2018,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1231416567}
   m_Father: {fileID: 779981725}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -2074,7 +2077,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53f1a8b98c5941c4d95947208b41198b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dicePrefab: {fileID: 1213594387891629678, guid: d1f012da79172f0498be2a5e52e21db6, type: 3}
+  dicePrefab: {fileID: 5834882558077695319, guid: 6acad08ab7ac3734ebe35bc7f61db08b, type: 3}
+  secondaryDieContainer: {fileID: 1231416566}
+  diceManager: {fileID: 784117900}
 --- !u!1 &572409103
 GameObject:
   m_ObjectHideFlags: 0
@@ -3973,6 +3978,41 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1231416566
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1231416567}
+  m_Layer: 5
+  m_Name: Holder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1231416567
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1231416566}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 532853634}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1279862543
 GameObject:
   m_ObjectHideFlags: 0

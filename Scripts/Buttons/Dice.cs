@@ -50,7 +50,7 @@ public class Dice : MonoBehaviour
     /// <summary>Updates the multiplier text based on the current die value and other dice on the board.</summary>
     public void UpdateMultiplier()
     {
-        if (diceManager != null)
+        if (diceManager != null && multiplierText != null)
         {
             float multiplier = diceManager.GetMultiplierForValue(value);
             SetMultiplier(multiplier);

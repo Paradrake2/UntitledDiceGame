@@ -127,6 +127,7 @@ public class DiceManager : MonoBehaviour
     public int RollSecondaryDie()
     {
         secondaryDieValue = UnityEngine.Random.Range(1, secondaryDieFaces + 1);
+        Debug.Log($"Secondary die rolled: {secondaryDieValue}");
         OnSecondaryDieRolled?.Invoke(secondaryDieValue);
         return secondaryDieValue;
     }

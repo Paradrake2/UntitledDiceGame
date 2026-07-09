@@ -3,24 +3,26 @@ using UnityEngine;
 public class SecondaryDiceUI : MonoBehaviour
 {
     [SerializeField] private GameObject dicePrefab;
+    [SerializeField] private GameObject secondaryDieContainer; // Container for the secondary die UI
+    [SerializeField] private DiceManager diceManager;
     void OnEnable()
     {
-        DiceManager.Instance.OnSecondaryDieRolled += UpdateSecondaryDieUI;
+        diceManager.OnSecondaryDieRolled += UpdateSecondaryDieUI;
     }
     void OnDisable()
     {
-        DiceManager.Instance.OnSecondaryDieRolled -= UpdateSecondaryDieUI;
+        diceManager.OnSecondaryDieRolled -= UpdateSecondaryDieUI;
     }
     private void UpdateSecondaryDieUI(int dieValue)
     {
         // Clear existing secondary die UI elements
-        foreach (Transform child in transform)
+        foreach (Transform child in secondaryDieContainer.transform)
         {
             Destroy(child.gameObject);
         }
         Debug.Log("Updating secondary die UI with value: " + dieValue);
         // Update the UI to reflect the new secondary die value
-        GameObject newDice = Instantiate(dicePrefab, transform);
+        GameObject newDice = Instantiate(dicePrefab, secondaryDieContainer.transform);
         Dice diceComponent = newDice.GetComponent<Dice>();
         if (diceComponent != null)
         {
