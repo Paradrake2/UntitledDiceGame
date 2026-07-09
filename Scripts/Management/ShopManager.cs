@@ -7,6 +7,7 @@ public class ShopManager : MonoBehaviour
     public static Action<Card> OnCardSold;
     public static Action<Card> OnCardUpgraded;
     public static Action<bool> OnShopOpened;
+    public static Action OnShopClosed;
     [SerializeField] private ShopUI shopUI;
     [SerializeField] private Player player;
     private static ShopManager instance;
@@ -28,6 +29,7 @@ public class ShopManager : MonoBehaviour
     public void CloseShop()
     {
         OnShopOpened?.Invoke(false);
+        OnShopClosed?.Invoke();
         Debug.Log("Shop closed. Starting next battle...");
         // Start the next battle after all shop-close subscribers (e.g. FinalizeCardSelection) have run.
     }
@@ -37,6 +39,7 @@ public class ShopManager : MonoBehaviour
         if (!isOpened)
         {
             // Shop is closing, finalize card selection
+            OnShopClosed?.Invoke();
             CombatManager.Instance?.StartNextBattle();
 
         }
@@ -60,7 +63,7 @@ public class ShopManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        OnShopOpened?.Invoke(true); // open shop at start of game so player can select starting cards
     }
 
     // Update is called once per frame

@@ -9,12 +9,12 @@ public class ShopCardEquipUI : MonoBehaviour
     void OnEnable()
     {
         ShopManager.OnShopOpened += HandleCardSelection;
-        cm.BattleStarted += FinalizeCardSelection;
+        ShopManager.OnShopClosed += FinalizeCardSelection;
     }
     void OnDisable()
     {
         ShopManager.OnShopOpened -= HandleCardSelection;
-        cm.BattleStarted -= FinalizeCardSelection;
+        ShopManager.OnShopClosed -= FinalizeCardSelection;
     }
     // the way this is intended to work is that it populates the selectedCards array with the cards currently in the BattleCardManager when the shop is opened,
     // and then when the shop is closed, it sets all the cards in the BattleCardManager to the selected cards in the shop

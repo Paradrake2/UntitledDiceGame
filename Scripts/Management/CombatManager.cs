@@ -230,6 +230,6 @@ public class CombatManager : MonoBehaviour
     }
     public void Start()
     {
-        StartBattle(currentStage);
+        //StartBattle(currentStage);
     }
 }
