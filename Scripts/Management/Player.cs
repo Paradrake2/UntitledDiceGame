@@ -66,6 +66,7 @@ public class Player : MonoBehaviour
             int remaining = reduced - shieldAbsorbed;
             currentHealth = Mathf.Max(0, currentHealth - remaining);
         }
+        playerUI.UpdateTexts();
         return reduced;
     }
 

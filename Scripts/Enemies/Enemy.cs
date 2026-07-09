@@ -11,6 +11,7 @@ public class EnemyStats
     public int magicalAttackAmount;
     public int healAmount;
     public int shieldAmount;
+    public bool HasShield => shield > 0;
 }
 
 [CreateAssetMenu(fileName = "Enemy", menuName = "Scriptable Objects/Enemy")]
@@ -69,7 +70,7 @@ public class Enemy : ScriptableObject
     {
         amount = Mathf.RoundToInt(amount * modifier);
 
-        DamageContext context = new DamageContext(amount, isMagic, currentShield > 0, this, null);
+        DamageContext context = new DamageContext(amount, isMagic, currentShield > 0, this, FindAnyObjectByType<Player>()); // Turn number is not relevant here
         if (specialEffect != null) specialEffect.ModifyIncomingDamage(context);
         amount = context.Amount;
         if (isMagic)
