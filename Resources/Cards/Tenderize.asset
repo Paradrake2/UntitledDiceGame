@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08960773226606a49ad7919509106cca, type: 3}
+  m_Name: Tenderize
+  m_EditorClassIdentifier: 
+  cardName: Tenderize
+  cardDescription: Increase physical damage enemy takes by 50%
+  cardSprite: {fileID: 8723068707584747111, guid: c7b29c5a22e0929419f4fde19f546444, type: 3}
+  upgradeLevels:
+  - damage: 0
+    shield: 0
+    heal: 0
+    percentage1: 0
+    int1: 2
+    line1: 2 Turns
+    line2: 
+    line3: 
+  - damage: 0
+    shield: 0
+    heal: 0
+    percentage1: 0
+    int1: 3
+    line1: 3 Turns
+    line2: 
+    line3: 
+  - damage: 0
+    shield: 0
+    heal: 0
+    percentage1: 0
+    int1: 4
+    line1: 4 Turns
+    line2: 
+    line3: 
+  - damage: 0
+    shield: 0
+    heal: 0
+    percentage1: 0
+    int1: 5
+    line1: 5 Turns
+    line2: 
+    line3: 
+  upgradeLevel: 0
+  baseUpgradeCost: 0
+  baseShopCost: 0
+  maxUpgradeLevel: 4
+  line1Color: {r: 0.5283019, g: 0, b: 0, a: 1}
+  line2Color: {r: 1, g: 1, b: 1, a: 1}
+  line3Color: {r: 1, g: 1, b: 1, a: 1}
+  isUnlockedByDefault: 0
+  statusEffect: {fileID: 11400000, guid: df203ee36e8521645a7e4f892ff1fa8b, type: 2}

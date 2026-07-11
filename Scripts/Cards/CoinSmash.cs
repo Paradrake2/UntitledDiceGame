@@ -8,7 +8,8 @@ public class CoinSmash : Card
     {
         int coins = player.Coins;
         int maxDmg = Mathf.RoundToInt(upgradeLevels[upgradeLevel].int1 * multiplier);
-        int damage = Mathf.Max(maxDmg, Mathf.RoundToInt(upgradeLevels[upgradeLevel].damage * multiplier) + coins);
-        DamageManager.Instance.ApplyDamageToEnemy(enemy, player, damage, false);
+        int damage = Mathf.RoundToInt(coins * upgradeLevels[upgradeLevel].percentage1 * multiplier + player.OutgoingDamageBonus);
+        int finalDamage = Mathf.Max(maxDmg, damage);
+        DamageManager.Instance.ApplyDamageToEnemy(enemy, player, finalDamage, false);
     }
 }

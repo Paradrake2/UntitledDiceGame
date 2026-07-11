@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine;
 
 /// <summary>
 /// Manages all active status effects on a single combatant (Player or Enemy).
@@ -11,10 +12,23 @@ public class StatusEffectHandler
 
     public IReadOnlyList<StatusEffectInstance> ActiveEffects => activeEffects;
 
-    /// <summary>Adds a new instance of the given effect to this combatant.</summary>
+    /// <summary>
+    /// Adds a new instance of the given effect to this combatant.
+    /// If the effect is not stackable and is already active, extends the duration instead.
+    /// </summary>
     public void AddEffect(StatusEffect effect)
     {
+        if (!effect.Stackable)
+        {
+            StatusEffectInstance existing = activeEffects.Find(i => i.Effect.GetType() == effect.GetType());
+            if (existing != null)
+            {
+                existing.ExtendDuration();
+                return;
+            }
+        }
         activeEffects.Add(new StatusEffectInstance(effect));
+        Debug.Log($"Added effect: {effect.name}, duration: {effect.duration}");
     }
 
     /// <summary>
@@ -31,6 +45,8 @@ public class StatusEffectHandler
             instance.Effect.OnTrigger(ctx);
             if (instance.DecrementDuration())
                 activeEffects.RemoveAt(i);
+            Debug.Log($"Triggered effect: {instance.Effect.name}, remaining duration: {instance.RemainingDuration}");
+            CombatManager.Instance.NotifyStatusEffectTriggered(instance.Effect, ctx.IsPlayerEffect);
         }
     }
 
@@ -44,18 +60,42 @@ public class StatusEffectHandler
             ? StatusEffectTrigger.OnMagicAttack
             : StatusEffectTrigger.OnPhysicalAttack;
 
-        for (int i = activeEffects.Count - 1; i >= 0; i--)
+        // Iterate over a copy to safely handle removals during the callback
+        var effectsCopy = new List<StatusEffectInstance>(activeEffects);
+        for (int i = effectsCopy.Count - 1; i >= 0; i--)
         {
-            StatusEffectInstance instance = activeEffects[i];
+            StatusEffectInstance instance = effectsCopy[i];
             if (instance.Effect.Trigger != relevantTrigger) continue;
+            if (!activeEffects.Contains(instance))
+                continue;
 
             damage = instance.Effect.ModifyOutgoingDamage(damage, isMagic, ctx);
-            if (instance.DecrementDuration())
-                activeEffects.RemoveAt(i);
+            if (instance.DecrementDuration() && activeEffects.Contains(instance))
+                activeEffects.RemoveAt(activeEffects.IndexOf(instance));
+            CombatManager.Instance.NotifyStatusEffectTriggered(instance.Effect, ctx.IsPlayerEffect);
         }
         return damage;
     }
+    public int ModifyIncomingDamage(int damage, bool isMagic, StatusEffectContext ctx)
+    {
+        // Iterate over a copy to safely handle removals during the callback
+        var effectsCopy = new List<StatusEffectInstance>(activeEffects);
+        for (int i = effectsCopy.Count - 1; i >= 0; i--)
+        {
+            StatusEffectInstance instance = effectsCopy[i];
+            if (instance.Effect.Trigger != StatusEffectTrigger.OnReceiveDamage) continue;
+            // Only process if the effect is still in the active list
+            if (!activeEffects.Contains(instance))
+                continue;
 
+            damage = instance.Effect.ModifyIncomingDamage(damage, isMagic, ctx);
+            if (instance.DecrementDuration() && activeEffects.Contains(instance))
+                activeEffects.Remove(instance);
+            CombatManager.Instance.NotifyStatusEffectTriggered(instance.Effect, ctx.IsPlayerEffect);
+        }
+        Debug.Log("Modified incoming damage: " + damage);
+        return damage;
+    }
     /// <summary>
     /// Returns true and removes the effect if a SkipTurn effect is active.
     /// Call at the very start of a turn to check whether it should be skipped.
@@ -82,6 +122,19 @@ public class StatusEffectHandler
                 return;
             }
         }
+    }
+    public void DecreaseDurationOfAllEffects()
+    {
+        for (int i = activeEffects.Count - 1; i >= 0; i--)
+        {
+            StatusEffectInstance instance = activeEffects[i];
+            if (instance.DecrementDuration())
+                activeEffects.RemoveAt(i);
+        }
+    }
+    public void SortEffectsByDuration()
+    {
+        activeEffects.Sort((a, b) => a.RemainingDuration.CompareTo(b.RemainingDuration));
     }
     /// <summary>Removes all active effects. Call when a battle ends or resets.</summary>
     public void Clear()

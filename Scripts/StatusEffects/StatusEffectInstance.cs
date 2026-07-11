@@ -19,4 +19,10 @@ public class StatusEffectInstance
         RemainingDuration--;
         return RemainingDuration <= 0;
     }
+
+    /// <summary>Adds the effect's base duration to the remaining duration.</summary>
+    public void ExtendDuration()
+    {
+        RemainingDuration += Effect.duration;
+    }
 }

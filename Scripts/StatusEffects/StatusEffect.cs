@@ -1,13 +1,26 @@
 using UnityEngine;
 
+public enum TypeOfEffect
+{
+    Buff,
+    Debuff
+}
+
 /// <summary>
 /// ScriptableObject template for a status effect. Create concrete subclasses for each effect type.
 /// </summary>
 public abstract class StatusEffect : ScriptableObject
 {
     [SerializeField] private string effectName;
+    [SerializeField] private Sprite effectIcon;
     [SerializeField] private string effectDescription;
-    public virtual int duration { get; }
+    [SerializeField] private bool stackable = false;
+    [SerializeField] private int effectDuration = 1;
+    [SerializeField] private TypeOfEffect typeOfEffect = TypeOfEffect.Buff;
+    public virtual int duration => effectDuration;
+    public bool Stackable => stackable;
+    public Sprite EffectIcon => effectIcon;
+    public TypeOfEffect TypeOfEffect => typeOfEffect;
 
     public string EffectName => effectName;
     public string EffectDescription => effectDescription;
@@ -27,4 +40,5 @@ public abstract class StatusEffect : ScriptableObject
     /// Only called for effects with Trigger == OnPhysicalAttack or OnMagicAttack.
     /// </summary>
     public virtual int ModifyOutgoingDamage(int damage, bool isMagic, StatusEffectContext ctx) => damage;
+    public virtual int ModifyIncomingDamage(int damage, bool isMagic, StatusEffectContext ctx) => damage;
 }

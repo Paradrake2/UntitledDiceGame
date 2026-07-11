@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ee1de79f294d6c4eb6f77954b08705a, type: 3}
+  m_Name: Coinbag
+  m_EditorClassIdentifier: 
+  cardName: 
+  cardDescription: 
+  cardSprite: {fileID: 0}
+  upgradeLevels: []
+  upgradeLevel: 0
+  baseUpgradeCost: 0
+  baseShopCost: 0
+  maxUpgradeLevel: 10
+  line1Color: {r: 1, g: 1, b: 1, a: 1}
+  line2Color: {r: 1, g: 1, b: 1, a: 1}
+  line3Color: {r: 1, g: 1, b: 1, a: 1}
+  isUnlockedByDefault: 0

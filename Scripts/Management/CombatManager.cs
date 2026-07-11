@@ -13,6 +13,7 @@ public class CombatManager : MonoBehaviour
     [SerializeField] private DiceManager diceManager;
     [SerializeField] private BattleCardManager cardManager;
     [SerializeField] private CardManagerUI cardManagerUI;
+    [SerializeField] private EnemyStatusEffectUI enemyStatusEffectUI;
 
     private int turnNumber;
     private bool battleActive;
@@ -21,6 +22,14 @@ public class CombatManager : MonoBehaviour
 
     public event Action<int> PlayerDamageTaken;
     public event Action<int> PlayerHealingReceived;
+    public event Action<int> EnemyDamageTaken;
+    public event Action<int> EnemyHealingReceived;
+    public event Action<int> PlayerShieldGained;
+    public event Action<int> EnemyShieldGained;
+    public event Action<StatusEffect, bool> StatusEffectApplied; // called when player gains a status effect. True is player, false is enemy
+    public event Action<StatusEffect, bool> StatusEffectRemoved; // called when player loses a status effect. True is player, false is enemy
+    public event Action<StatusEffect, bool> StatusEffectTriggered; // called when a status effect is triggered. True is player, false is enemy
+    public event Action<Enemy> EnemySelected;
     public event Action BattleStarted;
 
     private void Awake()
@@ -39,6 +48,7 @@ public class CombatManager : MonoBehaviour
         player.InitForBattle();
 
         turnNumber = 0;
+        EnemySelected?.Invoke(currentEnemy);
         battleActive = true;
 
         enemyUI.SetEnemy(currentEnemy);
@@ -78,7 +88,7 @@ public class CombatManager : MonoBehaviour
             }
         }
     }
-
+    
     private IEnumerator RunPlayerTurn()
     {
         var ctx = new StatusEffectContext(player, currentEnemy, isPlayerEffect: true);
@@ -176,10 +186,6 @@ public class CombatManager : MonoBehaviour
 
         yield return null;
     }
-    private SpecialEffectContext CreateSpecialEffectContext()
-    {
-        return new SpecialEffectContext(currentEnemy, player, turnNumber, 0, 0, false);
-    }
     private void OnPlayerWon()
     {
         enemiesDefeated++;
@@ -232,5 +238,26 @@ public class CombatManager : MonoBehaviour
     public void Start()
     {
         //StartBattle(currentStage);
+    }
+    public void NotifyPlayerStatusEffectRemoved(StatusEffect effect)
+    {
+        StatusEffectRemoved?.Invoke(effect, true);
+    }
+    public void NotifyEnemyStatusEffectRemoved(StatusEffect effect)
+    {
+        StatusEffectRemoved?.Invoke(effect, false);
+    }
+    public void NotifyPlayerStatusEffectApplied(StatusEffect effect)
+    {
+        StatusEffectApplied?.Invoke(effect, true);
+    }
+    public void NotifyEnemyStatusEffectApplied(StatusEffect effect)
+    {
+        StatusEffectApplied?.Invoke(effect, false);
+    }
+    public void NotifyStatusEffectTriggered(StatusEffect effect, bool isPlayer)
+    {
+        Debug.Log($"Status effect triggered: {effect.name}, isPlayer: {isPlayer}");
+        StatusEffectTriggered?.Invoke(effect, isPlayer);
     }
 }

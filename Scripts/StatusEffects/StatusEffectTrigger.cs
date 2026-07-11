@@ -4,5 +4,7 @@ public enum StatusEffectTrigger
     EndOfTurn,
     OnPhysicalAttack,
     OnMagicAttack,
-    SkipTurn
+    SkipTurn,
+    OnReceiveDamage,
+    OnDealDamage,
 }
