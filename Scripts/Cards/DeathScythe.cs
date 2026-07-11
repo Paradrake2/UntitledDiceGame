@@ -3,8 +3,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "DeathScythe", menuName = "Cards/DeathScythe")]
 public class DeathScythe : Card
 {
-    
-    public override void PlayCard(Enemy enemy, Player player, float multiplier = 1)
+    // deals damage and heals player for a percentage of the damage dealt
+    public override void PlayCard(Enemy enemy, Player player, int index, float multiplier = 1f)
     {
         int damage = Mathf.RoundToInt(upgradeLevels[upgradeLevel].damage * multiplier) + player.OutgoingDamageBonus;
         var ctx = new StatusEffectContext(player, enemy, isPlayerEffect: true);

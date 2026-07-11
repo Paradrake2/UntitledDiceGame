@@ -24,27 +24,27 @@ public class BattleCardManager : MonoBehaviour
         switch (position)
         {
             case 1:
-                pos1Card.PlayCard(enemy, player, multiplier);
+                pos1Card.PlayCard(enemy, player, 1, multiplier);
                 pos1CardUI?.PlayFlashAnimation();
                 break;
             case 2:
-                pos2Card.PlayCard(enemy, player, multiplier);
+                pos2Card.PlayCard(enemy, player, 2, multiplier);
                 pos2CardUI?.PlayFlashAnimation();
                 break;
             case 3:
-                pos3Card.PlayCard(enemy, player, multiplier);
+                pos3Card.PlayCard(enemy, player, 3, multiplier);
                 pos3CardUI?.PlayFlashAnimation();
                 break;
             case 4:
-                pos4Card.PlayCard(enemy, player, multiplier);
+                pos4Card.PlayCard(enemy, player, 4, multiplier);
                 pos4CardUI?.PlayFlashAnimation();
                 break;
             case 5:
-                pos5Card.PlayCard(enemy, player, multiplier);
+                pos5Card.PlayCard(enemy, player, 5, multiplier);
                 pos5CardUI?.PlayFlashAnimation();
                 break;
             case 6:
-                pos6Card.PlayCard(enemy, player, multiplier);
+                pos6Card.PlayCard(enemy, player, 6, multiplier);
                 pos6CardUI?.PlayFlashAnimation();
                 break;
             default:

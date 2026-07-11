@@ -3,6 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "BleedEffect", menuName = "Status Effects/Bleed")]
 public class BleedEffect : StatusEffect
 {
+    // applies a bleed effect that deals x% of the holder's max health every turn, can stack with itself
     public override StatusEffectTrigger Trigger => StatusEffectTrigger.StartOfTurn;
 
     public override void OnTrigger(StatusEffectContext ctx)

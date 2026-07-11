@@ -7,11 +7,10 @@ public abstract class StatusEffect : ScriptableObject
 {
     [SerializeField] private string effectName;
     [SerializeField] private string effectDescription;
-    [SerializeField] private int defaultDuration = 1;
+    public virtual int duration { get; }
 
     public string EffectName => effectName;
     public string EffectDescription => effectDescription;
-    public int DefaultDuration => defaultDuration;
 
     /// <summary>Which game moment causes this effect to fire or be consumed.</summary>
     public abstract StatusEffectTrigger Trigger { get; }

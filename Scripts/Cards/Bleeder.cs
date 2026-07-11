@@ -4,8 +4,8 @@ using UnityEngine;
 public class Bleeder : Card
 {
     [SerializeField] private BleedEffect bleedEffect;
-
-    public override void PlayCard(Enemy enemy, Player player, float multiplier = 1f)
+    // applies a bleed effect that deals x% of enemy's max health every turn
+    public override void PlayCard(Enemy enemy, Player player, int index, float multiplier = 1f)
     {
         enemy.StatusEffects.AddEffect(bleedEffect);
     }

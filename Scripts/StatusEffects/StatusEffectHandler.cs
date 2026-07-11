@@ -72,7 +72,17 @@ public class StatusEffectHandler
         }
         return false;
     }
-
+    public void RemoveEffect(StatusEffect effect)
+    {
+        for (int i = 0; i < activeEffects.Count; i++)
+        {
+            if (activeEffects[i].Effect == effect)
+            {
+                activeEffects.RemoveAt(i);
+                return;
+            }
+        }
+    }
     /// <summary>Removes all active effects. Call when a battle ends or resets.</summary>
     public void Clear()
     {

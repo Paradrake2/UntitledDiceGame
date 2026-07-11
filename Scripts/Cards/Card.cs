@@ -41,6 +41,6 @@ public abstract class Card : ScriptableObject
     public int UpgradeLevel => upgradeLevel;
     public int MaxUpgradeLevel => maxUpgradeLevel;
     public bool IsUnlockedByDefault => isUnlockedByDefault;
-    public abstract void PlayCard(Enemy enemy, Player player, float multiplier = 1f);
+    public abstract void PlayCard(Enemy enemy, Player player, int index,float multiplier = 1f);
     
 }

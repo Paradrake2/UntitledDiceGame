@@ -3,7 +3,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "DestinyDice", menuName = "Cards/DestinyDice")]
 public class DestinyDice : Card
 {
-    public override void PlayCard(Enemy enemy, Player player, float multiplier = 1)
+    // deals damage based on a roll of the secondary die, multiplied by the card's damage value
+    public override void PlayCard(Enemy enemy, Player player, int index = 1, float multiplier = 1f)
     {
         int damage = Mathf.RoundToInt(upgradeLevels[upgradeLevel].int1 * multiplier);
         int roll = DiceManager.Instance.RollSecondaryDie();

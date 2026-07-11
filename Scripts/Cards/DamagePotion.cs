@@ -5,7 +5,8 @@ public class DamagePotion : Card
 {
     [SerializeField] private DamagePotionEffect damagePotionEffect;
 
-    public override void PlayCard(Enemy enemy, Player player, float multiplier = 1f)
+    // applies a damage boost effect to the player for the current turn
+    public override void PlayCard(Enemy enemy, Player player, int index,float multiplier = 1f)
     {
         player.StatusEffects.AddEffect(damagePotionEffect);
     }
