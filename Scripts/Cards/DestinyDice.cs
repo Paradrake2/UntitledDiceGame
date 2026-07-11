@@ -9,8 +9,6 @@ public class DestinyDice : Card
         int damage = Mathf.RoundToInt(upgradeLevels[upgradeLevel].int1 * multiplier);
         int roll = DiceManager.Instance.RollSecondaryDie();
         int finalDamage = damage * roll;
-        var ctx = new StatusEffectContext(player, enemy, isPlayerEffect: true);
-        finalDamage = player.StatusEffects.ModifyOutgoingDamage(finalDamage, false, ctx);
-        enemy.TakeDamage(finalDamage, false);
+        DamageManager.Instance.ApplyDamageToEnemy(enemy, player, finalDamage, false);
     }
 }

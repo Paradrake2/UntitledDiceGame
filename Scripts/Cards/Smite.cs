@@ -7,24 +7,22 @@ public class Smite : Card
     public override void PlayCard(Enemy enemy, Player player, int index, float multiplier = 1f)
     {
         int damage = Mathf.RoundToInt(upgradeLevels[upgradeLevel].damage * multiplier) + player.OutgoingDamageBonus;
-        var ctx = new StatusEffectContext(player, enemy, isPlayerEffect: true);
-        damage = player.StatusEffects.ModifyOutgoingDamage(damage, false, ctx);
-        enemy.TakeDamage(damage, false);
+        
+        DamageManager.Instance.ApplyDamageToEnemy(enemy, player, damage / 2, false);
+        DamageManager.Instance.ApplyDamageToEnemy(enemy, player, damage / 2, true);
 
         int roll = DiceManager.Instance.RollSecondaryDie();
         if (roll % 2 == 0)
         {
             // even roll, deal magic damage
             int magicDamage = Mathf.RoundToInt(upgradeLevels[upgradeLevel].int1 * multiplier) + player.OutgoingDamageBonus;
-            magicDamage = player.StatusEffects.ModifyOutgoingDamage(magicDamage, false, ctx);
-            enemy.TakeDamage(magicDamage, true);
+            DamageManager.Instance.ApplyDamageToEnemy(enemy, player, magicDamage, true);
         }
         else
         {
             // odd roll, deal physical damage
             int physicalDamage = Mathf.RoundToInt(upgradeLevels[upgradeLevel].int1 * multiplier) + player.OutgoingDamageBonus;
-            physicalDamage = player.StatusEffects.ModifyOutgoingDamage(physicalDamage, false, ctx);
-            enemy.TakeDamage(physicalDamage, false);
+            DamageManager.Instance.ApplyDamageToEnemy(enemy, player, physicalDamage, false);
         }
     }
 }

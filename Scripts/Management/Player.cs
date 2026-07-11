@@ -92,12 +92,14 @@ public class Player : MonoBehaviour
     public void AddCoins(int amount)
     {
         coins += amount + coinBonus;
-        if (playerUI != null)
-        {
-            playerUI.UpdateTexts();
-        }
+        playerUI.UpdateTexts();
+        
     }
-
+    public void AddCointsFlat(int amount)
+    {
+        coins += amount;
+        playerUI.UpdateTexts();
+    }
     /// <summary>
     /// Consumes one revive charge, restoring the player to full health.
     /// Returns true if a revive was available.

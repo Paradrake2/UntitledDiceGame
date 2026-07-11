@@ -10,7 +10,7 @@ public class StatusEffectInstance
     public StatusEffectInstance(StatusEffect effect)
     {
         Effect = effect;
-        RemainingDuration = effect.DefaultDuration;
+        RemainingDuration = effect.duration;
     }
 
     /// <summary>Decrements duration and returns true when the effect has expired.</summary>
