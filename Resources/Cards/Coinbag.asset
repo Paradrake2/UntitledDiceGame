@@ -12,15 +12,79 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ee1de79f294d6c4eb6f77954b08705a, type: 3}
   m_Name: Coinbag
   m_EditorClassIdentifier: 
-  cardName: 
-  cardDescription: 
-  cardSprite: {fileID: 0}
-  upgradeLevels: []
+  cardName: Coinbag
+  cardDescription: Gives some coins
+  cardSprite: {fileID: -537590141122946159, guid: b31f8f186df5d414281b0912f95bdf9d, type: 3}
+  upgradeLevels:
+  - damage: 0
+    shield: 0
+    heal: 0
+    percentage1: 0
+    int1: 3
+    line1: 3 Coins
+    line2: 
+    line3: 
+  - damage: 0
+    shield: 0
+    heal: 0
+    percentage1: 0
+    int1: 4
+    line1: 4 Coins
+    line2: 
+    line3: 
+  - damage: 0
+    shield: 0
+    heal: 0
+    percentage1: 0
+    int1: 5
+    line1: 5 Coins
+    line2: 
+    line3: 
+  - damage: 0
+    shield: 0
+    heal: 0
+    percentage1: 0
+    int1: 6
+    line1: 6 Coins
+    line2: 
+    line3: 
+  - damage: 0
+    shield: 0
+    heal: 0
+    percentage1: 0
+    int1: 7
+    line1: 7 Coins
+    line2: 
+    line3: 
+  - damage: 0
+    shield: 0
+    heal: 0
+    percentage1: 0
+    int1: 8
+    line1: 8 Coins
+    line2: 
+    line3: 
+  - damage: 0
+    shield: 0
+    heal: 0
+    percentage1: 0
+    int1: 9
+    line1: 9 Coins
+    line2: 
+    line3: 
+  - damage: 0
+    shield: 0
+    heal: 0
+    percentage1: 0
+    int1: 9
+    line1: 9 Coins
+    line2: 
+    line3: 
   upgradeLevel: 0
   baseUpgradeCost: 0
   baseShopCost: 0
-  maxUpgradeLevel: 10
-  line1Color: {r: 1, g: 1, b: 1, a: 1}
+  maxUpgradeLevel: 8
+  line1Color: {r: 0.7735849, g: 0.6636046, b: 0, a: 1}
   line2Color: {r: 1, g: 1, b: 1, a: 1}
   line3Color: {r: 1, g: 1, b: 1, a: 1}
   isUnlockedByDefault: 0

@@ -13,4 +13,8 @@ MonoBehaviour:
   m_Name: TenderizeEffect
   m_EditorClassIdentifier: 
   effectName: Tenderize
+  effectIcon: {fileID: 8723068707584747111, guid: c7b29c5a22e0929419f4fde19f546444, type: 3}
   effectDescription: Increase physical damage taken by 50%
+  stackable: 0
+  effectDuration: 2
+  typeOfEffect: 1
