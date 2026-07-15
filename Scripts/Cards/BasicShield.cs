@@ -6,7 +6,7 @@ public class BasicShield : Card
     // gives player some shield
     public override void PlayCard(Enemy enemy, Player player, int index, float multiplier = 1)
     {
-        int shieldAmount = Mathf.RoundToInt(upgradeLevels[upgradeLevel].shield * multiplier);
+        int shieldAmount = Mathf.RoundToInt(Shield * multiplier);
         player.AddShield(shieldAmount);
     }
 }

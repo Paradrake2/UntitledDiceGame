@@ -12,15 +12,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49eab38ac3f392c4597e5d7a254f458b, type: 3}
   m_Name: EvenEdge
   m_EditorClassIdentifier: 
-  cardName: 
+  cardName: Even Edge
   cardDescription: 
   cardSprite: {fileID: 0}
-  upgradeLevels: []
+  baseStats:
+    damage: 15
+    shield: 0
+    heal: 0
+    percentage1: 0
+    int1: 10
+  statsPerLevel:
+    damage: 5
+    shield: 0
+    heal: 0
+    percentage1: 0
+    int1: 5
+  line1Template: '{damage}'
+  line2Template: '{int1} bonus'
+  line3Template: 
   upgradeLevel: 0
   baseUpgradeCost: 0
   baseShopCost: 0
   maxUpgradeLevel: 10
-  line1Color: {r: 1, g: 1, b: 1, a: 1}
-  line2Color: {r: 1, g: 1, b: 1, a: 1}
+  line1Color: {r: 0.48235294, g: 0, b: 0, a: 1}
+  line2Color: {r: 0.8207547, g: 0.0038714937, b: 0.0038714937, a: 1}
   line3Color: {r: 1, g: 1, b: 1, a: 1}
   isUnlockedByDefault: 0

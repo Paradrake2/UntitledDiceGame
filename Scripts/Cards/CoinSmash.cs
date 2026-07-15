@@ -7,8 +7,8 @@ public class CoinSmash : Card
     public override void PlayCard(Enemy enemy, Player player, int index, float multiplier = 1)
     {
         int coins = player.Coins;
-        int maxDmg = Mathf.RoundToInt(upgradeLevels[upgradeLevel].int1 * multiplier);
-        int damage = Mathf.RoundToInt(coins * upgradeLevels[upgradeLevel].percentage1 * multiplier + player.OutgoingDamageBonus);
+        int maxDmg = Mathf.RoundToInt(Int1 * multiplier);
+        int damage = Mathf.RoundToInt(coins * Percentage1 * multiplier + player.OutgoingDamageBonus);
         int finalDamage = Mathf.Max(maxDmg, damage);
         DamageManager.Instance.ApplyDamageToEnemy(enemy, player, finalDamage, false);
     }

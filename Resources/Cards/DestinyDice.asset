@@ -15,87 +15,21 @@ MonoBehaviour:
   cardName: Destiny Dice
   cardDescription: Damage based on secondary roll
   cardSprite: {fileID: -3761623330065976427, guid: a39bb8531147496438477882ccd5bb2c, type: 3}
-  upgradeLevels:
-  - damage: 0
+  baseStats:
+    damage: 0
     shield: 0
     heal: 0
     percentage1: 0
-    int1: 4
-    line1: 4
-    line2: 
-    line3: 
-  - damage: 0
+    int1: 5
+  statsPerLevel:
+    damage: 0
     shield: 0
     heal: 0
     percentage1: 0
-    int1: 6
-    line1: 6
-    line2: 
-    line3: 
-  - damage: 0
-    shield: 0
-    heal: 0
-    percentage1: 0
-    int1: 8
-    line1: 8
-    line2: 
-    line3: 
-  - damage: 0
-    shield: 0
-    heal: 0
-    percentage1: 0
-    int1: 10
-    line1: 10
-    line2: 
-    line3: 
-  - damage: 0
-    shield: 0
-    heal: 0
-    percentage1: 0
-    int1: 12
-    line1: 12
-    line2: 
-    line3: 
-  - damage: 0
-    shield: 0
-    heal: 0
-    percentage1: 0
-    int1: 14
-    line1: 14
-    line2: 
-    line3: 
-  - damage: 0
-    shield: 0
-    heal: 0
-    percentage1: 0
-    int1: 16
-    line1: 16
-    line2: 
-    line3: 
-  - damage: 0
-    shield: 0
-    heal: 0
-    percentage1: 0
-    int1: 18
-    line1: 18
-    line2: 
-    line3: 
-  - damage: 0
-    shield: 0
-    heal: 0
-    percentage1: 0
-    int1: 20
-    line1: 20
-    line2: 
-    line3: 
-  - damage: 0
-    shield: 0
-    heal: 0
-    percentage1: 0
-    int1: 14
-    line1: 
-    line2: 
-    line3: 
+    int1: 2
+  line1Template: '{int1} x roll '
+  line2Template: 
+  line3Template: 
   upgradeLevel: 0
   baseUpgradeCost: 10
   baseShopCost: 10

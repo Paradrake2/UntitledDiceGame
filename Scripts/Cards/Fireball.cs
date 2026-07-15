@@ -6,7 +6,7 @@ public class Fireball : Card
     // deals magic damage
     public override void PlayCard(Enemy enemy, Player player, int index, float multiplier = 1f)
     {
-        int damage = Mathf.RoundToInt(upgradeLevels[upgradeLevel].damage * multiplier) + player.OutgoingDamageBonus;
+        int damage = Mathf.RoundToInt(Damage * multiplier) + player.OutgoingDamageBonus;
         DamageManager.Instance.ApplyDamageToEnemy(enemy, player, damage, true);
     }
 }

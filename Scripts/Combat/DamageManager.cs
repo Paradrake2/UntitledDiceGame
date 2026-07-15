@@ -31,6 +31,17 @@ public class DamageManager : MonoBehaviour
         damage = player.StatusEffects.ModifyOutgoingDamage(damage, isMagic, ctx);
         enemy.TakeDamage(damage, isMagic);
     }
+    public void ApplyDamageToPlayer(Player player, int damage, bool isMagic)
+    {
+        if (player == null)
+        {
+            Debug.LogError("Player is null. Cannot apply damage.");
+            return;
+        }
+        var ctx = new StatusEffectContext(player, null, isPlayerEffect: false);
+        damage = player.StatusEffects.ModifyIncomingDamage(damage, isMagic, ctx);
+        player.TakeDamage(damage, isMagic);
+    }
     void Start()
     {
         
