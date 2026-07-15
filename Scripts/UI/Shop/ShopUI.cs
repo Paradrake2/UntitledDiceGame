@@ -6,12 +6,12 @@ public class ShopUI : MonoBehaviour
     [SerializeField] private Transform upgradeItemContainer;
     [SerializeField] private Transform cardItemContainer;
     [SerializeField] private GameObject buyItemPrefab;
-    [SerializeField] private GameObject upgradeItemPrefab;
     [SerializeField] private GameObject cardItemPrefab;
     [SerializeField] private CardManager cardManager;
     [SerializeField] private Transform shopPanel;
     /// <summary>The root Canvas used to reparent cards during drag so they float above all UI.</summary>
     [SerializeField] private Canvas rootCanvas;
+    [SerializeField] private ShopUpgradeUI shopUpgradeUI;
     void OnEnable()
     {
         ShopManager.OnShopOpened += HandleShopOpened;
@@ -45,7 +45,7 @@ public class ShopUI : MonoBehaviour
     // that have been purchased this run.
     private void PopulateUpgradeItems()
     {
-        
+        shopUpgradeUI.PopulateUpgradeItems();
     }
     // This populates the cards that the player owns. They can equip from here by dragging the card to the equipped card slot.
     private void PopulateCardItems()

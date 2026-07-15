@@ -113,4 +113,14 @@ public class Player : MonoBehaviour
         statusEffects.Clear();
         return true;
     }
+    public void SpendCoins(int amount)
+    {
+        if (amount > coins)
+        {
+            Debug.LogError($"Attempted to spend {amount} coins, but only {coins} available.");
+            return;
+        }
+        coins -= amount;
+        playerUI.UpdateTexts();
+    }
 }

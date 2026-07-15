@@ -42,5 +42,19 @@ public abstract class Card : ScriptableObject
     public int MaxUpgradeLevel => maxUpgradeLevel;
     public bool IsUnlockedByDefault => isUnlockedByDefault;
     public abstract void PlayCard(Enemy enemy, Player player, int index,float multiplier = 1f);
-    
+    public virtual int GetUpgradeCost()
+    {
+        return baseUpgradeCost * (upgradeLevel + 1);
+    }
+    public void UpgradeCard()
+    {
+        if (upgradeLevel < maxUpgradeLevel)
+        {
+            upgradeLevel++;
+        }
+        else
+        {
+            Debug.LogWarning("Card is already at max upgrade level.");
+        }
+    }
 }

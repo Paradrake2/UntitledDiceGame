@@ -18,7 +18,21 @@ public class BattleCardManager : MonoBehaviour
     [SerializeField] private CardUI pos4CardUI;
     [SerializeField] private CardUI pos5CardUI;
     [SerializeField] private CardUI pos6CardUI;
-
+    public Card[] runCards; // array to hold all the cards the player has this run
+    
+    void Awake()
+    {
+        Instance = this;
+    }
+    
+    void OnEnable()
+    {
+        ShopManager.OnCardPurchased += AddCardToRunCards;
+    }
+    void OnDisable()
+    {
+        ShopManager.OnCardPurchased -= AddCardToRunCards;
+    }
     public void PlayCard(int position, Enemy enemy, Player player, float multiplier = 1f)
     {
         switch (position)
@@ -94,7 +108,34 @@ public class BattleCardManager : MonoBehaviour
             default: Debug.LogError("Invalid card UI index: " + index); return null;
         }
     }
-
-    void Start() { }
+    public void AddCardToRunCards(Card card)
+    {
+        int newSize = runCards.Length + 1;
+        Card[] newRunCards = new Card[newSize];
+        for (int i = 0; i < runCards.Length; i++)
+        {
+            newRunCards[i] = runCards[i];
+        }
+        newRunCards[newSize - 1] = card;
+        runCards = newRunCards;
+    }
+    public Card[] GetRunCards()
+    {
+        // initialize default cards if runCards is empty
+        if (runCards.Length == 0)
+        {
+            runCards = CardManager.Instance.defaultCards;
+        }
+        return runCards;
+    }
+    void Start()
+    {
+        // Initialize runCards as empty array if not already set
+        if (runCards == null)
+        {
+            runCards = new Card[0];
+        }
+    }
+    
     void Update() { }
 }

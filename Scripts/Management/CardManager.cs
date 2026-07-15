@@ -14,7 +14,20 @@ public class CardManager : MonoBehaviour
         OnCardUnlocked -= UnlockCard;
     }
 
+    public static CardManager Instance { get; private set; }
+    void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
     public Card[] unlockedCards; // Array of cards that the player has unlocked.
+    public Card[] defaultCards;
     public Card[] AllCards; // Array of all available cards in the game.
     public void UnlockCard(Card card)
     {
