@@ -34,7 +34,7 @@ MonoBehaviour:
   baseUpgradeCost: 0
   baseShopCost: 0
   maxUpgradeLevel: 8
-  line1Color: {r: 0.7735849, g: 0.6636046, b: 0, a: 1}
+  line1Color: {r: 0.3584906, g: 0.3075376, b: 0, a: 1}
   line2Color: {r: 1, g: 1, b: 1, a: 1}
   line3Color: {r: 1, g: 1, b: 1, a: 1}
   isUnlockedByDefault: 0

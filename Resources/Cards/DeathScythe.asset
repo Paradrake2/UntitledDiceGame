@@ -16,16 +16,16 @@ MonoBehaviour:
   cardDescription: Damage plus healing based on damage
   cardSprite: {fileID: -3761623330065976427, guid: a39bb8531147496438477882ccd5bb2c, type: 3}
   baseStats:
-    damage: 0
+    damage: 20
     shield: 0
     heal: 0
-    percentage1: 0
+    percentage1: 0.5
     int1: 0
   statsPerLevel:
-    damage: 0
+    damage: 7
     shield: 0
     heal: 0
-    percentage1: 0
+    percentage1: 0.05
     int1: 0
   line1Template: '{damage}'
   line2Template: '{percentage1}% Lifesteal '

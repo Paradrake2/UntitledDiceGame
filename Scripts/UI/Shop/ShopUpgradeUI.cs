@@ -17,6 +17,8 @@ public class ShopUpgradeUI : MonoBehaviour
             // Assuming the upgradeItemPrefab has a script to set up the card details
             ShopUpgradeCard upgradeCard = upgradeItem.GetComponent<ShopUpgradeCard>();
             upgradeCard.SetCard(card);
+            ShopUpgradeCardUI shopUpgradeCardUI = upgradeItem.GetComponent<ShopUpgradeCardUI>();
+            shopUpgradeCardUI.Instantiate(card);
         }
     }
     public void SetNumberOfUpgradeItemsToDisplay(int number)
