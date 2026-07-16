@@ -8,5 +8,6 @@ public class Weaken : Card
     public override void PlayCard(Enemy enemy, Player player, int index, float multiplier = 1)
     {
         enemy.StatusEffects.AddEffect(statusEffect, Int1);
+        CombatManager.Instance.NotifyEnemyStatusEffectApplied(statusEffect);
     }
 }

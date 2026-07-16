@@ -28,6 +28,7 @@ public class StatusEffectHandler
             }
         }
         activeEffects.Add(new StatusEffectInstance(effect, duration));
+        
         Debug.Log($"Added effect: {effect.name}, duration: {effect.duration}");
     }
 

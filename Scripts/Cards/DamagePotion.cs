@@ -9,5 +9,6 @@ public class DamagePotion : Card
     public override void PlayCard(Enemy enemy, Player player, int index, float multiplier = 1f)
     {
         player.StatusEffects.AddEffect(damagePotionEffect, Int1);
+        CombatManager.Instance.NotifyPlayerStatusEffectApplied(damagePotionEffect);
     }
 }

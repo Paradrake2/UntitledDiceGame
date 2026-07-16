@@ -8,5 +8,6 @@ public class Bleeder : Card
     public override void PlayCard(Enemy enemy, Player player, int index, float multiplier = 1f)
     {
         enemy.StatusEffects.AddEffect(bleedEffect, Int1);
+        CombatManager.Instance.NotifyEnemyStatusEffectApplied(bleedEffect);
     }
 }

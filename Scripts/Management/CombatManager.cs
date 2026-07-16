@@ -26,8 +26,8 @@ public class CombatManager : MonoBehaviour
     public event Action<int> EnemyHealingReceived;
     public event Action<int> PlayerShieldGained;
     public event Action<int> EnemyShieldGained;
-    public event Action<StatusEffect, bool> StatusEffectApplied; // called when player gains a status effect. True is player, false is enemy
-    public event Action<StatusEffect, bool> StatusEffectRemoved; // called when player loses a status effect. True is player, false is enemy
+    public event Action<StatusEffect, bool> StatusEffectApplied; // called when someone gains a status effect. True is player, false is enemy
+    public event Action<StatusEffect, bool> StatusEffectRemoved; // called when someone loses a status effect. True is player, false is enemy
     public event Action<StatusEffect, bool> StatusEffectTriggered; // called when a status effect is triggered. True is player, false is enemy
     public event Action<Enemy> EnemySelected;
     public event Action BattleStarted;
