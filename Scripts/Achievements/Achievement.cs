@@ -9,6 +9,7 @@ public class Achievement : ScriptableObject
     [SerializeField] private Sprite icon;
     [SerializeField] private AchievementCondition condition;
     [SerializeField] private Card cardToUnlock;
+    [SerializeField] private bool isUnlocked;
 
     public string AchievementId => achievementId;
     public string DisplayName => displayName;
@@ -16,4 +17,9 @@ public class Achievement : ScriptableObject
     public Sprite Icon => icon;
     public AchievementCondition Condition => condition;
     public Card CardToUnlock => cardToUnlock;
+    public bool IsUnlocked => isUnlocked;
+    public void SetUnlocked(bool unlocked)
+    {
+        isUnlocked = unlocked;
+    }
 }

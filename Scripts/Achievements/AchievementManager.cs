@@ -17,6 +17,7 @@ public class AchievementManager : MonoBehaviour
     private readonly AchievementStats stats       = new AchievementStats();
 
     private const string SavePrefix = "Achievement_Unlocked_";
+    public Achievement[] Achievements => achievements;
 
     /// <summary>Fired when an achievement is unlocked for the first time.</summary>
     public event Action<Achievement> OnAchievementUnlocked;
