@@ -17,4 +17,4 @@ MonoBehaviour:
   description: Gain 30 coins in a single turn
   icon: {fileID: 0}
   condition: {fileID: 11400000, guid: c80f311af2449474f9598af2a4024605, type: 2}
-  cardToUnlock: {fileID: 0}
+  cardToUnlock: {fileID: 11400000, guid: 3a9901aea9dfc234abf70c99cdb2b772, type: 2}

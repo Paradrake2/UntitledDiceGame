@@ -68,7 +68,7 @@ public abstract class Card : ScriptableObject
             .Replace("{damage}",      Damage.ToString())
             .Replace("{shield}",      Shield.ToString())
             .Replace("{heal}",        Heal.ToString())
-            .Replace("{percentage1}", Percentage1.ToString("0.##"))
+            .Replace("{percentage1}", (Percentage1 * 100).ToString("0.##") + "%")
             .Replace("{int1}",        Int1.ToString());
     }
 

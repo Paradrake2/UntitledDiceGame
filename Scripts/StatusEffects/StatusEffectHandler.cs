@@ -16,7 +16,7 @@ public class StatusEffectHandler
     /// Adds a new instance of the given effect to this combatant.
     /// If the effect is not stackable and is already active, extends the duration instead.
     /// </summary>
-    public void AddEffect(StatusEffect effect)
+    public void AddEffect(StatusEffect effect, int duration)
     {
         if (!effect.Stackable)
         {
@@ -27,7 +27,7 @@ public class StatusEffectHandler
                 return;
             }
         }
-        activeEffects.Add(new StatusEffectInstance(effect));
+        activeEffects.Add(new StatusEffectInstance(effect, duration));
         Debug.Log($"Added effect: {effect.name}, duration: {effect.duration}");
     }
 

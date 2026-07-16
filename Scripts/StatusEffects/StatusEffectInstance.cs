@@ -7,10 +7,10 @@ public class StatusEffectInstance
     public StatusEffect Effect { get; }
     public int RemainingDuration { get; private set; }
 
-    public StatusEffectInstance(StatusEffect effect)
+    public StatusEffectInstance(StatusEffect effect, int duration)
     {
         Effect = effect;
-        RemainingDuration = effect.duration;
+        RemainingDuration = duration;
     }
 
     /// <summary>Decrements duration and returns true when the effect has expired.</summary>

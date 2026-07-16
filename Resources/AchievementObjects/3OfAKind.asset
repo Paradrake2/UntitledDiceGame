@@ -17,4 +17,4 @@ MonoBehaviour:
   description: Roll 3 of the same number in a single turn
   icon: {fileID: 0}
   condition: {fileID: 11400000, guid: 61383f877d1e7a9419e6f8a4da6d0e1f, type: 2}
-  cardToUnlock: {fileID: 0}
+  cardToUnlock: {fileID: 11400000, guid: b698a40cb5ff79a48a132ddf219ae90b, type: 2}

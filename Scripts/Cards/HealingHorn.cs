@@ -9,6 +9,6 @@ public class HealingHorn : Card
     {
         int healAmount = Heal;
         player.Heal(healAmount);
-        player.StatusEffects.AddEffect(effect);
+        player.StatusEffects.AddEffect(effect, Int1);
     }
 }

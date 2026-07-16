@@ -357,6 +357,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b698a40cb5ff79a48a132ddf219ae90b, type: 2}
   - {fileID: 11400000, guid: 5bd47aea8f200684dbdcf8def0fbbaae, type: 2}
   - {fileID: 11400000, guid: 3a9901aea9dfc234abf70c99cdb2b772, type: 2}
+  - {fileID: 11400000, guid: 7bae54c9e29b33347918dd865b548abd, type: 2}
   defaultCards:
   - {fileID: 11400000, guid: 99be91b13fce9614ebdbc56f3112a801, type: 2}
   - {fileID: 11400000, guid: 65a6daa855b0df643bf2fc3c40e257cc, type: 2}
@@ -367,6 +368,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b698a40cb5ff79a48a132ddf219ae90b, type: 2}
   - {fileID: 11400000, guid: 5bd47aea8f200684dbdcf8def0fbbaae, type: 2}
   - {fileID: 11400000, guid: 3a9901aea9dfc234abf70c99cdb2b772, type: 2}
+  - {fileID: 11400000, guid: 7bae54c9e29b33347918dd865b548abd, type: 2}
 --- !u!4 &73868604
 Transform:
   m_ObjectHideFlags: 0
@@ -1423,7 +1425,7 @@ MonoBehaviour:
   diceManager: {fileID: 784117900}
   cardManager: {fileID: 1775144282}
   cardManagerUI: {fileID: 508022234}
-  enemyStatusEffectUI: {fileID: 0}
+  enemyStatusEffectUI: {fileID: 2065790440}
   gemsPerEnemy: 5
 --- !u!4 &331813137
 Transform:
@@ -3661,6 +3663,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4d64e7cfb69311246ae68875fcb1661d, type: 2}
   - {fileID: 11400000, guid: e4c090d006305f847933885a602eb96f, type: 2}
   - {fileID: 11400000, guid: 84673ae643f85e74eade2a2c0b02ebf8, type: 2}
+  - {fileID: 11400000, guid: de3ff4a2dd78ae841bf860154bd39470, type: 2}
 --- !u!4 &919256434
 Transform:
   m_ObjectHideFlags: 0

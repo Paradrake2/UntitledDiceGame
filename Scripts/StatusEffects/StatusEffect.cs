@@ -15,7 +15,7 @@ public abstract class StatusEffect : ScriptableObject
     [SerializeField] private Sprite effectIcon;
     [SerializeField] private string effectDescription;
     [SerializeField] private bool stackable = false;
-    [SerializeField] private int effectDuration = 1;
+    [SerializeField] protected int effectDuration = 1;
     [SerializeField] private TypeOfEffect typeOfEffect = TypeOfEffect.Buff;
     public virtual int duration => effectDuration;
     public bool Stackable => stackable;

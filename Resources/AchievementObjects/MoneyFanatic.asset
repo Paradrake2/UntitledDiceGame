@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 52694ca61b0b2e943b81c18293ff9e13, type: 3}
-  m_Name: Butcherer
+  m_Name: MoneyFanatic
   m_EditorClassIdentifier: 
-  achievementId: Butcherer
-  displayName: Butcherer
-  description: Defeat 50 enemies
+  achievementId: MoneyFanatic
+  displayName: Money Fanatic
+  description: Gain at least 75 coins in a single turn
   icon: {fileID: 0}
-  condition: {fileID: 11400000, guid: 4d6ee123beff7134e899da083b99744e, type: 2}
-  cardToUnlock: {fileID: 11400000, guid: 80b6d31a3ad9185419d032ac8bbb0b06, type: 2}
+  condition: {fileID: 11400000, guid: 4c57be219a1635447ac084d10823bfca, type: 2}
+  cardToUnlock: {fileID: 11400000, guid: 496b6d01d90ff6243978fe3814f62114, type: 2}
