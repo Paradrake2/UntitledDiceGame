@@ -7,7 +7,7 @@ public class DeathScythe : Card
     public override void PlayCard(Enemy enemy, Player player, int index, float multiplier = 1f)
     {
         int damage = Mathf.RoundToInt(Damage * multiplier) + player.OutgoingDamageBonus;
-        DamageManager.Instance.ApplyDamageToEnemy(enemy, player, damage, false);
+        DamageManager.Instance.ApplyDamageToEnemy(enemy, player, damage, false, index);
         int healAmount = Mathf.RoundToInt(Percentage1 * damage);
         player.Heal(healAmount);
     }

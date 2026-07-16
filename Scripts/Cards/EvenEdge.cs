@@ -11,6 +11,6 @@ public class EvenEdge : Card
         {
             damage += Int1; // bonus damage for even index
         }
-        DamageManager.Instance.ApplyDamageToEnemy(enemy, player, damage, true);
+        DamageManager.Instance.ApplyDamageToEnemy(enemy, player, damage, true, index);
     }
 }

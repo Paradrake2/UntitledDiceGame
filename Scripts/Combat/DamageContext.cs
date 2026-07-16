@@ -7,12 +7,14 @@ public class DamageContext
     public bool HasShield;
     public Enemy Enemy;
     public Player Player;
-    public DamageContext(int amount, bool isMagic, bool hasShield, Enemy enemy, Player player)
+    public int? index;
+    public DamageContext(int amount, bool isMagic, bool hasShield, Enemy enemy, Player player, int? index)
     {
         Amount = amount;
         IsMagic = isMagic;
         HasShield = hasShield;
         Enemy = enemy;
         Player = player;
+        this.index = index;
     }
 }

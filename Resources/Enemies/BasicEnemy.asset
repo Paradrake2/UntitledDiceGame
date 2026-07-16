@@ -22,7 +22,7 @@ MonoBehaviour:
   baseMagicalAttackAmount: 1
   baseHealAmount: 0
   baseShieldAmount: 0
-  coinReward: 50
+  coinReward: 10
   enemyStats:
     maxHealth: 0
     shield: 0
@@ -32,7 +32,7 @@ MonoBehaviour:
     magicalAttackAmount: 0
     healAmount: 0
     shieldAmount: 0
-  specialEffect: {fileID: 11400000, guid: cde3ae935d29cd747854fba55104c535, type: 2}
+  specialEffect: {fileID: 11400000, guid: bb78ec96fe0f70a4eae1a97e70dacb4e, type: 2}
   tier: 1
   shieldTurnIncrease: 0
   healTurnIncrease: 0

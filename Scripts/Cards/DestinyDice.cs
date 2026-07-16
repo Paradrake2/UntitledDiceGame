@@ -9,6 +9,6 @@ public class DestinyDice : Card
         int damage = Mathf.RoundToInt(Int1 * multiplier);
         int roll = DiceManager.Instance.RollSecondaryDie();
         int finalDamage = damage * roll;
-        DamageManager.Instance.ApplyDamageToEnemy(enemy, player, finalDamage, false);
+        DamageManager.Instance.ApplyDamageToEnemy(enemy, player, finalDamage, false, index);
     }
 }

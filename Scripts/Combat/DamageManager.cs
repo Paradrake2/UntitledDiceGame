@@ -20,7 +20,7 @@ public class DamageManager : MonoBehaviour
             return _instance;
         }
     }
-    public void ApplyDamageToEnemy(Enemy enemy, Player player,int damage, bool isMagic)
+    public void ApplyDamageToEnemy(Enemy enemy, Player player, int damage, bool isMagic, int? cardIndex = null)
     {
         if (enemy == null)
         {
@@ -30,7 +30,7 @@ public class DamageManager : MonoBehaviour
         var ctx = new StatusEffectContext(player, enemy, isPlayerEffect: true);
         damage = player.StatusEffects.ModifyOutgoingDamage(damage, isMagic, ctx);
         CombatManager.Instance?.NotifyEnemyDamageDealt(damage, isMagic);
-        enemy.TakeDamage(damage, isMagic);
+        enemy.TakeDamage(damage, isMagic, 1f, cardIndex);
     }
     public void ApplyDamageToPlayer(Player player, int damage, bool isMagic)
     {

@@ -3206,7 +3206,8 @@ MonoBehaviour:
   - 2.5
   - 5
   specialPatterns:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: a2693040a0bf97b4fa901024159b2f8e, type: 2}
+  - {fileID: 11400000, guid: 2e94d57a08ee60445b738f2558ad6a47, type: 2}
   secondaryDieFaces: 6
   diceValues: 
 --- !u!4 &784117901
@@ -3631,7 +3632,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b9aee85c7d1b944d848b09aa95adf6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  achievements: []
+  achievements:
+  - {fileID: 11400000, guid: 46c0f00695d9d2843b08861608752280, type: 2}
+  - {fileID: 11400000, guid: 633c913e7203f3240a724e5270dc80c7, type: 2}
+  - {fileID: 11400000, guid: 8ec20d13fde36a147a249ded76b47809, type: 2}
+  - {fileID: 11400000, guid: 3a4f814cfe4fcca429edc9c452affe81, type: 2}
+  - {fileID: 11400000, guid: b271ea4f75aff7e4e83a6a43a9014d11, type: 2}
+  - {fileID: 11400000, guid: 298684f906cf10446b4273b2529a3946, type: 2}
+  - {fileID: 11400000, guid: 0dbadb2878a02d044975484572110db8, type: 2}
+  - {fileID: 11400000, guid: 11b24385dd38d5c439711a2e011198d8, type: 2}
+  - {fileID: 11400000, guid: 15d1443a56e14ee4cabb7fb1252db67c, type: 2}
+  - {fileID: 11400000, guid: f5334b7afa003e84e93361f34e5f003d, type: 2}
+  - {fileID: 11400000, guid: e259945aa2b7ce144a9e75c1b476dfc0, type: 2}
+  - {fileID: 11400000, guid: 2f1a2d2eb7289c640b9f6ee8d6504e3b, type: 2}
+  - {fileID: 11400000, guid: b49e84970afb21f4bb1ea4d50a52b379, type: 2}
+  - {fileID: 11400000, guid: 9866e180367a11f4fb27880f67c1ff4d, type: 2}
+  - {fileID: 11400000, guid: cbce9c8e61da95f4b9ac7379c096a47c, type: 2}
+  - {fileID: 11400000, guid: 973b7cb970d37f74c94a36e46f0cf168, type: 2}
+  - {fileID: 11400000, guid: 7d338e38d9c62564fa3b9aa2ee139572, type: 2}
+  - {fileID: 11400000, guid: 388f0b1cd0adfec4cae297e6232e42eb, type: 2}
+  - {fileID: 11400000, guid: 568ffc92f218ae645ba59c08d4be9fd6, type: 2}
+  - {fileID: 11400000, guid: 41e56fe98052dc54da799ebc2f7a792a, type: 2}
+  - {fileID: 11400000, guid: c5b6b175215fc0946acd68e49427c956, type: 2}
+  - {fileID: 11400000, guid: e54d026ac0cd75440865d284f7a1ae23, type: 2}
+  - {fileID: 11400000, guid: 59bad3411e24a984495a7fc431b07689, type: 2}
+  - {fileID: 11400000, guid: fede3c3e3009d1948a932bd3d64c63fd, type: 2}
+  - {fileID: 11400000, guid: 4645ce7180892c640b36e878cb967375, type: 2}
+  - {fileID: 11400000, guid: 4d64e7cfb69311246ae68875fcb1661d, type: 2}
+  - {fileID: 11400000, guid: e4c090d006305f847933885a602eb96f, type: 2}
+  - {fileID: 11400000, guid: 84673ae643f85e74eade2a2c0b02ebf8, type: 2}
 --- !u!4 &919256434
 Transform:
   m_ObjectHideFlags: 0
@@ -7804,7 +7833,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4105089706854319935, guid: 8210b609583e5d448974028c94f126cc, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4105089706854319935, guid: 8210b609583e5d448974028c94f126cc, type: 3}
       propertyPath: m_AnchorMin.x
@@ -7812,15 +7841,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4105089706854319935, guid: 8210b609583e5d448974028c94f126cc, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4105089706854319935, guid: 8210b609583e5d448974028c94f126cc, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 50
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4105089706854319935, guid: 8210b609583e5d448974028c94f126cc, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 50
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4105089706854319935, guid: 8210b609583e5d448974028c94f126cc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7852,11 +7881,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4105089706854319935, guid: 8210b609583e5d448974028c94f126cc, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4105089706854319935, guid: 8210b609583e5d448974028c94f126cc, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4105089706854319935, guid: 8210b609583e5d448974028c94f126cc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

@@ -66,13 +66,13 @@ public class Enemy : ScriptableObject
     }
 
     /// <summary>Physical damage hits shield first; magic damage bypasses shield entirely.</summary>
-    public void TakeDamage(int amount, bool isMagic, float modifier = 1f)
+    public void TakeDamage(int amount, bool isMagic, float modifier = 1f, int? index = 0)
     {
         amount = Mathf.RoundToInt(amount * modifier);
 
         var ctx = new StatusEffectContext(FindAnyObjectByType<Player>(), this, isPlayerEffect: false);
         amount = statusEffects.ModifyIncomingDamage(amount, isMagic, ctx);
-        DamageContext context = new DamageContext(amount, isMagic, currentShield > 0, this, FindAnyObjectByType<Player>()); // Turn number is not relevant here
+        DamageContext context = new DamageContext(amount, isMagic, currentShield > 0, this, FindAnyObjectByType<Player>(), index); // Turn number is not relevant here
         if (specialEffect != null) specialEffect.ModifyIncomingDamage(context);
         amount = context.Amount;
 

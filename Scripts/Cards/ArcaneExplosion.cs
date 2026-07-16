@@ -7,7 +7,7 @@ public class ArcaneExplosion : Card
     public override void PlayCard(Enemy enemy, Player player, int index, float multiplier = 1)
     {
         int damage = Mathf.RoundToInt(Damage * multiplier) + player.OutgoingDamageBonus;
-        DamageManager.Instance.ApplyDamageToEnemy(enemy, player, damage, true);
+        DamageManager.Instance.ApplyDamageToEnemy(enemy, player, damage, true, index);
         int selfDamage = Mathf.RoundToInt(damage * Percentage1);
         DamageManager.Instance.ApplyDamageToPlayer(player, selfDamage, true);
     }

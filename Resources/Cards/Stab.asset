@@ -16,18 +16,18 @@ MonoBehaviour:
   cardDescription: Basic Physical Damage
   cardSprite: {fileID: -3069660206326451350, guid: 84f330c728fea4a45804dbaf5c1d46d3, type: 3}
   baseStats:
-    damage: 0
+    damage: 10
     shield: 0
     heal: 0
     percentage1: 0
     int1: 0
   statsPerLevel:
-    damage: 0
+    damage: 5
     shield: 0
     heal: 0
     percentage1: 0
     int1: 0
-  line1Template: 
+  line1Template: '{damage}'
   line2Template: 
   line3Template: 
   upgradeLevel: 0

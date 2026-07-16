@@ -8,21 +8,21 @@ public class Smite : Card
     {
         int damage = Mathf.RoundToInt(Damage * multiplier) + player.OutgoingDamageBonus;
         
-        DamageManager.Instance.ApplyDamageToEnemy(enemy, player, damage / 2, false);
-        DamageManager.Instance.ApplyDamageToEnemy(enemy, player, damage / 2, true);
+        DamageManager.Instance.ApplyDamageToEnemy(enemy, player, damage / 2, false, index);
+        DamageManager.Instance.ApplyDamageToEnemy(enemy, player, damage / 2, true, index);
 
         int roll = DiceManager.Instance.RollSecondaryDie();
         if (roll % 2 == 0)
         {
             // even roll, deal magic damage
             int magicDamage = Mathf.RoundToInt(Int1 * multiplier) + player.OutgoingDamageBonus;
-            DamageManager.Instance.ApplyDamageToEnemy(enemy, player, magicDamage, true);
+            DamageManager.Instance.ApplyDamageToEnemy(enemy, player, magicDamage, true, index);
         }
         else
         {
             // odd roll, deal physical damage
             int physicalDamage = Mathf.RoundToInt(Int1 * multiplier) + player.OutgoingDamageBonus;
-            DamageManager.Instance.ApplyDamageToEnemy(enemy, player, physicalDamage, false);
+            DamageManager.Instance.ApplyDamageToEnemy(enemy, player, physicalDamage, false, index);
         }
     }
 }
