@@ -6,9 +6,9 @@ public class Player : MonoBehaviour
     [SerializeField] private BattleCardManager cardManager;
     [SerializeField] private PlayerUI playerUI;
 
-    private int currentHealth;
-    private int currentShield;
-    private int coins;
+    [SerializeField] private int currentHealth;
+    [SerializeField] private int currentShield;
+    [SerializeField] private int coins;
     private StatusEffectHandler statusEffects = new StatusEffectHandler();
 
     // Upgrade-driven stats — refreshed at the start of each battle via InitForBattle().
@@ -74,26 +74,23 @@ public class Player : MonoBehaviour
     {
         currentHealth = Mathf.Min(maxHealth, currentHealth + amount);
         Debug.Log($"Player healed for {amount}. Current health: {currentHealth}/{maxHealth}");
-        if (playerUI != null)
-        {
-            playerUI.UpdateTexts();
-        }
+        if (playerUI != null) playerUI.UpdateTexts();
+        CombatManager.Instance?.NotifyPlayerHealingReceived(amount);
     }
 
     public void AddShield(int amount)
     {
         currentShield += amount;
-        if (playerUI != null)
-        {
-            playerUI.UpdateTexts();
-        }
+        if (playerUI != null) playerUI.UpdateTexts();
+        CombatManager.Instance?.NotifyPlayerShieldGained(amount);
     }
 
     public void AddCoins(int amount)
     {
-        coins += amount + coinBonus;
+        int total = amount + coinBonus;
+        coins += total;
         playerUI.UpdateTexts();
-        
+        CombatManager.Instance?.NotifyPlayerCoinsGained(total);
     }
     public void AddCointsFlat(int amount)
     {

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Tier1
   m_EditorClassIdentifier: 
   minStage: 0
-  maxStage: 4
+  maxStage: 10
   enemyTier: 1

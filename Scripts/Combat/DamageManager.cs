@@ -29,6 +29,7 @@ public class DamageManager : MonoBehaviour
         }
         var ctx = new StatusEffectContext(player, enemy, isPlayerEffect: true);
         damage = player.StatusEffects.ModifyOutgoingDamage(damage, isMagic, ctx);
+        CombatManager.Instance?.NotifyEnemyDamageDealt(damage, isMagic);
         enemy.TakeDamage(damage, isMagic);
     }
     public void ApplyDamageToPlayer(Player player, int damage, bool isMagic)

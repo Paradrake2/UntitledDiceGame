@@ -31,7 +31,13 @@ public class CombatManager : MonoBehaviour
     public event Action<StatusEffect, bool> StatusEffectTriggered; // called when a status effect is triggered. True is player, false is enemy
     public event Action<Enemy> EnemySelected;
     public event Action BattleStarted;
-
+    public event Action BattleEnded;
+    public event Action BattleWon;               // fires only on player victory
+    public event Action RunEnded;                // fires when the player has no revives left
+    public event Action PlayerTurnEnded;         // fires at the end of the player's turn
+    public event Action<int>      PlayerCoinsGained;
+    public event Action<int>      StageIncreased;
+    public event Action<int, bool> EnemyDamageDealt; // (amount, isMagic) — player dealing damage to enemy
     private void Awake()
     {
         if (Instance != null && Instance != this) { Destroy(gameObject); return; }
@@ -121,6 +127,7 @@ public class CombatManager : MonoBehaviour
 
         player.StatusEffects.TriggerEffects(StatusEffectTrigger.EndOfTurn, ctx);
         playerUI.UpdateTexts();
+        PlayerTurnEnded?.Invoke();
     }
 
     private IEnumerator RunEnemyTurn()
@@ -191,6 +198,7 @@ public class CombatManager : MonoBehaviour
         enemiesDefeated++;
         battleActive = false;
         player.AddCoins(currentEnemy.CoinReward);
+        BattleWon?.Invoke();
         EndBattle();
     }
 
@@ -211,6 +219,7 @@ public class CombatManager : MonoBehaviour
             UpgradeManager.Instance.AddGems(gemsEarned);
 
         battleActive = false;
+        RunEnded?.Invoke();
         EndBattle();
     }
 
@@ -222,6 +231,7 @@ public class CombatManager : MonoBehaviour
     public void IncreaseStage()
     {
         currentStage++;
+        StageIncreased?.Invoke(currentStage);
     }
 
     public void ResetStage()
@@ -260,4 +270,16 @@ public class CombatManager : MonoBehaviour
         Debug.Log($"Status effect triggered: {effect.name}, isPlayer: {isPlayer}");
         StatusEffectTriggered?.Invoke(effect, isPlayer);
     }
+
+    public void NotifyEnemyDamageDealt(int amount, bool isMagic)
+        => EnemyDamageDealt?.Invoke(amount, isMagic);
+
+    public void NotifyPlayerShieldGained(int amount)
+        => PlayerShieldGained?.Invoke(amount);
+
+    public void NotifyPlayerHealingReceived(int amount)
+        => PlayerHealingReceived?.Invoke(amount);
+
+    public void NotifyPlayerCoinsGained(int amount)
+        => PlayerCoinsGained?.Invoke(amount);
 }

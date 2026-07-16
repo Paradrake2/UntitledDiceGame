@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,6 +12,9 @@ public class UpgradeManager : MonoBehaviour
     public static UpgradeManager Instance { get; private set; }
 
     [SerializeField] private Upgrade[] availableUpgrades;
+
+    /// <summary>Fired whenever a gem upgrade is successfully purchased.</summary>
+    public static event Action OnUpgradePurchased;
 
     private int gems;
     private readonly Dictionary<string, int> purchasedLevels = new Dictionary<string, int>();
@@ -82,6 +86,7 @@ public class UpgradeManager : MonoBehaviour
         int level = GetLevel(upgrade);
         gems -= upgrade.GemCostForNextLevel(level);
         purchasedLevels[upgrade.UpgradeName] = level + 1;
+        OnUpgradePurchased?.Invoke();
         Save();
         return true;
     }

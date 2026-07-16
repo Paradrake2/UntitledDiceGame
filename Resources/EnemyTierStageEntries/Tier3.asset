@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eb3c008d126b3a4fb02c265ad49dcb7, type: 3}
   m_Name: Tier3
   m_EditorClassIdentifier: 
-  minStage: 7
-  maxStage: 12
+  minStage: 18
+  maxStage: 30
   enemyTier: 3
