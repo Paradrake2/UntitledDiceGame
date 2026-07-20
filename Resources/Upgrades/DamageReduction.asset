@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 821f0ba6e1442da4b89a3165f85600e0, type: 3}
-  m_Name: OutgoingDamageBonus
+  m_Name: DamageReduction
   m_EditorClassIdentifier: 
-  upgradeName: Damage Bonus
+  upgradeName: Damage Reduction
   description: 
   icon: {fileID: 0}
-  upgradeType: 0
+  upgradeType: 1
   maxLevel: 10
   gemCostPerLevel: 10
   valuePerLevel: 1

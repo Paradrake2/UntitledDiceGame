@@ -7,7 +7,7 @@ public class Upgrade : ScriptableObject
     [SerializeField] private string description;
     [SerializeField] private Sprite icon;
     [SerializeField] private UpgradeType upgradeType;
-    [SerializeField] private int maxLevel = 5;
+    [SerializeField] private int maxLevel = 10;
     /// <summary>Base gem cost for level 1. Each subsequent level costs an additional gemCostPerLevel.</summary>
     [SerializeField] private int gemCostPerLevel = 10;
     /// <summary>How much the upgrade's effect grows per purchased level.</summary>
