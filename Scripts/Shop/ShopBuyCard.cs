@@ -7,5 +7,10 @@ public class ShopBuyCard : MonoBehaviour
     public void OnPurchaseClicked()
     {
         ShopManager.OnCardPurchased?.Invoke(card);
+        this.gameObject.SetActive(false); // Hide the purchase item after purchase
+    }
+    public void SetCard(Card card)
+    {
+        this.card = card;
     }
 }

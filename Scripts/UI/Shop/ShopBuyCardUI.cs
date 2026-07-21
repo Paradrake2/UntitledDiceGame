@@ -1,21 +1,17 @@
 using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
 public class ShopBuyCardUI : MonoBehaviour
 {
     [SerializeField] private Image icon;
     [SerializeField] private Card card;
-
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private TextMeshProUGUI costText;
+    public void Initialize(Card card)
     {
-        
-    }
+        this.card = card;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (icon != null && card != null && card.CardSprite != null)
+            icon.sprite = card.CardSprite;
+        costText.text = card.BaseShopCost.ToString();
     }
 }

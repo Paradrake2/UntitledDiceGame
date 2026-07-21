@@ -3,10 +3,6 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.EventSystems;
 
-/// <summary>
-/// Represents one upgrade entry in the upgrade menu.
-/// Assign the child UI elements in the Inspector, then call Initialize() from UpgradeMenuUI.
-/// </summary>
 public class UpgradeSlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private Image icon;
@@ -43,7 +39,7 @@ public class UpgradeSlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         throw new System.NotImplementedException();
     }
 
-    /// <summary>Updates level, cost, and button interactability to reflect the current state.</summary>
+    // Updates level, cost, and button interactability to reflect the current state.
     public void Refresh()
     {
         if (upgrade == null || UpgradeManager.Instance == null) return;
@@ -51,7 +47,7 @@ public class UpgradeSlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         int level = UpgradeManager.Instance.GetLevel(upgrade);
         bool maxed = level >= upgrade.MaxLevel;
 
-        levelText.text = maxed ? "MAX" : $"Level {level} / {upgrade.MaxLevel}";
+        levelText.text = maxed ? "MAX" : $"{level}/{upgrade.MaxLevel}";
         costText.text = maxed ? "" : $"{upgrade.GemCostForNextLevel(level)} gems";
         purchaseButton.interactable = !maxed && UpgradeManager.Instance.CanPurchase(upgrade);
     }

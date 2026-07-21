@@ -15,6 +15,7 @@ MonoBehaviour:
   achievementId: 3OfAKind
   displayName: 3 of a kind
   description: Roll 3 of the same number in a single turn
-  icon: {fileID: 0}
+  icon: {fileID: 3792253135160455338, guid: eb9f3c4665ec92344a2e236af5ed6680, type: 3}
   condition: {fileID: 11400000, guid: 61383f877d1e7a9419e6f8a4da6d0e1f, type: 2}
   cardToUnlock: {fileID: 11400000, guid: b698a40cb5ff79a48a132ddf219ae90b, type: 2}
+  isUnlocked: 0

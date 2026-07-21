@@ -520,6 +520,7 @@ MonoBehaviour:
   availableUpgrades:
   - {fileID: 11400000, guid: ea2d66eb8a8ea174b8726137f8c4bb4f, type: 2}
   - {fileID: 11400000, guid: 461b5e2a63ca970478dec6281070fb1f, type: 2}
+  - {fileID: 11400000, guid: 5e17588deb0149840b92b1ef97c591a8, type: 2}
 --- !u!4 &310921065
 Transform:
   m_ObjectHideFlags: 0

@@ -1,12 +1,6 @@
 using UnityEngine;
 using TMPro;
 
-/// <summary>
-/// Controller for the upgrade menu screen.
-/// Spawns one UpgradeSlotUI per available upgrade and keeps the gem display up to date.
-/// Wire up in the Inspector: assign upgradeSlotPrefab, slotContainer, gemText, and this GameObject.
-/// Call Open() / Close() from your menu navigation buttons.
-/// </summary>
 public class UpgradeMenuUI : MonoBehaviour
 {
     [SerializeField] private GameObject upgradeSlotPrefab;
@@ -31,7 +25,7 @@ public class UpgradeMenuUI : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    /// <summary>Refreshes gem display and every upgrade slot.</summary>
+    // Refreshes gem display and every upgrade slot.
     public void RefreshAll()
     {
         if (UpgradeManager.Instance != null && gemText != null)

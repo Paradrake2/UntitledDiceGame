@@ -12,6 +12,7 @@ public class ShopUI : MonoBehaviour
     /// <summary>The root Canvas used to reparent cards during drag so they float above all UI.</summary>
     [SerializeField] private Canvas rootCanvas;
     [SerializeField] private ShopUpgradeUI shopUpgradeUI;
+    [SerializeField] private ShopPurchaseUI shopPurchaseUI;
     void OnEnable()
     {
         ShopManager.OnShopOpened += HandleShopOpened;
@@ -39,7 +40,7 @@ public class ShopUI : MonoBehaviour
     // player can then buy the cards if they have enough coins.
     private void PopulateShopItems()
     {
-        
+        shopPurchaseUI.PopulatePurchaseItems();
     }
     // randomly chooses x number of cards from the player's currently owned cards. This includes the cards unlocked by default as well as the cards
     // that have been purchased this run.
@@ -48,14 +49,14 @@ public class ShopUI : MonoBehaviour
         shopUpgradeUI.PopulateUpgradeItems();
     }
     // This populates the cards that the player owns. They can equip from here by dragging the card to the equipped card slot.
-    private void PopulateCardItems()
+    public void PopulateCardItems()
     {
         foreach (Transform child in cardItemContainer)
             Destroy(child.gameObject);
 
         if (cardManager == null || cardItemPrefab == null) return;
 
-        foreach (Card card in cardManager.unlockedCards)
+        foreach (Card card in BattleCardManager.Instance.runCards) // change this to default cards + purchased cards
         {
             if (card == null) continue;
             GameObject go = Instantiate(cardItemPrefab, cardItemContainer);

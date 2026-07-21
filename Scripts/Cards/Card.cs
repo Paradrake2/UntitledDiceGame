@@ -60,6 +60,8 @@ public abstract class Card : ScriptableObject
     public int UpgradeLevel => upgradeLevel;
     public int MaxUpgradeLevel => maxUpgradeLevel;
     public bool IsUnlockedByDefault => isUnlockedByDefault;
+    public int BaseUpgradeCost => baseUpgradeCost;
+    public int BaseShopCost => baseShopCost;
 
     private string FormatTemplate(string template)
     {

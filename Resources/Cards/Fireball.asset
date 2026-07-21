@@ -22,7 +22,7 @@ MonoBehaviour:
     percentage1: 0
     int1: 0
   statsPerLevel:
-    damage: 4
+    damage: 3
     shield: 0
     heal: 0
     percentage1: 0

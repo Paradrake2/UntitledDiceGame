@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeName: ShopDiscount
   description: 
-  icon: {fileID: 0}
+  icon: {fileID: -7013172118770143867, guid: 245ab1296547ef54ebf45aca6c6cad3f, type: 3}
   upgradeType: 3
   maxLevel: 10
   gemCostPerLevel: 10
-  valuePerLevel: 1
+  valuePerLevel: 0.05
