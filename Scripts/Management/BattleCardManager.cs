@@ -25,14 +25,7 @@ public class BattleCardManager : MonoBehaviour
         Instance = this;
     }
     
-    void OnEnable()
-    {
-        ShopManager.OnCardPurchased += AddCardToRunCards;
-    }
-    void OnDisable()
-    {
-        ShopManager.OnCardPurchased -= AddCardToRunCards;
-    }
+
     public void PlayCard(int position, Enemy enemy, Player player, float multiplier = 1f)
     {
         switch (position)

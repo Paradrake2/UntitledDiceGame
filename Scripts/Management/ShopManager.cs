@@ -88,6 +88,7 @@ public class ShopManager : MonoBehaviour
         if (player.Coins >= purchaseCost)
         {
             player.SpendCoins(purchaseCost);
+            BattleCardManager.Instance.AddCardToRunCards(card); // Ensure card is added before refreshing UI
             shopUI.PopulateCardItems(); // Refresh the card items in the shop UI
             Debug.Log($"Purchased card: {card.name}. Coins left: {player.Coins}");
         }
