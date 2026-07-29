@@ -17,4 +17,5 @@ MonoBehaviour:
   description: Roll 5 sixes in a single turn
   icon: {fileID: 0}
   condition: {fileID: 11400000, guid: 1fc691e1cba19524caab7217fda04a3d, type: 2}
-  cardToUnlock: {fileID: 0}
+  cardToUnlock: {fileID: 11400000, guid: b5f1a1c434ed5cf4590febea67870c68, type: 2}
+  isUnlocked: 0

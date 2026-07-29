@@ -33,7 +33,7 @@ MonoBehaviour:
   upgradeLevel: 0
   baseUpgradeCost: 10
   baseShopCost: 0
-  maxUpgradeLevel: 10
+  maxUpgradeLevel: 20
   line1Color: {r: 0.48235294, g: 0, b: 0, a: 1}
   line2Color: {r: 1, g: 1, b: 1, a: 1}
   line3Color: {r: 1, g: 1, b: 1, a: 1}

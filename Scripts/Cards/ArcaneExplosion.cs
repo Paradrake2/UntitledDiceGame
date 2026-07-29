@@ -8,7 +8,7 @@ public class ArcaneExplosion : Card
     {
         int damage = Mathf.RoundToInt(Damage * multiplier) + player.OutgoingDamageBonus;
         DamageManager.Instance.ApplyDamageToEnemy(enemy, player, damage, true, index);
-        int selfDamage = Mathf.RoundToInt(damage * Percentage1);
+        int selfDamage = Mathf.RoundToInt(Int1);
         DamageManager.Instance.ApplyDamageToPlayer(player, selfDamage, true);
     }
 }

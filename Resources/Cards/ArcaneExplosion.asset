@@ -9,32 +9,33 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49eab38ac3f392c4597e5d7a254f458b, type: 3}
-  m_Name: EvenEdge
+  m_Script: {fileID: 11500000, guid: f794347fab73c8f4a8ac5aee5a44f4be, type: 3}
+  m_Name: ArcaneExplosion
   m_EditorClassIdentifier: 
-  cardName: Even Edge
-  cardDescription: Deals bonus damage if this card is in an even index slot
+  cardName: ArcaneExplosion
+  cardDescription: Deals a large amount of magic damage to the enemy and a small
+    amount of damage to the player
   cardSprite: {fileID: 0}
   baseStats:
-    damage: 15
+    damage: 25
     shield: 0
     heal: 0
     percentage1: 0
-    int1: 10
+    int1: 5
   statsPerLevel:
     damage: 5
     shield: 0
     heal: 0
     percentage1: 0
-    int1: 5
+    int1: 2
   line1Template: '{damage}'
-  line2Template: '{int1} bonus'
+  line2Template: 'Self: {int1}'
   line3Template: 
   upgradeLevel: 0
-  baseUpgradeCost: 15
-  baseShopCost: 15
+  baseUpgradeCost: 25
+  baseShopCost: 25
   maxUpgradeLevel: 10
-  line1Color: {r: 0.48235294, g: 0, b: 0, a: 1}
-  line2Color: {r: 0.8207547, g: 0.0038714937, b: 0.0038714937, a: 1}
+  line1Color: {r: 0.9245283, g: 0, b: 0, a: 1}
+  line2Color: {r: 0.5283019, g: 0.01744394, b: 0.01744394, a: 1}
   line3Color: {r: 1, g: 1, b: 1, a: 1}
   isUnlockedByDefault: 0

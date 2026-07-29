@@ -9,32 +9,32 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7308d3d4c3be2b64cb6c1ba128c1e4a2, type: 3}
-  m_Name: Fireball
+  m_Script: {fileID: 11500000, guid: cef1f4f159d02274d87cffdf9c86dc69, type: 3}
+  m_Name: HealthPotion
   m_EditorClassIdentifier: 
-  cardName: Fireball
-  cardDescription: Basic Magic Damage
-  cardSprite: {fileID: -1067434589984454019, guid: bb4756d4da1f0f04cb99853aacab75fe, type: 3}
+  cardName: 
+  cardDescription: 
+  cardSprite: {fileID: 0}
   baseStats:
-    damage: 12
+    damage: 0
     shield: 0
     heal: 0
     percentage1: 0
     int1: 0
   statsPerLevel:
-    damage: 3
+    damage: 0
     shield: 0
     heal: 0
     percentage1: 0
     int1: 0
-  line1Template: '{damage}'
+  line1Template: 
   line2Template: 
   line3Template: 
   upgradeLevel: 0
-  baseUpgradeCost: 10
+  baseUpgradeCost: 0
   baseShopCost: 0
-  maxUpgradeLevel: 20
-  line1Color: {r: 0.42232418, g: 0, b: 1, a: 1}
+  maxUpgradeLevel: 10
+  line1Color: {r: 1, g: 1, b: 1, a: 1}
   line2Color: {r: 1, g: 1, b: 1, a: 1}
   line3Color: {r: 1, g: 1, b: 1, a: 1}
-  isUnlockedByDefault: 1
+  isUnlockedByDefault: 0

@@ -9,32 +9,33 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7308d3d4c3be2b64cb6c1ba128c1e4a2, type: 3}
-  m_Name: Fireball
+  m_Script: {fileID: 11500000, guid: 3c675bad98967d44db8c2f0cd5982774, type: 3}
+  m_Name: Doubleplay
   m_EditorClassIdentifier: 
-  cardName: Fireball
-  cardDescription: Basic Magic Damage
-  cardSprite: {fileID: -1067434589984454019, guid: bb4756d4da1f0f04cb99853aacab75fe, type: 3}
+  cardName: Doubleplay
+  cardDescription: Rolls secondary dice to determine which card to play and plays
+    that card multiple times
+  cardSprite: {fileID: 0}
   baseStats:
-    damage: 12
+    damage: 0
     shield: 0
     heal: 0
     percentage1: 0
-    int1: 0
+    int1: 2
   statsPerLevel:
-    damage: 3
+    damage: 0
     shield: 0
     heal: 0
     percentage1: 0
-    int1: 0
-  line1Template: '{damage}'
+    int1: 1
+  line1Template: '{int1}'
   line2Template: 
   line3Template: 
   upgradeLevel: 0
-  baseUpgradeCost: 10
-  baseShopCost: 0
-  maxUpgradeLevel: 20
-  line1Color: {r: 0.42232418, g: 0, b: 1, a: 1}
+  baseUpgradeCost: 70
+  baseShopCost: 30
+  maxUpgradeLevel: 3
+  line1Color: {r: 0.162295, g: 0.029503396, b: 0.4811321, a: 1}
   line2Color: {r: 1, g: 1, b: 1, a: 1}
   line3Color: {r: 1, g: 1, b: 1, a: 1}
-  isUnlockedByDefault: 1
+  isUnlockedByDefault: 0

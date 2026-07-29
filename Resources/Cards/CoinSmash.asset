@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Coin Smash
   cardDescription: Deals damage based on how many coins you have
-  cardSprite: {fileID: 0}
+  cardSprite: {fileID: 6891742187273197696, guid: 57e414f9ba287fa48b664c29c410acc1, type: 3}
   baseStats:
     damage: 0
     shield: 0
@@ -31,8 +31,8 @@ MonoBehaviour:
   line2Template: 'Max: {int1}'
   line3Template: 
   upgradeLevel: 0
-  baseUpgradeCost: 0
-  baseShopCost: 0
+  baseUpgradeCost: 25
+  baseShopCost: 30
   maxUpgradeLevel: 20
   line1Color: {r: 0.48235294, g: 0, b: 0, a: 1}
   line2Color: {r: 0.41509432, g: 0.03328587, b: 0.03328587, a: 1}

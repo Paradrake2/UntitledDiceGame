@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Death Scythe
   cardDescription: Damage plus healing based on damage
-  cardSprite: {fileID: -3761623330065976427, guid: a39bb8531147496438477882ccd5bb2c, type: 3}
+  cardSprite: {fileID: 5743755899031031118, guid: f690504d0894ff74ba2a0f8936bc3e80, type: 3}
   baseStats:
     damage: 20
     shield: 0
@@ -31,8 +31,8 @@ MonoBehaviour:
   line2Template: '{percentage1} Lifesteal '
   line3Template: 
   upgradeLevel: 0
-  baseUpgradeCost: 0
-  baseShopCost: 0
+  baseUpgradeCost: 15
+  baseShopCost: 20
   maxUpgradeLevel: 20
   line1Color: {r: 0.48235294, g: 0, b: 0, a: 1}
   line2Color: {r: 0.12192824, g: 0.5566038, b: 0.028880388, a: 1}

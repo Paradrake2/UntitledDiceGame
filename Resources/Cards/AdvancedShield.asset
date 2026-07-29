@@ -10,31 +10,31 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 909b0475e4e526e4f96b97b0724dba12, type: 3}
-  m_Name: BasicShield
+  m_Name: AdvancedShield
   m_EditorClassIdentifier: 
-  cardName: Basic Shield
-  cardDescription: Gain some shield
-  cardSprite: {fileID: 7920836889999231377, guid: 42a65d4d40080ba498a72b5dde1f2791, type: 3}
+  cardName: Advanced Shield
+  cardDescription: Gain a lot of shield plus a little health
+  cardSprite: {fileID: -2845242259335460788, guid: 3f3ae0d5adbf7804e8d72e4cdb2f2458, type: 3}
   baseStats:
     damage: 0
-    shield: 15
-    heal: 0
+    shield: 20
+    heal: 10
     percentage1: 0
     int1: 0
   statsPerLevel:
     damage: 0
-    shield: 5
-    heal: 0
+    shield: 6
+    heal: 5
     percentage1: 0
     int1: 0
   line1Template: '{shield}'
-  line2Template: 
+  line2Template: '{heal}'
   line3Template: 
   upgradeLevel: 0
-  baseUpgradeCost: 10
-  baseShopCost: 0
+  baseUpgradeCost: 15
+  baseShopCost: 15
   maxUpgradeLevel: 20
-  line1Color: {r: 0.46226418, g: 0.20752187, b: 0, a: 1}
-  line2Color: {r: 1, g: 1, b: 1, a: 1}
+  line1Color: {r: 0.4627451, g: 0.20784314, b: 0, a: 1}
+  line2Color: {r: 0.11792451, g: 1, b: 0.17786449, a: 1}
   line3Color: {r: 1, g: 1, b: 1, a: 1}
-  isUnlockedByDefault: 1
+  isUnlockedByDefault: 0

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Coinbag
   cardDescription: Gives some coins
-  cardSprite: {fileID: -537590141122946159, guid: b31f8f186df5d414281b0912f95bdf9d, type: 3}
+  cardSprite: {fileID: 6382968433947806530, guid: 2ea5c262ab6c6384b89a96a58519119b, type: 3}
   baseStats:
     damage: 0
     shield: 0
@@ -31,8 +31,8 @@ MonoBehaviour:
   line2Template: 
   line3Template: 
   upgradeLevel: 0
-  baseUpgradeCost: 0
-  baseShopCost: 0
+  baseUpgradeCost: 15
+  baseShopCost: 20
   maxUpgradeLevel: 8
   line1Color: {r: 0.3584906, g: 0.3075376, b: 0, a: 1}
   line2Color: {r: 1, g: 1, b: 1, a: 1}

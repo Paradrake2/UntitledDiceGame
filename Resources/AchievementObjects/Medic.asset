@@ -17,4 +17,5 @@ MonoBehaviour:
   description: Heal 75 health in a single turn
   icon: {fileID: 0}
   condition: {fileID: 11400000, guid: 8a0b479688050f14ba185533f31a1f64, type: 2}
-  cardToUnlock: {fileID: 0}
+  cardToUnlock: {fileID: 11400000, guid: e770dc92da0eccd4498af6ab295b393e, type: 2}
+  isUnlocked: 0
