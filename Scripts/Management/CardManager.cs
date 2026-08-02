@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 // Manages the player's collection of unlocked cards.
@@ -29,6 +30,20 @@ public class CardManager : MonoBehaviour
     public Card[] unlockedCards; // Array of cards that the player has unlocked.
     public Card[] defaultCards;
     public Card[] AllCards; // Array of all available cards in the game.
+
+    private readonly Dictionary<Card, Card> runtimeCardCache = new Dictionary<Card, Card>();
+
+    public Card CreateRuntimeCard(Card template)
+    {
+        if (template == null) return null;
+        if (runtimeCardCache.TryGetValue(template, out Card existingRuntimeCard))
+            return existingRuntimeCard;
+
+        Card runtimeCard = template.CloneCard();
+        runtimeCard.name = template.name;
+        runtimeCardCache[template] = runtimeCard;
+        return runtimeCard;
+    }
     public void UnlockCard(Card card)
     {
         // Check if the card is already unlocked

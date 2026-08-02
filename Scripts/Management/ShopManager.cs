@@ -70,6 +70,7 @@ public class ShopManager : MonoBehaviour
             player.SpendCoins(upgradeCost);
             card.UpgradeCard();
             Debug.Log($"Upgraded card: {card.name}. New level: {card.UpgradeLevel}. Coins left: {player.Coins}");
+            shopUI?.PopulateCardItems();
         }
         else
         {
@@ -89,7 +90,7 @@ public class ShopManager : MonoBehaviour
         {
             player.SpendCoins(purchaseCost);
             BattleCardManager.Instance.AddCardToRunCards(card); // Ensure card is added before refreshing UI
-            shopUI.PopulateCardItems(); // Refresh the card items in the shop UI
+            shopUI?.PopulateCardItems(); // Refresh the card items in the shop UI
             Debug.Log($"Purchased card: {card.name}. Coins left: {player.Coins}");
         }
         else

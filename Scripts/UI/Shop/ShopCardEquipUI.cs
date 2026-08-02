@@ -21,11 +21,13 @@ public class ShopCardEquipUI : MonoBehaviour
     {
         ShopManager.OnShopOpened += HandleCardSelection;
         ShopManager.OnShopClosed += FinalizeCardSelection;
+        ShopManager.OnCardUpgraded += RefreshEquippedCardPreview;
     }
     void OnDisable()
     {
         ShopManager.OnShopOpened -= HandleCardSelection;
         ShopManager.OnShopClosed -= FinalizeCardSelection;
+        ShopManager.OnCardUpgraded -= RefreshEquippedCardPreview;
     }
     // the way this is intended to work is that it populates the selectedCards array with the cards currently in the BattleCardManager when the shop is opened,
     // and then when the shop is closed, it sets all the cards in the BattleCardManager to the selected cards in the shop
@@ -99,6 +101,35 @@ public class ShopCardEquipUI : MonoBehaviour
         if (cardUIs != null && position - 1 < cardUIs.Length && cardUIs[position - 1] != null)
         {
             cardUIs[position - 1].SetCard(card);
+        }
+    }
+
+    private void RefreshEquippedCardPreview(Card upgradedCard)
+    {
+        if (upgradedCard == null || cardUIs == null)
+            return;
+
+        if (bcm != null)
+        {
+            for (int i = 1; i <= 6; i++)
+            {
+                Card currentSlotCard = bcm.GetCard(i);
+                if (currentSlotCard == upgradedCard && i - 1 < cardUIs.Length && cardUIs[i - 1] != null)
+                {
+                    cardUIs[i - 1].SetCard(currentSlotCard);
+                }
+            }
+        }
+
+        if (selectedCards == null)
+            return;
+
+        for (int i = 0; i < selectedCards.Length; i++)
+        {
+            if (selectedCards[i] == upgradedCard && i < cardUIs.Length && cardUIs[i] != null)
+            {
+                cardUIs[i].SetCard(selectedCards[i]);
+            }
         }
     }
 }

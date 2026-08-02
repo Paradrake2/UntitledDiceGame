@@ -18,4 +18,17 @@ public class ShopUpgradeCardUI : MonoBehaviour
         priceText.text = card.GetUpgradeCost().ToString();
         icon.sprite = card.CardSprite;
     }
+    public void Refresh()
+    {
+        Card card = shopUpgradeCard.GetCard();
+        if (card != null)
+        {
+            priceText.text = card.GetUpgradeCost().ToString();
+            icon.sprite = card.CardSprite;
+        }
+    }
+    public Card GetCard()
+    {
+        return shopUpgradeCard.GetCard();
+    }
 }

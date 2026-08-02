@@ -5,6 +5,14 @@ public class ShopUpgradeUI : MonoBehaviour
     [SerializeField] private GameObject upgradeItemPrefab;
     [SerializeField] private Transform upgradeItemContainer;
     [SerializeField] private int numberOfUpgradeItemsToDisplay = 5; // Number of upgrade items to display in the shop
+    void OnEnable()
+    {
+        ShopManager.OnCardUpgraded += RefreshSpecificCard;
+    }
+    void OnDisable()
+    {
+        ShopManager.OnCardUpgraded -= RefreshSpecificCard;
+    }
     public void PopulateUpgradeItems()
     {
         foreach (Transform child in upgradeItemContainer)
@@ -19,6 +27,18 @@ public class ShopUpgradeUI : MonoBehaviour
             upgradeCard.SetCard(card);
             ShopUpgradeCardUI shopUpgradeCardUI = upgradeItem.GetComponent<ShopUpgradeCardUI>();
             shopUpgradeCardUI.Instantiate(card);
+        }
+    }
+    private void RefreshSpecificCard(Card card)
+    {
+        foreach (Transform child in upgradeItemContainer)
+        {
+            ShopUpgradeCardUI shopUpgradeCardUI = child.GetComponent<ShopUpgradeCardUI>();
+            if (shopUpgradeCardUI != null && shopUpgradeCardUI.GetCard() == card)
+            {
+                shopUpgradeCardUI.Refresh();
+                break;
+            }
         }
     }
     public void SetNumberOfUpgradeItemsToDisplay(int number)

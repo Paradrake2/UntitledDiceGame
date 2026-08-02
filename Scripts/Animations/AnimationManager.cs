@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections.Generic;
+using System;
 
 public interface IAnimation
 {
@@ -8,6 +10,7 @@ public interface IAnimation
 
 public class AnimationManager : MonoBehaviour
 {
+    public event Action<IAnimation> OnAnimationPlayed;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

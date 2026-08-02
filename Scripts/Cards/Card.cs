@@ -81,6 +81,11 @@ public abstract class Card : ScriptableObject
         return baseUpgradeCost * (upgradeLevel + 1);
     }
 
+    public virtual Card CloneCard()
+    {
+        return Instantiate(this);
+    }
+
     public void UpgradeCard()
     {
         if (upgradeLevel < maxUpgradeLevel)

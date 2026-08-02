@@ -12,4 +12,8 @@ public class ShopUpgradeCard : MonoBehaviour
     {
         ShopManager.OnCardUpgraded?.Invoke(card);
     }
+    public Card GetCard()
+    {
+        return card;
+    }
 }

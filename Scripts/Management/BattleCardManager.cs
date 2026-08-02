@@ -62,14 +62,15 @@ public class BattleCardManager : MonoBehaviour
 
     public void SetCard(int position, Card newCard)
     {
+        Card runtimeCard = newCard == null ? null : CardManager.Instance?.CreateRuntimeCard(newCard);
         switch (position)
         {
-            case 1: pos1Card = newCard; break;
-            case 2: pos2Card = newCard; break;
-            case 3: pos3Card = newCard; break;
-            case 4: pos4Card = newCard; break;
-            case 5: pos5Card = newCard; break;
-            case 6: pos6Card = newCard; break;
+            case 1: pos1Card = runtimeCard; break;
+            case 2: pos2Card = runtimeCard; break;
+            case 3: pos3Card = runtimeCard; break;
+            case 4: pos4Card = runtimeCard; break;
+            case 5: pos5Card = runtimeCard; break;
+            case 6: pos6Card = runtimeCard; break;
             default: Debug.LogError("Invalid card position: " + position); break;
         }
     }
@@ -103,30 +104,69 @@ public class BattleCardManager : MonoBehaviour
     }
     public void AddCardToRunCards(Card card)
     {
+        if (card == null) return;
+
+        Card runtimeCard = card;
+        if (CardManager.Instance != null && card.name != null)
+        {
+            runtimeCard = CardManager.Instance.CreateRuntimeCard(card);
+        }
+
         int newSize = runCards.Length + 1;
         Card[] newRunCards = new Card[newSize];
         for (int i = 0; i < runCards.Length; i++)
         {
             newRunCards[i] = runCards[i];
         }
-        newRunCards[newSize - 1] = card;
+        newRunCards[newSize - 1] = runtimeCard;
         runCards = newRunCards;
     }
     public Card[] GetRunCards()
     {
-        // initialize default cards if runCards is empty
-        if (runCards.Length == 0)
+        if (runCards == null || runCards.Length == 0)
         {
-            runCards = CardManager.Instance.defaultCards;
+            if (CardManager.Instance == null || CardManager.Instance.defaultCards == null)
+            {
+                runCards = new Card[0];
+                return runCards;
+            }
+
+            Card[] runtimeDefaultCards = new Card[CardManager.Instance.defaultCards.Length];
+            for (int i = 0; i < CardManager.Instance.defaultCards.Length; i++)
+            {
+                runtimeDefaultCards[i] = CardManager.Instance.CreateRuntimeCard(CardManager.Instance.defaultCards[i]);
+            }
+            runCards = runtimeDefaultCards;
         }
         return runCards;
     }
     void Start()
     {
-        // Initialize runCards as empty array if not already set
         if (runCards == null)
         {
             runCards = new Card[0];
+        }
+
+        NormalizeSlotCard(1, pos1Card);
+        NormalizeSlotCard(2, pos2Card);
+        NormalizeSlotCard(3, pos3Card);
+        NormalizeSlotCard(4, pos4Card);
+        NormalizeSlotCard(5, pos5Card);
+        NormalizeSlotCard(6, pos6Card);
+    }
+
+    private void NormalizeSlotCard(int position, Card card)
+    {
+        if (card == null) return;
+        Card runtimeCard = CardManager.Instance != null ? CardManager.Instance.CreateRuntimeCard(card) : card;
+        switch (position)
+        {
+            case 1: pos1Card = runtimeCard; break;
+            case 2: pos2Card = runtimeCard; break;
+            case 3: pos3Card = runtimeCard; break;
+            case 4: pos4Card = runtimeCard; break;
+            case 5: pos5Card = runtimeCard; break;
+            case 6: pos6Card = runtimeCard; break;
         }
     }
     
