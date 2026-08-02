@@ -22,12 +22,14 @@ public class ShopCardEquipUI : MonoBehaviour
         ShopManager.OnShopOpened += HandleCardSelection;
         ShopManager.OnShopClosed += FinalizeCardSelection;
         ShopManager.OnCardUpgraded += RefreshEquippedCardPreview;
+        BattleCardManager.Instance.StartUp += PopulateSelectedCards; // Subscribe to the StartUp event
     }
     void OnDisable()
     {
         ShopManager.OnShopOpened -= HandleCardSelection;
         ShopManager.OnShopClosed -= FinalizeCardSelection;
         ShopManager.OnCardUpgraded -= RefreshEquippedCardPreview;
+        BattleCardManager.Instance.StartUp -= PopulateSelectedCards; // Unsubscribe from the StartUp event
     }
     // the way this is intended to work is that it populates the selectedCards array with the cards currently in the BattleCardManager when the shop is opened,
     // and then when the shop is closed, it sets all the cards in the BattleCardManager to the selected cards in the shop
@@ -95,12 +97,17 @@ public class ShopCardEquipUI : MonoBehaviour
             Debug.LogError($"Invalid card position: {position}. Must be between 1 and 6.");
             return;
         }
-        
-        selectedCards[position - 1] = card;
-        
-        if (cardUIs != null && position - 1 < cardUIs.Length && cardUIs[position - 1] != null)
+        // check if card has reached max placements
+        if (card.CanPlace())
         {
-            cardUIs[position - 1].SetCard(card);
+            selectedCards[position - 1].RemovePlacement();
+            selectedCards[position - 1] = card;
+            
+            if (cardUIs != null && position - 1 < cardUIs.Length && cardUIs[position - 1] != null)
+            {
+                cardUIs[position - 1].SetCard(card);
+            }
+            card.PlaceCard();
         }
     }
 

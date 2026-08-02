@@ -38,6 +38,8 @@ public abstract class Card : ScriptableObject
     [SerializeField] protected Color line2Color = Color.white;
     [SerializeField] protected Color line3Color = Color.white;
     [SerializeField] protected bool isUnlockedByDefault = false;
+    [SerializeField] protected int maxPlacements = 1;
+    [SerializeField] protected int currentPlacements = 0;
 
     // Computed stats for the current upgrade level
     public int Damage       => baseStats.damage      + statsPerLevel.damage      * upgradeLevel;
@@ -95,6 +97,36 @@ public abstract class Card : ScriptableObject
         else
         {
             Debug.LogWarning("Card is already at max upgrade level.");
+        }
+    }
+    public bool CanUpgrade()
+    {
+        return upgradeLevel < maxUpgradeLevel;
+    }
+    public bool CanPlace()
+    {
+        return currentPlacements < maxPlacements;
+    }
+    public void PlaceCard()
+    {
+        if (CanPlace())
+        {
+            currentPlacements++;
+        }
+        else
+        {
+            Debug.LogWarning("Card has reached its maximum placements.");
+        }
+    }
+    public void RemovePlacement()
+    {
+        if (currentPlacements > 0)
+        {
+            currentPlacements--;
+        }
+        else
+        {
+            Debug.LogWarning("Card has no placements to remove.");
         }
     }
 }
