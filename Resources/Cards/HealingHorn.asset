@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: HealingHorn
   cardDescription: Heals the player and boosts damage a little
-  cardSprite: {fileID: 0}
+  cardSprite: {fileID: -7750335819245601059, guid: 1c4114b1b7f5bad43a6c204c911298e3, type: 3}
   baseStats:
     damage: 0
     shield: 0
@@ -24,7 +24,7 @@ MonoBehaviour:
   statsPerLevel:
     damage: 0
     shield: 0
-    heal: 5
+    heal: 6
     percentage1: 0
     int1: 0
   line1Template: '{heal}'

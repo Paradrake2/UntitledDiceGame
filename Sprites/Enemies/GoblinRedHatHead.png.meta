@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: bbc874349278e4e41bace709a17a2260
+guid: c274ab6c3104a044b8b7306183283f75
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 671561930053674472
-    second: ArcaneMaster_0
+      213: 285070121151529184
+    second: GoblinRedHatHead_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ArcaneMaster_0
+      name: GoblinRedHatHead_0
       rect:
         serializedVersion: 2
-        x: 78
-        y: 73
-        width: 849
-        height: 849
+        x: 11
+        y: 71
+        width: 984
+        height: 877
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8e5668d640ed15900800000000000000
-      internalID: 671561930053674472
+      spriteID: 0e0805bc3c5c4f300800000000000000
+      internalID: 285070121151529184
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: a61308b566ca65b42ae0f4fbf242225d
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      ArcaneMaster_0: 671561930053674472
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

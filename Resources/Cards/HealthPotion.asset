@@ -12,29 +12,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cef1f4f159d02274d87cffdf9c86dc69, type: 3}
   m_Name: HealthPotion
   m_EditorClassIdentifier: 
-  cardName: 
-  cardDescription: 
+  cardName: HealthPotion
+  cardDescription: Heals a large amount
   cardSprite: {fileID: 0}
   baseStats:
     damage: 0
     shield: 0
-    heal: 0
+    heal: 30
     percentage1: 0
     int1: 0
   statsPerLevel:
     damage: 0
     shield: 0
-    heal: 0
+    heal: 6
     percentage1: 0
     int1: 0
-  line1Template: 
+  line1Template: '{heal}'
   line2Template: 
   line3Template: 
   upgradeLevel: 0
-  baseUpgradeCost: 0
+  baseUpgradeCost: 10
   baseShopCost: 0
   maxUpgradeLevel: 10
-  line1Color: {r: 1, g: 1, b: 1, a: 1}
+  line1Color: {r: 0, g: 0.6415094, b: 0.009711266, a: 1}
   line2Color: {r: 1, g: 1, b: 1, a: 1}
   line3Color: {r: 1, g: 1, b: 1, a: 1}
-  isUnlockedByDefault: 0
+  isUnlockedByDefault: 1

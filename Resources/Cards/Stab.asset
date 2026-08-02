@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Stab
   cardDescription: Basic Physical Damage
-  cardSprite: {fileID: -3069660206326451350, guid: 84f330c728fea4a45804dbaf5c1d46d3, type: 3}
+  cardSprite: {fileID: -5312497963641247122, guid: 405844a4066cc35409eef7f4cfb741db, type: 3}
   baseStats:
     damage: 10
     shield: 0

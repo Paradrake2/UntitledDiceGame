@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f909a1119f74d44aab54973ea6ac8a0, type: 3}
+  m_Name: RedHatGoblin
+  m_EditorClassIdentifier: 
+  enemyName: RedHatGoblin
+  enemySprite: {fileID: 285070121151529184, guid: c274ab6c3104a044b8b7306183283f75, type: 3}
+  baseMaxHealth: 80
+  baseShield: 20
+  basePhysicalAttackDamage: 30
+  baseMagicalAttackDamage: 0
+  basePhysicalAttackAmount: 1
+  baseMagicalAttackAmount: 0
+  baseHealAmount: 0
+  baseShieldAmount: 0
+  coinReward: 10
+  enemyStats:
+    maxHealth: 0
+    shield: 0
+    physicalAttackDamage: 0
+    physicalAttackAmount: 0
+    magicalAttackDamage: 0
+    magicalAttackAmount: 0
+    healAmount: 0
+    shieldAmount: 0
+  specialEffect: {fileID: 11400000, guid: bb78ec96fe0f70a4eae1a97e70dacb4e, type: 2}
+  tier: 1
+  shieldTurnIncrease: 0
+  healTurnIncrease: 0
+  physicalAttackTurnIncrease: 5
+  magicalAttackTurnIncrease: 0

@@ -31,6 +31,8 @@ public abstract class SpecialEffect : ScriptableObject
 
     public virtual void ApplyEffect(SpecialEffectContext context) { }
     public virtual void ModifyIncomingDamage(DamageContext context) { }
+    public virtual bool TryNegateIncomingDamage(DamageContext context) { return false; }
+    public virtual void ResetRuntimeState() { }
     public virtual void ModifyOutgoingDamage(DamageContext context) { }
     public virtual void ModifyEnemyHealing(Enemy enemy, int amount) { }
 }

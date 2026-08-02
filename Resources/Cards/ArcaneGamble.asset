@@ -9,32 +9,32 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60b37448842cc4148944b21adaf8ab57, type: 3}
-  m_Name: DestinyDice
+  m_Script: {fileID: 11500000, guid: e4f0e16aad0e5ec46ad1bef12bedc25d, type: 3}
+  m_Name: ArcaneGamble
   m_EditorClassIdentifier: 
-  cardName: Destiny Dice
-  cardDescription: Damage based on secondary roll
-  cardSprite: {fileID: -3761623330065976427, guid: a39bb8531147496438477882ccd5bb2c, type: 3}
+  cardName: ArcaneGamble
+  cardDescription: Deals magic damage based on secondary dice roll
+  cardSprite: {fileID: 0}
   baseStats:
-    damage: 0
+    damage: 15
     shield: 0
     heal: 0
     percentage1: 0
-    int1: 5
+    int1: 0
   statsPerLevel:
-    damage: 0
+    damage: 5
     shield: 0
     heal: 0
     percentage1: 0
-    int1: 2
-  line1Template: '{int1} x roll '
+    int1: 0
+  line1Template: 'base dmg: {damage}'
   line2Template: 
   line3Template: 
   upgradeLevel: 0
-  baseUpgradeCost: 10
-  baseShopCost: 10
+  baseUpgradeCost: 15
+  baseShopCost: 20
   maxUpgradeLevel: 20
-  line1Color: {r: 0.9339623, g: 0, b: 0.80920964, a: 1}
+  line1Color: {r: 0.42352942, g: 0, b: 1, a: 1}
   line2Color: {r: 1, g: 1, b: 1, a: 1}
   line3Color: {r: 1, g: 1, b: 1, a: 1}
   isUnlockedByDefault: 0

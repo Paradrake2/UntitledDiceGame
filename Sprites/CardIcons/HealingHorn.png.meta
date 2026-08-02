@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: bbc874349278e4e41bace709a17a2260
+guid: 1c4114b1b7f5bad43a6c204c911298e3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 671561930053674472
-    second: ArcaneMaster_0
+      213: 1312299549508181413
+    second: HealingHorn_0
+  - first:
+      213: -7750335819245601059
+    second: HealingHorn_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,23 +103,45 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ArcaneMaster_0
+      name: HealingHorn_0
       rect:
         serializedVersion: 2
-        x: 78
-        y: 73
-        width: 849
-        height: 849
+        x: 146
+        y: 404
+        width: 6
+        height: 13
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8e5668d640ed15900800000000000000
-      internalID: 671561930053674472
+      spriteID: 5ad1757cc79363210800000000000000
+      internalID: 1312299549508181413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingHorn_1
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 366
+        width: 616
+        height: 312
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dde31eba2a6417490800000000000000
+      internalID: -7750335819245601059
       vertices: []
       indices: 
       edges: []
@@ -125,7 +150,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: a61308b566ca65b42ae0f4fbf242225d
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -134,8 +159,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      ArcaneMaster_0: 671561930053674472
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

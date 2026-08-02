@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: bbc874349278e4e41bace709a17a2260
+guid: 405844a4066cc35409eef7f4cfb741db
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 671561930053674472
-    second: ArcaneMaster_0
+      213: -5312497963641247122
+    second: Stab_0
+  - first:
+      213: -8777645829736586006
+    second: Stab_1
+  - first:
+      213: -5757303661533080252
+    second: Stab_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +106,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ArcaneMaster_0
+      name: Stab_0
       rect:
         serializedVersion: 2
-        x: 78
-        y: 73
-        width: 849
-        height: 849
+        x: 91
+        y: 154
+        width: 894
+        height: 824
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +121,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8e5668d640ed15900800000000000000
-      internalID: 671561930053674472
+      spriteID: e6a6d27bf373646b0800000000000000
+      internalID: -5312497963641247122
       vertices: []
       indices: 
       edges: []
@@ -125,7 +131,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: a61308b566ca65b42ae0f4fbf242225d
+    spriteID: e70c25b76359ca14e9e9a600c7cd6794
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +141,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ArcaneMaster_0: 671561930053674472
+      Stab_0: -5312497963641247122
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

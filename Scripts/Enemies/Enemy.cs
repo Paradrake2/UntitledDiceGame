@@ -63,6 +63,7 @@ public class Enemy : ScriptableObject
         enemyStats.healAmount = baseHealAmount;
         enemyStats.shieldAmount = baseShieldAmount;
         statusEffects.Clear();
+        specialEffect?.ResetRuntimeState();
     }
 
     /// <summary>Physical damage hits shield first; magic damage bypasses shield entirely.</summary>
@@ -73,7 +74,15 @@ public class Enemy : ScriptableObject
         var ctx = new StatusEffectContext(FindAnyObjectByType<Player>(), this, isPlayerEffect: false);
         amount = statusEffects.ModifyIncomingDamage(amount, isMagic, ctx);
         DamageContext context = new DamageContext(amount, isMagic, currentShield > 0, this, FindAnyObjectByType<Player>(), index); // Turn number is not relevant here
-        if (specialEffect != null) specialEffect.ModifyIncomingDamage(context);
+        if (specialEffect != null)
+        {
+            specialEffect.ModifyIncomingDamage(context);
+            if (specialEffect.TryNegateIncomingDamage(context))
+            {
+                context.Amount = 0;
+                // show ward activated effect, probably triggered via event
+            }
+        }
         amount = context.Amount;
 
         Debug.Log("Final damage after status effects and special effects: " + amount);

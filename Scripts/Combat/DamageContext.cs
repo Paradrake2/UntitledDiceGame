@@ -8,7 +8,8 @@ public class DamageContext
     public Enemy Enemy;
     public Player Player;
     public int? index;
-    public DamageContext(int amount, bool isMagic, bool hasShield, Enemy enemy, Player player, int? index)
+    public DMGContextExtraValues ExtraValues;
+    public DamageContext(int amount, bool isMagic, bool hasShield, Enemy enemy, Player player, int? index, DMGContextExtraValues extraValues = null)
     {
         Amount = amount;
         IsMagic = isMagic;
@@ -17,4 +18,9 @@ public class DamageContext
         Player = player;
         this.index = index;
     }
+}
+
+public class DMGContextExtraValues
+{
+    public int hitNumber;
 }

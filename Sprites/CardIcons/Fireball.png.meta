@@ -1,10 +1,22 @@
 fileFormatVersion: 2
-guid: bbc874349278e4e41bace709a17a2260
+guid: a635ee283aa851b4989976ca62d9c3af
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 671561930053674472
-    second: ArcaneMaster_0
+      213: -6607481912129624618
+    second: Fireball_0
+  - first:
+      213: -7250195882505504687
+    second: Fireball_1
+  - first:
+      213: 4403933487624526528
+    second: Fireball_2
+  - first:
+      213: 8927358698389672400
+    second: Fireball_3
+  - first:
+      213: 2250600637640065238
+    second: Fireball_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +112,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ArcaneMaster_0
+      name: Fireball_4
       rect:
         serializedVersion: 2
-        x: 78
-        y: 73
-        width: 849
-        height: 849
+        x: 169
+        y: 54
+        width: 683
+        height: 937
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +127,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8e5668d640ed15900800000000000000
-      internalID: 671561930053674472
+      spriteID: 6d0cdc11b5dbb3f10800000000000000
+      internalID: 2250600637640065238
       vertices: []
       indices: 
       edges: []
@@ -125,7 +137,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: a61308b566ca65b42ae0f4fbf242225d
+    spriteID: 6d8be1af58958fc438c79b857f1466d7
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +147,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ArcaneMaster_0: 671561930053674472
+      Fireball_4: 2250600637640065238
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 5OfAKind
   m_EditorClassIdentifier: 
   achievementId: 5OfAKind
-  displayName: 5 of a kind!
+  displayName: 5 of a kind
   description: Roll 5 of the same number in a single turn
   icon: {fileID: 2702702223008800224, guid: 1f55a82d853ddc746bbb50bf87961bff, type: 3}
   condition: {fileID: 11400000, guid: b203903c8ec7246418409d67624039f3, type: 2}
