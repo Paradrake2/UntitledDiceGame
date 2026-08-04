@@ -4,13 +4,13 @@ using UnityEngine;
 public class EnemyStats
 {
     public int maxHealth;
-    public int shield;
+    public int shield; // amount of shield gained at start of battle
     public int physicalAttackDamage;
     public int physicalAttackAmount;
     public int magicalAttackDamage;
     public int magicalAttackAmount;
     public int healAmount;
-    public int shieldAmount;
+    public int shieldAmount; // amount of shield gained after turn, if any
     public bool HasShield => shield > 0;
 }
 
@@ -20,13 +20,13 @@ public class Enemy : ScriptableObject
     [SerializeField] private string enemyName;
     [SerializeField] private Sprite enemySprite;
     [SerializeField] private int baseMaxHealth;
-    [SerializeField] private int baseShield;
+    [SerializeField] private int baseShield; // amount of shield gained at start of battle
     [SerializeField] private int basePhysicalAttackDamage;
     [SerializeField] private int baseMagicalAttackDamage;
     [SerializeField] private int basePhysicalAttackAmount;
     [SerializeField] private int baseMagicalAttackAmount;
-    [SerializeField] private int baseHealAmount;
-    [SerializeField] private int baseShieldAmount;
+    [SerializeField] private int baseHealAmount; // amount healed every turn, if any
+    [SerializeField] private int baseShieldAmount; // amount of shield gained every turn
     [SerializeField] private int coinReward = 10;
     [SerializeField] private EnemyStats enemyStats;
     [SerializeField] private SpecialEffect specialEffect;

@@ -35,4 +35,5 @@ public abstract class SpecialEffect : ScriptableObject
     public virtual void ResetRuntimeState() { }
     public virtual void ModifyOutgoingDamage(DamageContext context) { }
     public virtual void ModifyEnemyHealing(Enemy enemy, int amount) { }
+    
 }

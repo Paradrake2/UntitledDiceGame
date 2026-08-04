@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f909a1119f74d44aab54973ea6ac8a0, type: 3}
+  m_Name: Executioner
+  m_EditorClassIdentifier: 
+  enemyName: Executioner
+  enemySprite: {fileID: 0}
+  baseMaxHealth: 120
+  baseShield: 0
+  basePhysicalAttackDamage: 50
+  baseMagicalAttackDamage: 0
+  basePhysicalAttackAmount: 2
+  baseMagicalAttackAmount: 0
+  baseHealAmount: 0
+  baseShieldAmount: 15
+  coinReward: 20
+  enemyStats:
+    maxHealth: 0
+    shield: 0
+    physicalAttackDamage: 0
+    physicalAttackAmount: 0
+    magicalAttackDamage: 0
+    magicalAttackAmount: 0
+    healAmount: 0
+    shieldAmount: 0
+  specialEffect: {fileID: 11400000, guid: 9f73157a6e2b91744943d07aa276e35d, type: 2}
+  tier: 2
+  shieldTurnIncrease: 3
+  healTurnIncrease: 0
+  physicalAttackTurnIncrease: 7
+  magicalAttackTurnIncrease: 0
