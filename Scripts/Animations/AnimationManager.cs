@@ -6,20 +6,85 @@ public interface IAnimation
 {
     void PlayAnimation();
 }
-
-
+/**
+Order of operations for animations:
+1. Intro animation (e.g. "Battle Start") plays at the start of combat.
+2. Special Effect description plays
+3. Turn number animation plays at the start of each turn. This enables dice rolling and rerolling.
+**/
 public class AnimationManager : MonoBehaviour
 {
-    public event Action<IAnimation> OnAnimationPlayed;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private static AnimationManager _instance;
+
+    private void Awake()
     {
-        
+        if (_instance != null && _instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        _instance = this;
+
+        if (Application.isPlaying)
+        {
+            DontDestroyOnLoad(gameObject);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDestroy()
     {
-        
+        if (_instance == this)
+        {
+            _instance = null;
+        }
+    }
+
+    public static AnimationManager Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = FindFirstObjectByType<AnimationManager>();
+                if (_instance == null)
+                {
+                    GameObject obj = new GameObject("AnimationManager");
+                    obj.hideFlags = HideFlags.HideAndDontSave;
+                    _instance = obj.AddComponent<AnimationManager>();
+                }
+            }
+            return _instance;
+        }
+    }
+    public event Action IntroAnimationCompleted; // called when the intro animation is completed, enables dice rolling
+    public event Action<bool> SpecialEffectAnimationStarted;
+    public event Action SpecialEffectAnimationCompleted; // called when the special effect animation is completed
+    public event Action TurnNumberAnimationCompleted; // called when the turn number animation is completed, enables dice rolling
+    public bool isStartOfBattle;
+    public float specialEffectAnimationDuration = 2f; // total duration of the special effect animation
+    public float specialEffectSquishDuration = 0.25f; // duration of the final squash transition
+    public void InvokeIntroAnimationCompleted()
+    {
+        IntroAnimationCompleted?.Invoke();
+    }
+    public void InvokeSpecialEffectAnimationStarted(bool isActive)
+    {
+        var handler = SpecialEffectAnimationStarted;
+        handler?.Invoke(isActive);
+
+        if (handler == null)
+        {
+            InvokeSpecialEffectAnimationCompleted();
+        }
+    }
+
+    public void InvokeSpecialEffectAnimationCompleted()
+    {
+        SpecialEffectAnimationCompleted?.Invoke();
+    }
+    public void InvokeTurnNumberAnimationCompleted()
+    {
+        TurnNumberAnimationCompleted?.Invoke();
     }
 }

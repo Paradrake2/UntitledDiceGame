@@ -26,6 +26,7 @@ public class CombatManager : MonoBehaviour
     public event Action<int> EnemyHealingReceived;
     public event Action<int> PlayerShieldGained;
     public event Action<int> EnemyShieldGained;
+    public event Action<int> NewTurnStarted;
     public event Action<StatusEffect, bool> StatusEffectApplied; // called when someone gains a status effect. True is player, false is enemy
     public event Action<StatusEffect, bool> StatusEffectRemoved; // called when someone loses a status effect. True is player, false is enemy
     public event Action<StatusEffect, bool> StatusEffectTriggered; // called when a status effect is triggered. True is player, false is enemy
@@ -43,15 +44,6 @@ public class CombatManager : MonoBehaviour
         if (Instance != null && Instance != this) { Destroy(gameObject); return; }
         Instance = this;
     }
-    void OnEnable()
-    {
-
-    }
-    void OnDisable()
-    {
-        
-    }
-
     public void StartBattle(int stage)
     {
         currentStage = stage;
@@ -68,9 +60,10 @@ public class CombatManager : MonoBehaviour
         enemyUI.SetEnemy(currentEnemy);
         var context = new SpecialEffectContext(currentEnemy, player, turnNumber, damageAttempted: 0, damageTaken: 0, isMagic: false);
         currentEnemy.TriggerSpecialEffect(SpecialEffectTrigger.StartOfBattle, context);
-
-        StartCoroutine(BattleLoop());
+        
+        
         BattleStarted?.Invoke();
+        StartCoroutine(BattleLoop());
     }
 
     /// <summary>Called by ShopManager after the shop closes to advance to the next stage.</summary>
@@ -83,6 +76,19 @@ public class CombatManager : MonoBehaviour
     private IEnumerator BattleLoop()
     {
         cardManagerUI?.RefreshUI();
+        if (currentEnemy.SpecialEffect != null)
+        {
+            bool animationFinished = false;
+            void OnSpecialEffectAnimationCompleted()
+            {
+                animationFinished = true;
+                AnimationManager.Instance.SpecialEffectAnimationCompleted -= OnSpecialEffectAnimationCompleted;
+            }
+
+            AnimationManager.Instance.SpecialEffectAnimationCompleted += OnSpecialEffectAnimationCompleted;
+            AnimationManager.Instance.InvokeSpecialEffectAnimationStarted(true);
+            yield return new WaitUntil(() => animationFinished);
+        }
         while (battleActive)
         {
             yield return StartCoroutine(RunPlayerTurn());
@@ -105,6 +111,7 @@ public class CombatManager : MonoBehaviour
     
     private IEnumerator RunPlayerTurn()
     {
+        NewTurnStarted?.Invoke(turnNumber);
         var ctx = new StatusEffectContext(player, currentEnemy, isPlayerEffect: true);
 
         if (player.StatusEffects.ConsumeSkipTurn())

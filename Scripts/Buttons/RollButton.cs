@@ -6,13 +6,25 @@ public class RollButton : MonoBehaviour
     [SerializeField] private DiceManagerUI diceManagerUI;
     [SerializeField] private TextMeshProUGUI buttonText;
     [SerializeField] private bool hasRolled = false; // used to determine whether this is rolling or confirming the roll
+    [SerializeField] private bool isEnabled = false; // used to determine whether the button is enabled or not
     void OnEnable()
     {
         diceManager.OnDiceFinalized += SetHasRolled;
+        AnimationManager.Instance.TurnNumberAnimationCompleted += EnableButton;
+        // CombatManager.Instance.<event> += EnableButton; // enable the button when the intro animation is completed
     }
     void OnDisable()
     {
         diceManager.OnDiceFinalized -= SetHasRolled;
+        AnimationManager.Instance.TurnNumberAnimationCompleted -= EnableButton;
+    }
+    void EnableButton()
+    {
+        isEnabled = true;
+    }
+    void DisableButton()
+    {
+        isEnabled = false;
     }
     public void SetHasRolled(int[] i)
     {
@@ -21,6 +33,7 @@ public class RollButton : MonoBehaviour
     }
     public void RollDice()
     {
+        if (!isEnabled) return; // do nothing if the button is disabled
         if (diceManager != null && !hasRolled)
         {
             diceManager.StartRoll();
