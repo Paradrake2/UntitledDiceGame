@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: HeavyHitterEffect
   m_EditorClassIdentifier: 
   effectName: HeavyHitter
-  effectDescription: Every 3 attacks, do 50% more damage
+  effectDescription: Every 3 turns, do 75% more damage
   trigger: 3
   turnThreshold: 1
   attackThreshold: 3
-  damageIncreasePercentage: 0.5
+  damageIncreasePercentage: 0.75

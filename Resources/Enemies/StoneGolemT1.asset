@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: StoneGolemT1
   m_EditorClassIdentifier: 
   enemyName: Stone Golem Tier 1
-  enemySprite: {fileID: -936910160158887385, guid: a6ed91939166be44b8c63090ca94b4e0, type: 3}
+  enemySprite: {fileID: -3030794605390870092, guid: f6966d52658221f40a4790a18c64dda4, type: 3}
   baseMaxHealth: 150
   baseShield: 50
   basePhysicalAttackDamage: 50

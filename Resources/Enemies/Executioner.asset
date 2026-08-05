@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Executioner
   m_EditorClassIdentifier: 
   enemyName: Executioner
-  enemySprite: {fileID: 0}
+  enemySprite: {fileID: -7272320325346661837, guid: 3db97cc826556aa4baa539cbdd23bd9a, type: 3}
   baseMaxHealth: 120
   baseShield: 0
   basePhysicalAttackDamage: 50

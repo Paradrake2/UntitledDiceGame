@@ -142,4 +142,8 @@ public class Enemy : ScriptableObject
         enemyStats.healAmount = baseHealAmount + stage * 5;
         enemyStats.shieldAmount = baseShieldAmount + stage * 5;
     }
+    public int GetMaxHealth()
+    {
+        return enemyStats.maxHealth;
+    }
 }

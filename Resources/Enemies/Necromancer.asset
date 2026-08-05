@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f909a1119f74d44aab54973ea6ac8a0, type: 3}
-  m_Name: WizardT1
+  m_Name: Necromancer
   m_EditorClassIdentifier: 
-  enemyName: Wizard
+  enemyName: Necromancer
   enemySprite: {fileID: 0}
-  baseMaxHealth: 75
-  baseShield: 20
+  baseMaxHealth: 130
+  baseShield: 60
   basePhysicalAttackDamage: 0
   baseMagicalAttackDamage: 20
   basePhysicalAttackAmount: 0
-  baseMagicalAttackAmount: 2
-  baseHealAmount: 10
+  baseMagicalAttackAmount: 3
+  baseHealAmount: 25
   baseShieldAmount: 0
   coinReward: 10
   enemyStats:
@@ -32,9 +32,9 @@ MonoBehaviour:
     magicalAttackAmount: 0
     healAmount: 0
     shieldAmount: 0
-  specialEffect: {fileID: 11400000, guid: c74a38185a580a849bbc81d81b8f1c09, type: 2}
+  specialEffect: {fileID: 0}
   tier: 1
   shieldTurnIncrease: 0
-  healTurnIncrease: 0
+  healTurnIncrease: 5
   physicalAttackTurnIncrease: 0
-  magicalAttackTurnIncrease: 5
+  magicalAttackTurnIncrease: 4

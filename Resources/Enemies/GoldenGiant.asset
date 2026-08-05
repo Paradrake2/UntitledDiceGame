@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f909a1119f74d44aab54973ea6ac8a0, type: 3}
-  m_Name: Vampire
+  m_Name: GoldenGiant
   m_EditorClassIdentifier: 
-  enemyName: Vampire
-  enemySprite: {fileID: -2904457877120967500, guid: d5810e75542025e468401fecb6ea375a, type: 3}
-  baseMaxHealth: 90
+  enemyName: GoldenGiant
+  enemySprite: {fileID: 0}
+  baseMaxHealth: 3000
   baseShield: 0
-  basePhysicalAttackDamage: 40
+  basePhysicalAttackDamage: 100
   baseMagicalAttackDamage: 0
-  basePhysicalAttackAmount: 2
+  basePhysicalAttackAmount: 1
   baseMagicalAttackAmount: 0
   baseHealAmount: 0
   baseShieldAmount: 0
-  coinReward: 10
+  coinReward: 0
   enemyStats:
     maxHealth: 0
     shield: 0
@@ -32,9 +32,9 @@ MonoBehaviour:
     magicalAttackAmount: 0
     healAmount: 0
     shieldAmount: 0
-  specialEffect: {fileID: 11400000, guid: c0d448f2cec472542b1b3d2079a6fe49, type: 2}
-  tier: 1
+  specialEffect: {fileID: 11400000, guid: 0316c73ae269b544eae300ab61672ff4, type: 2}
+  tier: 3
   shieldTurnIncrease: 0
   healTurnIncrease: 0
-  physicalAttackTurnIncrease: 6
+  physicalAttackTurnIncrease: 0
   magicalAttackTurnIncrease: 0

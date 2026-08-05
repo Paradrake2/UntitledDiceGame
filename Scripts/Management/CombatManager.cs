@@ -43,6 +43,14 @@ public class CombatManager : MonoBehaviour
         if (Instance != null && Instance != this) { Destroy(gameObject); return; }
         Instance = this;
     }
+    void OnEnable()
+    {
+
+    }
+    void OnDisable()
+    {
+        
+    }
 
     public void StartBattle(int stage)
     {
@@ -235,6 +243,8 @@ public class CombatManager : MonoBehaviour
 
     public void EndBattle()
     {
+        var ctx = new SpecialEffectContext(currentEnemy, player, turnNumber, damageAttempted: 0, damageTaken: 0, isMagic: false);
+        currentEnemy.TriggerSpecialEffect(SpecialEffectTrigger.EndOfBattle, ctx);
         ShopManager.Instance.OpenShop();
     }
 

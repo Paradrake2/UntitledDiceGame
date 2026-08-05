@@ -9,6 +9,7 @@ public enum SpecialEffectTrigger
     PlayerTurn,
     OnDamageTaken,
     OnDamageDealt,
+    EndOfBattle
 }
 
 // Abstract — use [CreateAssetMenu] on concrete subclasses, not here.

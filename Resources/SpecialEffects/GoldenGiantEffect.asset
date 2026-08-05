@@ -9,11 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed88f21cfa05c5640b635869259a7512, type: 3}
-  m_Name: ArcaneBarrier
+  m_Script: {fileID: 11500000, guid: 3fd02bec3dc3e474084459db154813b5, type: 3}
+  m_Name: GoldenGiantEffect
   m_EditorClassIdentifier: 
-  effectName: ArcaneBarrier
-  effectDescription: Reduces magic damage by 50%
-  trigger: 5
+  effectName: GoldenGiant
+  effectDescription: After 10 turns, end the battle and award coins based on damage
+    dealt to the enemy
+  trigger: 7
   turnThreshold: 1
-  damageReductionPercentage: 0.5
+  turnLimit: 10
