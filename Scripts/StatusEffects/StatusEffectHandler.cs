@@ -21,11 +21,8 @@ public class StatusEffectHandler
         if (!effect.Stackable)
         {
             StatusEffectInstance existing = activeEffects.Find(i => i.Effect.GetType() == effect.GetType());
-            if (existing != null)
-            {
-                existing.ExtendDuration();
-                return;
-            }
+            existing.ExtendDuration();
+            return;
         }
         activeEffects.Add(new StatusEffectInstance(effect, duration));
         

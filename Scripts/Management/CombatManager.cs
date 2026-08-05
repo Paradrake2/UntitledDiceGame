@@ -150,34 +150,11 @@ public class CombatManager : MonoBehaviour
         enemyUI.UpdateTexts();
 
         // Physical attacks - one per hit, each with a flash and a delay.
-        for (int i = 0; i < currentEnemy.EnemyStats.physicalAttackAmount; i++)
-        {
-            enemyUI.FlashPhysicalDamageText();
-            int damage = currentEnemy.EnemyStats.physicalAttackDamage;
-            int damageTaken = player.TakeDamage(damage, false);
-            PlayerDamageTaken?.Invoke(damage);
-            var pcontext = new SpecialEffectContext(currentEnemy, player, turnNumber, damageAttempted: damage, damageTaken: damageTaken, isMagic: false);
-            currentEnemy.TriggerSpecialEffect(SpecialEffectTrigger.OnDamageDealt, pcontext);
+        yield return StartCoroutine(EnemyPhysicalAttacks());
 
-            playerUI.UpdateTexts();
-            enemyUI.UpdateTexts();
-            yield return new WaitForSeconds(1f);
-        }
-
-        // Magical attacks — one per hit, each with a flash and a delay.
-        for (int i = 0; i < currentEnemy.EnemyStats.magicalAttackAmount; i++)
-        {
-            enemyUI.FlashMagicalDamageText();
-            int damage = currentEnemy.EnemyStats.magicalAttackDamage;
-            int damageTaken = player.TakeDamage(damage, true);
-            PlayerDamageTaken?.Invoke(damageTaken);
-            var mcontext = new SpecialEffectContext(currentEnemy, player, turnNumber, damageAttempted: damage, damageTaken: damageTaken, isMagic: true);
-            currentEnemy.TriggerSpecialEffect(SpecialEffectTrigger.OnDamageDealt, mcontext);
-
-            playerUI.UpdateTexts();
-            enemyUI.UpdateTexts();
-            yield return new WaitForSeconds(1f);
-        }
+        // Magical attacks - one per hit, each with a flash and a delay.
+        yield return StartCoroutine(EnemyMagicAttacks());
+        
         currentEnemy.Heal(currentEnemy.EnemyStats.healAmount);
         currentEnemy.AddShield(currentEnemy.EnemyStats.shieldAmount);
         var eotContext = new SpecialEffectContext(currentEnemy, player, turnNumber, damageAttempted: 0, damageTaken: 0, isMagic: false);
@@ -192,6 +169,39 @@ public class CombatManager : MonoBehaviour
         enemyUI.UpdateTexts();
 
         yield return null;
+    }
+    private IEnumerator EnemyPhysicalAttacks()
+    {
+        for (int i = 0; i < currentEnemy.EnemyStats.physicalAttackAmount; i++)
+        {
+            enemyUI.FlashPhysicalDamageText();
+            int damage = currentEnemy.EnemyStats.physicalAttackDamage;
+            int damageTaken = player.TakeDamage(damage, false);
+            PlayerDamageTaken?.Invoke(damage);
+            var pcontext = new SpecialEffectContext(currentEnemy, player, turnNumber, damageAttempted: damage, damageTaken: damageTaken, isMagic: false);
+            currentEnemy.TriggerSpecialEffect(SpecialEffectTrigger.OnDamageDealt, pcontext);
+
+            playerUI.UpdateTexts();
+            enemyUI.UpdateTexts();
+            yield return new WaitForSeconds(1f);
+        }
+    }
+
+    private IEnumerator EnemyMagicAttacks()
+    {
+        for (int i = 0; i < currentEnemy.EnemyStats.magicalAttackAmount; i++)
+        {
+            enemyUI.FlashMagicalDamageText();
+            int damage = currentEnemy.EnemyStats.magicalAttackDamage;
+            int damageTaken = player.TakeDamage(damage, true);
+            PlayerDamageTaken?.Invoke(damageTaken);
+            var mcontext = new SpecialEffectContext(currentEnemy, player, turnNumber, damageAttempted: damage, damageTaken: damageTaken, isMagic: true);
+            currentEnemy.TriggerSpecialEffect(SpecialEffectTrigger.OnDamageDealt, mcontext);
+
+            playerUI.UpdateTexts();
+            enemyUI.UpdateTexts();
+            yield return new WaitForSeconds(1f);
+        }
     }
     private void OnPlayerWon()
     {
