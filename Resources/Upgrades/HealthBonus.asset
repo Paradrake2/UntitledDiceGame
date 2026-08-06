@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 821f0ba6e1442da4b89a3165f85600e0, type: 3}
   m_Name: HealthBonus
   m_EditorClassIdentifier: 
-  upgradeName: HealthBonus
-  description: 
+  upgradeName: Health Bonus
+  description: Bonus to base max health
   icon: {fileID: 0}
   upgradeType: 7
   maxLevel: 10
-  gemCostPerLevel: 10
+  gemCostPerLevel: 20
   valuePerLevel: 20

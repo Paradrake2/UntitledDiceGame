@@ -6,6 +6,7 @@ public class UpgradeMenuUI : MonoBehaviour
     [SerializeField] private GameObject upgradeSlotPrefab;
     [SerializeField] private Transform slotContainer;
     [SerializeField] private TextMeshProUGUI gemText;
+    [SerializeField] private TextMeshProUGUI descriptionText;
 
     private UpgradeSlotUI[] slots;
 
@@ -53,6 +54,15 @@ public class UpgradeMenuUI : MonoBehaviour
             GameObject go = Instantiate(upgradeSlotPrefab, slotContainer);
             slots[i] = go.GetComponent<UpgradeSlotUI>();
             slots[i].Initialize(upgrades[i], this);
+        }
+    }
+    public void UpdateDescription(Upgrade upgrade)
+    {
+        if (upgrade != null)
+            descriptionText.text = upgrade.UpgradeName + "\n" + upgrade.Description + "\n" + UpgradeManager.Instance.GetTotalFloat(upgrade.UpgradeType);
+        else
+        {
+            descriptionText.text = "";
         }
     }
 }

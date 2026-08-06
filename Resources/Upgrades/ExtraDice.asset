@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 821f0ba6e1442da4b89a3165f85600e0, type: 3}
   m_Name: ExtraDice
   m_EditorClassIdentifier: 
-  upgradeName: ExtraDice
-  description: 
+  upgradeName: Extra Dice
+  description: Extra dice when rolling
   icon: {fileID: 3384596094388797420, guid: feac87dfdfa82624facd2c7e296b436a, type: 3}
   upgradeType: 4
-  maxLevel: 10
-  gemCostPerLevel: 10
+  maxLevel: 3
+  gemCostPerLevel: 100
   valuePerLevel: 1

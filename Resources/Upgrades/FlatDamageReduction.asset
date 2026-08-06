@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 821f0ba6e1442da4b89a3165f85600e0, type: 3}
-  m_Name: ExtraRerolls
+  m_Name: FlatDamageReduction
   m_EditorClassIdentifier: 
-  upgradeName: Extra Rerolls
-  description: Number of extra rerolls available
-  icon: {fileID: -6058112064887569560, guid: 67aa29bc875ecaf4e8884e8699b46cad, type: 3}
-  upgradeType: 5
-  maxLevel: 5
-  gemCostPerLevel: 20
-  valuePerLevel: 1
+  upgradeName: Flat Damage Reduction
+  description: Flat damage reduction
+  icon: {fileID: 0}
+  upgradeType: 1
+  maxLevel: 10
+  gemCostPerLevel: 25
+  valuePerLevel: 2

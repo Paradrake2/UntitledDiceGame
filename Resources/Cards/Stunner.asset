@@ -40,4 +40,4 @@ MonoBehaviour:
   isUnlockedByDefault: 0
   maxPlacements: 1
   currentPlacements: 0
-  stunEffect: {fileID: 0}
+  stunEffect: {fileID: 11400000, guid: e11d366fc4681bf478139e087a5d9b4a, type: 2}

@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     private int damageReduction;
     private int coinBonus;
     private int revivesRemaining;
-    private int healthRegen;
+    private float healthRegen;
     private int shieldRegen;
 
     public StatusEffectHandler StatusEffects => statusEffects;
@@ -38,7 +38,7 @@ public class Player : MonoBehaviour
 
         if (UpgradeManager.Instance != null)
         {
-            outgoingDamageBonus = UpgradeManager.Instance.GetTotalInt(UpgradeType.OutgoingDamageBonus);
+            outgoingDamageBonus = UpgradeManager.Instance.GetTotalInt(UpgradeType.OutgoingDamageBonus); // this should be applied in DamageManager when calculating damage, not here. Temporary changes and all that
             damageReduction     = UpgradeManager.Instance.GetTotalInt(UpgradeType.DamageReduction);
             coinBonus           = UpgradeManager.Instance.GetTotalInt(UpgradeType.CoinBonus);
             revivesRemaining    = UpgradeManager.Instance.GetTotalInt(UpgradeType.Revive);
@@ -119,5 +119,15 @@ public class Player : MonoBehaviour
         }
         coins -= amount;
         playerUI.UpdateTexts();
+    }
+    
+    // called exclusively at the start of a turn, all other healing goes through the Heal function instead
+    public void RegenerateHealth()
+    {
+        if (healthRegen > 0)
+        {
+            int heal = Mathf.CeilToInt(healthRegen * maxHealth);
+            Heal(heal);
+        }
     }
 }

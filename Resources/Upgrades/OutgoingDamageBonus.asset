@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: OutgoingDamageBonus
   m_EditorClassIdentifier: 
   upgradeName: Damage Bonus
-  description: 
+  description: Flat damage added to each attack
   icon: {fileID: 0}
   upgradeType: 0
-  maxLevel: 10
-  gemCostPerLevel: 10
-  valuePerLevel: 1
+  maxLevel: 5
+  gemCostPerLevel: 25
+  valuePerLevel: 2

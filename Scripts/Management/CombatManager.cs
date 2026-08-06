@@ -118,6 +118,7 @@ public class CombatManager : MonoBehaviour
             yield break;
 
         player.StatusEffects.TriggerEffects(StatusEffectTrigger.StartOfTurn, ctx);
+        player.RegenerateHealth();
         playerUI.UpdateTexts();
 
         diceManager.StartRoll();

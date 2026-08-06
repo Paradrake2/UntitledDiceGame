@@ -16,7 +16,7 @@ public class UpgradeManager : MonoBehaviour
     /// <summary>Fired whenever a gem upgrade is successfully purchased.</summary>
     public static event Action OnUpgradePurchased;
 
-    private int gems;
+    [SerializeField] private int gems;
     private readonly Dictionary<string, int> purchasedLevels = new Dictionary<string, int>();
 
     public int Gems => gems;
@@ -31,7 +31,7 @@ public class UpgradeManager : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad(gameObject);
-        Load();
+        //Load(); // REMEMBER TO UNCOMMENT THIS WHEN YOU WANT TO LOAD DATA FROM PLAYERPREFS
     }
 
     // ── Querying ──────────────────────────────────────────────────────────────
@@ -111,7 +111,7 @@ public class UpgradeManager : MonoBehaviour
 
     private void Load()
     {
-        gems = PlayerPrefs.GetInt("Gems", 0);
+        gems = PlayerPrefs.GetInt("Gems", 100000);
         purchasedLevels.Clear();
         if (availableUpgrades == null) return;
         foreach (Upgrade upgrade in availableUpgrades)

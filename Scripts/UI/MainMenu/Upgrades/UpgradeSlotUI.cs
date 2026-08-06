@@ -29,14 +29,12 @@ public class UpgradeSlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        // Show upgrade description in the menu's description panel
-        throw new System.NotImplementedException();
+        menu.UpdateDescription(upgrade);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        // clear description
-        throw new System.NotImplementedException();
+        menu.UpdateDescription(null);
     }
 
     // Updates level, cost, and button interactability to reflect the current state.
@@ -56,5 +54,6 @@ public class UpgradeSlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     {
         if (UpgradeManager.Instance.TryPurchase(upgrade))
             menu.RefreshAll();
+        menu.UpdateDescription(upgrade); // Update description after purchase to reflect new level and cost
     }
 }

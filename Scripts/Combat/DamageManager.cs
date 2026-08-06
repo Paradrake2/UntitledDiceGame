@@ -29,6 +29,8 @@ public class DamageManager : MonoBehaviour
         }
         var ctx = new StatusEffectContext(player, enemy, isPlayerEffect: true);
         damage = player.StatusEffects.ModifyOutgoingDamage(damage, isMagic, ctx);
+        damage = IncreaseDamageFromUpgrades(damage, isMagic);
+
         CombatManager.Instance?.NotifyEnemyDamageDealt(damage, isMagic);
         enemy.TakeDamage(damage, isMagic, 1f, cardIndex);
     }
@@ -42,6 +44,18 @@ public class DamageManager : MonoBehaviour
         var ctx = new StatusEffectContext(player, null, isPlayerEffect: false);
         damage = player.StatusEffects.ModifyIncomingDamage(damage, isMagic, ctx);
         player.TakeDamage(damage, isMagic);
+    }
+    private int IncreaseDamageFromUpgrades(int baseDamage, bool isMagic)
+    {
+        if (isMagic)
+        {
+            baseDamage = Mathf.RoundToInt(baseDamage * (1 + UpgradeManager.Instance.GetTotalFloat(UpgradeType.MagicDamageBonus)));
+        }
+        else
+        {
+            baseDamage = Mathf.RoundToInt(baseDamage * (1 + UpgradeManager.Instance.GetTotalFloat(UpgradeType.PhysicalDamageBonus)));
+        }
+        return baseDamage;
     }
     void Start()
     {
