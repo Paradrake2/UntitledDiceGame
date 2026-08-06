@@ -21,6 +21,20 @@ public class RollButton : MonoBehaviour
     void EnableButton()
     {
         isEnabled = true;
+
+        if (diceManager != null)
+        {
+            if (diceManager.CanRollThisTurn)
+            {
+                hasRolled = false;
+                buttonText.text = "Roll";
+            }
+            else
+            {
+                hasRolled = true;
+                buttonText.text = "OK";
+            }
+        }
     }
     void DisableButton()
     {
@@ -34,23 +48,24 @@ public class RollButton : MonoBehaviour
     public void RollDice()
     {
         if (!isEnabled) return; // do nothing if the button is disabled
-        if (diceManager != null && !hasRolled)
+        if (diceManager == null)
+        {
+            Debug.LogError("DiceManager not found in the scene.");
+            return;
+        }
+
+        if (diceManager.CanRollThisTurn && !hasRolled)
         {
             diceManager.StartRoll();
             diceManagerUI.UpdateDiceUI(diceManager.GetValues());
             buttonText.text = "OK";
             hasRolled = true;
         }
-        else if (diceManager != null && hasRolled)
-        {
-            diceManager.AcceptDice();
-            //diceManagerUI.ClearDiceUI();
-            buttonText.text = "Roll";
-            hasRolled = false;
-        }
         else
         {
-            Debug.LogError("DiceManager not found in the scene.");
+            diceManager.AcceptDice();
+            buttonText.text = "Roll";
+            hasRolled = false;
         }
     }
     void Start()

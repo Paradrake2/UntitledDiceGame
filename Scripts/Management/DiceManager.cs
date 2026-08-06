@@ -27,11 +27,13 @@ public class DiceManager : MonoBehaviour
     [SerializeField] private int[] diceValues;
     private int rerollsRemaining;
     private bool diceFinalized;
+    private bool rollStartedThisTurn;
     private int secondaryDieValue;
 
     public int DiceCount => diceValues != null ? diceValues.Length : diceCount;
     public int RerollsRemaining => rerollsRemaining;
     public bool DiceFinalized => diceFinalized;
+    public bool CanRollThisTurn => !rollStartedThisTurn;
     /// <summary>The result of the most recent RollSecondaryDie() call. 0 if never rolled.</summary>
     public int SecondaryDieValue => secondaryDieValue;
 
@@ -48,12 +50,25 @@ public class DiceManager : MonoBehaviour
         Instance = this;
     }
 
+    public void ResetTurnRollState()
+    {
+        rollStartedThisTurn = false;
+        diceFinalized = false;
+    }
+
     /// <summary>Roll all dice fresh at the start of the player's turn.</summary>
     public void StartRoll()
     {
+        if (rollStartedThisTurn)
+        {
+            Debug.Log("Dice roll already used this turn.");
+            return;
+        }
+
         int extraDice    = UpgradeManager.Instance != null ? UpgradeManager.Instance.GetTotalInt(UpgradeType.ExtraDice)    : 0;
         int extraRerolls = UpgradeManager.Instance != null ? UpgradeManager.Instance.GetTotalInt(UpgradeType.ExtraRerolls) : 0;
 
+        rollStartedThisTurn = true;
         diceValues = new int[diceCount + extraDice];
         rerollsRemaining = rerollsPerTurn + extraRerolls;
         diceFinalized = false;

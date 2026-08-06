@@ -121,6 +121,7 @@ public class CombatManager : MonoBehaviour
         player.RegenerateHealth();
         playerUI.UpdateTexts();
 
+        diceManager.ResetTurnRollState();
         diceManager.StartRoll();
 
         // Wait until the player accepts the dice or runs out of rerolls.
