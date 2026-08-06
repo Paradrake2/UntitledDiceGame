@@ -9,32 +9,32 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25d9cbbe397efe942a1e0e2acc430620, type: 3}
-  m_Name: Cleanse
+  m_Script: {fileID: 11500000, guid: 568ff4f458ead6141b4f17005015e857, type: 3}
+  m_Name: RitualBlast
   m_EditorClassIdentifier: 
-  cardName: Cleanse
-  cardDescription: Removes harmful effects
+  cardName: RitualBlast
+  cardDescription: Sacrifice 15% of health to deal massive magic damage
   cardSprite: {fileID: 0}
   baseStats:
     damage: 0
     shield: 0
     heal: 0
-    percentage1: 0
+    percentage1: 0.25
     int1: 0
   statsPerLevel:
     damage: 0
     shield: 0
     heal: 0
-    percentage1: 0
+    percentage1: 0.05
     int1: 0
-  line1Template: 
+  line1Template: '{percentage1}'
   line2Template: 
   line3Template: 
   upgradeLevel: 0
-  baseUpgradeCost: 15
-  baseShopCost: 25
-  maxUpgradeLevel: 10
-  line1Color: {r: 1, g: 1, b: 1, a: 1}
+  baseUpgradeCost: 80
+  baseShopCost: 60
+  maxUpgradeLevel: 3
+  line1Color: {r: 0.567342, g: 0, b: 0.735849, a: 1}
   line2Color: {r: 1, g: 1, b: 1, a: 1}
   line3Color: {r: 1, g: 1, b: 1, a: 1}
   isUnlockedByDefault: 0
