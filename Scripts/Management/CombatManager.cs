@@ -181,7 +181,7 @@ public class CombatManager : MonoBehaviour
         enemyUI.UpdateTexts();
 
         currentEnemy.StatusEffects.TriggerEffects(StatusEffectTrigger.EndOfTurn, ctx);
-        currentEnemy.IncreaseTurnStats(); // Increase enemy stats based on turn increases
+        currentEnemy.IncreaseTurnStats(currentStage); // Increase enemy stats based on turn increases
 
         enemyUI.UpdateTexts();
 

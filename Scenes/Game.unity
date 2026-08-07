@@ -1495,7 +1495,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentEnemy: {fileID: 11400000, guid: c86b4ce92a0ff4b44a8ec929cfa0520b, type: 2}
   enemyUI: {fileID: 1792508339}
-  currentStage: 0
+  currentStage: 50
   player: {fileID: 2023131267}
   playerUI: {fileID: 228033866}
   diceManager: {fileID: 784117900}

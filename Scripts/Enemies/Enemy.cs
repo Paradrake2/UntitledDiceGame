@@ -102,12 +102,18 @@ public class Enemy : ScriptableObject
             Die();
         }
     }
-    public void IncreaseTurnStats()
+    public void IncreaseTurnStats(int currentStage)
     {
-        enemyStats.shield += shieldTurnIncrease;
-        enemyStats.healAmount += healTurnIncrease;
-        enemyStats.physicalAttackDamage += physicalAttackTurnIncrease;
-        enemyStats.magicalAttackDamage += magicalAttackTurnIncrease;
+        enemyStats.shield += StageBasedStatIncrease(currentStage, shieldTurnIncrease);
+        enemyStats.healAmount += StageBasedStatIncrease(currentStage, healTurnIncrease);
+        enemyStats.physicalAttackDamage += StageBasedStatIncrease(currentStage, physicalAttackTurnIncrease);
+        enemyStats.magicalAttackDamage += StageBasedStatIncrease(currentStage, magicalAttackTurnIncrease);
+    }
+    private int StageBasedStatIncrease(int currentStage, int baseAmount)
+    {
+        float increasePerStage = 0.15f;
+        int newAmount = Mathf.RoundToInt(baseAmount * (1 + increasePerStage * currentStage));
+        return newAmount;
     }
     public void Die()
     {
