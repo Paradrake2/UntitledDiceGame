@@ -18,14 +18,4 @@ public class PlayerUI : MonoBehaviour
             coinsText.text = player.Coins.ToString();
         }
     }
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

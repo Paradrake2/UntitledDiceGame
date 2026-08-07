@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
             damageReduction     = UpgradeManager.Instance.GetTotalInt(UpgradeType.DamageReduction);
             coinBonus           = UpgradeManager.Instance.GetTotalInt(UpgradeType.CoinBonus);
             revivesRemaining    = UpgradeManager.Instance.GetTotalInt(UpgradeType.Revive);
-            healthRegen         = UpgradeManager.Instance.GetTotalInt(UpgradeType.HealthRegen);
+            healthRegen         = UpgradeManager.Instance.GetTotalFloat(UpgradeType.HealthRegen);
             shieldRegen         = UpgradeManager.Instance.GetTotalInt(UpgradeType.ShieldRegen);
         }
     }
@@ -58,12 +58,19 @@ public class Player : MonoBehaviour
         if (isMagic)
         {
             currentHealth = Mathf.Max(0, currentHealth - reduced);
+            // call player health damage taken
+            CombatManager.Instance?.NotifyPlayerHealthDamageTakenUI(reduced); // for UI animation
         }
         else
         {
             int shieldAbsorbed = Mathf.Min(currentShield, reduced);
             currentShield -= shieldAbsorbed;
+            if (shieldAbsorbed > 0)
+            {
+                CombatManager.Instance?.NotifyPlayerShieldDamageTakenUI(shieldAbsorbed); // for UI animation
+            }
             int remaining = reduced - shieldAbsorbed;
+            if (remaining >0 ) CombatManager.Instance?.NotifyPlayerHealthDamageTakenUI(remaining); // for UI animation
             currentHealth = Mathf.Max(0, currentHealth - remaining);
         }
         playerUI.UpdateTexts();
@@ -75,27 +82,33 @@ public class Player : MonoBehaviour
         currentHealth = Mathf.Min(maxHealth, currentHealth + amount);
         Debug.Log($"Player healed for {amount}. Current health: {currentHealth}/{maxHealth}");
         if (playerUI != null) playerUI.UpdateTexts();
-        CombatManager.Instance?.NotifyPlayerHealingReceived(amount);
+        CombatManager.Instance?.NotifyPlayerHealingReceived(amount); // for logic
+        if (amount > 0) CombatManager.Instance?.NotifyPlayerHealthHealedUI(amount); // for UI animation
     }
 
     public void AddShield(int amount)
     {
         currentShield += amount;
         if (playerUI != null) playerUI.UpdateTexts();
-        CombatManager.Instance?.NotifyPlayerShieldGained(amount);
+        CombatManager.Instance?.NotifyPlayerShieldGained(amount); // for logic
+        if (amount > 0) CombatManager.Instance?.NotifyPlayerShieldHealedUI(amount); // for UI animation
     }
-
+    // for instances where coin gain is affected by coin bonus
     public void AddCoins(int amount)
     {
         int total = amount + coinBonus;
         coins += total;
         playerUI.UpdateTexts();
         CombatManager.Instance?.NotifyPlayerCoinsGained(total);
+        CombatManager.Instance?.NotifyPlayerCoinsChangedUI(coins); // for UI animation
     }
+    // for instances where coin gain is not affected by coin bonus
     public void AddCointsFlat(int amount)
     {
         coins += amount;
         playerUI.UpdateTexts();
+        CombatManager.Instance?.NotifyPlayerCoinsGained(amount);
+        CombatManager.Instance?.NotifyPlayerCoinsChangedUI(coins); // for UI animation
     }
     /// <summary>
     /// Consumes one revive charge, restoring the player to full health.
@@ -119,6 +132,7 @@ public class Player : MonoBehaviour
         }
         coins -= amount;
         playerUI.UpdateTexts();
+        CombatManager.Instance?.NotifyPlayerCoinsChangedUI(coins); // for UI animation
     }
     
     // called exclusively at the start of a turn, all other healing goes through the Heal function instead
@@ -127,6 +141,7 @@ public class Player : MonoBehaviour
         if (healthRegen > 0)
         {
             int heal = Mathf.CeilToInt(healthRegen * maxHealth);
+            Debug.Log($"Player regenerates {heal} health at the start of the turn.");
             Heal(heal);
         }
     }

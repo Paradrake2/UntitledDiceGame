@@ -89,13 +89,20 @@ public class Enemy : ScriptableObject
         if (isMagic)
         {
             currentHealth = Mathf.Max(0, currentHealth - amount);
+            CombatManager.Instance?.NotifyEnemyHealthDamageTakenUI(amount); // for UI animation
         }
         else
         {
             int shieldAbsorbed = Mathf.Min(currentShield, amount);
             currentShield -= shieldAbsorbed;
+            if (shieldAbsorbed > 0)
+            {
+                CombatManager.Instance?.NotifyEnemyShieldDamageTakenUI(shieldAbsorbed); // for UI animation
+            }
             int remaining = amount - shieldAbsorbed;
             currentHealth = Mathf.Max(0, currentHealth - remaining);
+            if (remaining > 0) CombatManager.Instance?.NotifyEnemyHealthDamageTakenUI(amount); // for UI animation
+
         }
         if (currentHealth <= 0)
         {
@@ -122,12 +129,14 @@ public class Enemy : ScriptableObject
     public void Heal(int amount)
     {
         currentHealth = Mathf.Min(enemyStats.maxHealth, currentHealth + amount);
+        if (amount > 0)CombatManager.Instance?.NotifyEnemyHealthHealedUI(amount); // for UI animation
         Debug.Log("" + enemyName + " healed for " + amount + " health. Current health: " + currentHealth);
     }
 
     public void AddShield(int amount)
     {
         currentShield += amount;
+        if (amount > 0) CombatManager.Instance?.NotifyEnemyShieldHealedUI(amount); // for UI animation
         Debug.Log("" + enemyName + " gained " + amount + " shield. Current shield: " + currentShield);
     }
 

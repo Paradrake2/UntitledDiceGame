@@ -39,6 +39,17 @@ public class CombatManager : MonoBehaviour
     public event Action<int>      PlayerCoinsGained;
     public event Action<int>      StageIncreased;
     public event Action<int, bool> EnemyDamageDealt; // (amount, isMagic) — player dealing damage to enemy
+
+    // UI events for damage/healing/shield changes. These are separate from the actual damage/healing methods to allow for UI animations to play without affecting the underlying game logic.
+    public event Action<int> PlayerHealthDamageTaken; // for UI purposes
+    public event Action<int> PlayerHealthHealed; // for UI purposes
+    public event Action<int> PlayerShieldDamageTaken; // for UI purposes
+    public event Action<int> PlayerShieldHealed; // for UI purposes
+    public event Action<int> EnemyHealthDamageTaken; // for UI purposes
+    public event Action<int> EnemyHealthHealed; // for UI purposes
+    public event Action<int> EnemyShieldDamageTaken; // for UI purposes
+    public event Action<int> EnemyShieldHealed; // for UI purposes
+    public event Action<int> PlayerCoinsChanged; // for UI purposes
     private void Awake()
     {
         if (Instance != null && Instance != this) { Destroy(gameObject); return; }
@@ -311,4 +322,25 @@ public class CombatManager : MonoBehaviour
 
     public void NotifyPlayerCoinsGained(int amount)
         => PlayerCoinsGained?.Invoke(amount);
+
+    
+    // UI functions for damage/healing/shield changes. These are separate from the actual damage/healing methods to allow for UI animations to play without affecting the underlying game logic.
+    public void NotifyPlayerHealthDamageTakenUI(int amount)
+        => PlayerHealthDamageTaken?.Invoke(amount);
+    public void NotifyPlayerHealthHealedUI(int amount)
+        => PlayerHealthHealed?.Invoke(amount);
+    public void NotifyPlayerShieldDamageTakenUI(int amount)
+        => PlayerShieldDamageTaken?.Invoke(amount);
+    public void NotifyPlayerShieldHealedUI(int amount)
+        => PlayerShieldHealed?.Invoke(amount);
+    public void NotifyEnemyHealthDamageTakenUI(int amount)
+        => EnemyHealthDamageTaken?.Invoke(amount);
+    public void NotifyEnemyHealthHealedUI(int amount)
+        => EnemyHealthHealed?.Invoke(amount);
+    public void NotifyEnemyShieldDamageTakenUI(int amount)
+        => EnemyShieldDamageTaken?.Invoke(amount);
+    public void NotifyEnemyShieldHealedUI(int amount)
+        => EnemyShieldHealed?.Invoke(amount);
+    public void NotifyPlayerCoinsChangedUI(int amount)
+        => PlayerCoinsChanged?.Invoke(amount);
 }
