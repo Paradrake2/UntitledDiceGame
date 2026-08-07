@@ -1,7 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-public class ShopBuyCardUI : MonoBehaviour
+using UnityEngine.EventSystems;
+public class ShopBuyCardUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private Image icon;
     [SerializeField] private Card card;
@@ -13,5 +14,15 @@ public class ShopBuyCardUI : MonoBehaviour
         if (icon != null && card != null && card.CardSprite != null)
             icon.sprite = card.CardSprite;
         costText.text = card.BaseShopCost.ToString();
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        ShopDescription.Instance.UpdateDescription(card);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        ShopDescription.Instance.UpdateDescription(null);
     }
 }

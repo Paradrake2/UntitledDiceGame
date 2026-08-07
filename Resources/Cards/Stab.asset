@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Stab
   m_EditorClassIdentifier: 
   cardName: Stab
-  cardDescription: Basic Physical Damage
+  cardDescription: 'Deals {damage} physical damage '
   cardSprite: {fileID: -5312497963641247122, guid: 405844a4066cc35409eef7f4cfb741db, type: 3}
   baseStats:
     damage: 10
@@ -34,8 +34,9 @@ MonoBehaviour:
   baseUpgradeCost: 10
   baseShopCost: 0
   maxUpgradeLevel: 20
-  maxPlacements: 3
   line1Color: {r: 0.48235294, g: 0, b: 0, a: 1}
   line2Color: {r: 1, g: 1, b: 1, a: 1}
   line3Color: {r: 1, g: 1, b: 1, a: 1}
   isUnlockedByDefault: 1
+  maxPlacements: 3
+  currentPlacements: 0

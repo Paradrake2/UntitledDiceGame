@@ -64,6 +64,7 @@ public abstract class Card : ScriptableObject
     public bool IsUnlockedByDefault => isUnlockedByDefault;
     public int BaseUpgradeCost => baseUpgradeCost;
     public int BaseShopCost => baseShopCost;
+    public CardStats StatsPerLevel => statsPerLevel;
 
     private string FormatTemplate(string template)
     {
@@ -128,5 +129,9 @@ public abstract class Card : ScriptableObject
         {
             Debug.LogWarning("Card has no placements to remove.");
         }
+    }
+    public bool IsMaxLevel()
+    {
+        return upgradeLevel >= maxUpgradeLevel;
     }
 }

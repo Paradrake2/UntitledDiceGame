@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Fireball
   m_EditorClassIdentifier: 
   cardName: Fireball
-  cardDescription: Basic Magic Damage
+  cardDescription: Deals {damage} magic damage
   cardSprite: {fileID: 2250600637640065238, guid: a635ee283aa851b4989976ca62d9c3af, type: 3}
   baseStats:
     damage: 12
@@ -34,8 +34,9 @@ MonoBehaviour:
   baseUpgradeCost: 10
   baseShopCost: 0
   maxUpgradeLevel: 20
-  maxPlacements: 3
   line1Color: {r: 0.42232418, g: 0, b: 1, a: 1}
   line2Color: {r: 1, g: 1, b: 1, a: 1}
   line3Color: {r: 1, g: 1, b: 1, a: 1}
   isUnlockedByDefault: 1
+  maxPlacements: 3
+  currentPlacements: 0

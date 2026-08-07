@@ -1,8 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.EventSystems;
 
-public class ShopUpgradeCardUI : MonoBehaviour
+public class ShopUpgradeCardUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private ShopUpgradeCard shopUpgradeCard;
     [SerializeField] private TextMeshProUGUI priceText;
@@ -25,10 +26,20 @@ public class ShopUpgradeCardUI : MonoBehaviour
         {
             priceText.text = card.GetUpgradeCost().ToString();
             icon.sprite = card.CardSprite;
+            ShopDescription.Instance.UpdateDescription(card);
         }
     }
     public Card GetCard()
     {
         return shopUpgradeCard.GetCard();
+    }
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        ShopDescription.Instance.UpdateDescription(GetCard());
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        ShopDescription.Instance.UpdateDescription(null);
     }
 }

@@ -8,7 +8,7 @@ using UnityEngine.EventSystems;
 /// Requires a CanvasGroup component on the same GameObject.
 /// </summary>
 [RequireComponent(typeof(CanvasGroup))]
-public class ShopDraggableCardUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class ShopDraggableCardUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private Image cardImage;
 
@@ -67,5 +67,15 @@ public class ShopDraggableCardUI : MonoBehaviour, IBeginDragHandler, IDragHandle
     {
         transform.SetParent(originalParent, false);
         ((RectTransform)transform).anchoredPosition = originalAnchoredPosition;
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        ShopDescription.Instance.UpdateDescription(card);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        ShopDescription.Instance.UpdateDescription(null);
     }
 }
