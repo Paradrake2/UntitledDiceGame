@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: ArcaneGamble
   m_EditorClassIdentifier: 
   cardName: ArcaneGamble
-  cardDescription: Deals magic damage based on secondary dice roll
+  cardDescription: 'Deals magic damage based on secondary dice roll. Base damage:
+    {damage}. (1/3, 1/2, 1, 1.5, 2.5, 4)x'
   cardSprite: {fileID: 0}
   baseStats:
     damage: 15
@@ -38,3 +39,5 @@ MonoBehaviour:
   line2Color: {r: 1, g: 1, b: 1, a: 1}
   line3Color: {r: 1, g: 1, b: 1, a: 1}
   isUnlockedByDefault: 0
+  maxPlacements: 1
+  currentPlacements: 0

@@ -5,12 +5,12 @@ public class PlayerHealthGainedAnimation : ValueAnimation
     [SerializeField] private Transform anchor;
     private void OnEnable()
     {
-        CombatManager.Instance.PlayerHealthHealed += HandlePlayerHealthGained;
+        combatManager.PlayerHealthHealed += HandlePlayerHealthGained;
     }
 
     private void OnDisable()
     {
-        CombatManager.Instance.PlayerHealthHealed -= HandlePlayerHealthGained;
+        combatManager.PlayerHealthHealed -= HandlePlayerHealthGained;
     }
 
     private void HandlePlayerHealthGained(int amount)

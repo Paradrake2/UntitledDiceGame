@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: HealingHorn
   m_EditorClassIdentifier: 
   cardName: HealingHorn
-  cardDescription: Heals the player and boosts damage a little
+  cardDescription: Heals the player by {heal} and boosts damage by 30% for the rest
+    of the current turn.
   cardSprite: {fileID: -7750335819245601059, guid: 1c4114b1b7f5bad43a6c204c911298e3, type: 3}
   baseStats:
     damage: 0
@@ -38,4 +39,6 @@ MonoBehaviour:
   line2Color: {r: 1, g: 1, b: 1, a: 1}
   line3Color: {r: 1, g: 1, b: 1, a: 1}
   isUnlockedByDefault: 0
+  maxPlacements: 1
+  currentPlacements: 0
   effect: {fileID: 11400000, guid: 53ebcaddf9de81b43ab7e1dc0a471f70, type: 2}

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Coinbag
   m_EditorClassIdentifier: 
   cardName: Coinbag
-  cardDescription: Gives some coins
+  cardDescription: Gives {int1} coins
   cardSprite: {fileID: 6382968433947806530, guid: 2ea5c262ab6c6384b89a96a58519119b, type: 3}
   baseStats:
     damage: 0
@@ -38,3 +38,5 @@ MonoBehaviour:
   line2Color: {r: 1, g: 1, b: 1, a: 1}
   line3Color: {r: 1, g: 1, b: 1, a: 1}
   isUnlockedByDefault: 0
+  maxPlacements: 1
+  currentPlacements: 0

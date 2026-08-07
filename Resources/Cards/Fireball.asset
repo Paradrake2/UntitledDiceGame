@@ -38,5 +38,5 @@ MonoBehaviour:
   line2Color: {r: 1, g: 1, b: 1, a: 1}
   line3Color: {r: 1, g: 1, b: 1, a: 1}
   isUnlockedByDefault: 1
-  maxPlacements: 3
+  maxPlacements: 2
   currentPlacements: 0

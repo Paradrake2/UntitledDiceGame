@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: CoinSmash
   m_EditorClassIdentifier: 
   cardName: Coin Smash
-  cardDescription: Deals damage based on how many coins you have
+  cardDescription: Deals damage based on how many coins you have. {percentage1} x
+    number of coins, with a maximum damage of {int1}.
   cardSprite: {fileID: 6891742187273197696, guid: 57e414f9ba287fa48b664c29c410acc1, type: 3}
   baseStats:
     damage: 0
@@ -38,3 +39,5 @@ MonoBehaviour:
   line2Color: {r: 0.41509432, g: 0.03328587, b: 0.03328587, a: 1}
   line3Color: {r: 1, g: 1, b: 1, a: 1}
   isUnlockedByDefault: 0
+  maxPlacements: 1
+  currentPlacements: 0

@@ -5,12 +5,12 @@ public class PlayerShieldGainedAnimation : ValueAnimation
     [SerializeField] private Transform anchor;
     private void OnEnable()
     {
-        CombatManager.Instance.PlayerShieldHealed += HandlePlayerShieldGained;
+        combatManager.PlayerShieldHealed += HandlePlayerShieldGained;
     }
 
     private void OnDisable()
     {
-        CombatManager.Instance.PlayerShieldHealed -= HandlePlayerShieldGained;
+        combatManager.PlayerShieldHealed -= HandlePlayerShieldGained;
     }
 
     private void HandlePlayerShieldGained(int amount)

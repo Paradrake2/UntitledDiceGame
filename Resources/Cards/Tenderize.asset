@@ -13,20 +13,20 @@ MonoBehaviour:
   m_Name: Tenderize
   m_EditorClassIdentifier: 
   cardName: Tenderize
-  cardDescription: Increase physical damage enemy takes by 50%
+  cardDescription: Increase physical damage enemy takes by 50% for {int1} turns
   cardSprite: {fileID: 8723068707584747111, guid: c7b29c5a22e0929419f4fde19f546444, type: 3}
   baseStats:
     damage: 0
     shield: 0
     heal: 0
     percentage1: 0
-    int1: 0
+    int1: 1
   statsPerLevel:
     damage: 0
     shield: 0
     heal: 0
     percentage1: 0
-    int1: 0
+    int1: 1
   line1Template: '{damage}'
   line2Template: 
   line3Template: 
@@ -38,4 +38,6 @@ MonoBehaviour:
   line2Color: {r: 1, g: 1, b: 1, a: 1}
   line3Color: {r: 1, g: 1, b: 1, a: 1}
   isUnlockedByDefault: 0
+  maxPlacements: 1
+  currentPlacements: 0
   statusEffect: {fileID: 11400000, guid: df203ee36e8521645a7e4f892ff1fa8b, type: 2}

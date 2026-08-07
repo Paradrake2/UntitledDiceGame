@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Smite
   m_EditorClassIdentifier: 
   cardName: Smite
-  cardDescription: Deals both physical and magic damage
+  cardDescription: Deals {damage} / 2 physical and {damage} / 2 magic damage. If
+    secondary roll is even, deal {int1} magic damage. If secondary roll is odd, deal
+    {int1} physical damage.
   cardSprite: {fileID: 0}
   baseStats:
     damage: 20
@@ -38,3 +40,5 @@ MonoBehaviour:
   line2Color: {r: 0, g: 0.770165, b: 0.8018868, a: 1}
   line3Color: {r: 1, g: 1, b: 1, a: 1}
   isUnlockedByDefault: 0
+  maxPlacements: 1
+  currentPlacements: 0

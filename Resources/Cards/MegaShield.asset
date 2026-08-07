@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MegaShield
   m_EditorClassIdentifier: 
   cardName: MegaShield
-  cardDescription: Gives the player a large amount of shield
+  cardDescription: Adds {shield} shield to the player
   cardSprite: {fileID: 0}
   baseStats:
     damage: 0
@@ -38,3 +38,5 @@ MonoBehaviour:
   line2Color: {r: 1, g: 1, b: 1, a: 1}
   line3Color: {r: 1, g: 1, b: 1, a: 1}
   isUnlockedByDefault: 0
+  maxPlacements: 1
+  currentPlacements: 0

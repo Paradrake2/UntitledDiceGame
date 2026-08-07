@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: DeathScythe
   m_EditorClassIdentifier: 
   cardName: Death Scythe
-  cardDescription: Damage plus healing based on damage
+  cardDescription: Deals {damage} physical damage and heals the player by {percentage1}
+    of the damage dealt.
   cardSprite: {fileID: 5743755899031031118, guid: f690504d0894ff74ba2a0f8936bc3e80, type: 3}
   baseStats:
     damage: 20
@@ -38,3 +39,5 @@ MonoBehaviour:
   line2Color: {r: 0.12192824, g: 0.5566038, b: 0.028880388, a: 1}
   line3Color: {r: 1, g: 1, b: 1, a: 1}
   isUnlockedByDefault: 0
+  maxPlacements: 1
+  currentPlacements: 0

@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: CoinSacrifice
   m_EditorClassIdentifier: 
   cardName: CoinSacrifice
-  cardDescription: Sacrifices coins to heal and grant a shield
+  cardDescription: Sacrifices {int1} coins to recover {heal} health and grant {shield}
+    shield
   cardSprite: {fileID: 0}
   baseStats:
     damage: 0

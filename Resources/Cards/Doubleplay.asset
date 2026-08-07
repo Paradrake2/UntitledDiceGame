@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Doubleplay
   cardDescription: Rolls secondary dice to determine which card to play and plays
-    that card multiple times
+    that card {int1} times
   cardSprite: {fileID: 0}
   baseStats:
     damage: 0
@@ -32,10 +32,12 @@ MonoBehaviour:
   line2Template: 
   line3Template: 
   upgradeLevel: 0
-  baseUpgradeCost: 70
-  baseShopCost: 30
-  maxUpgradeLevel: 3
+  baseUpgradeCost: 100
+  baseShopCost: 40
+  maxUpgradeLevel: 2
   line1Color: {r: 0.162295, g: 0.029503396, b: 0.4811321, a: 1}
   line2Color: {r: 1, g: 1, b: 1, a: 1}
   line3Color: {r: 1, g: 1, b: 1, a: 1}
   isUnlockedByDefault: 0
+  maxPlacements: 1
+  currentPlacements: 0

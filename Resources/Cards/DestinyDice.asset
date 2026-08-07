@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DestinyDice
   m_EditorClassIdentifier: 
   cardName: Destiny Dice
-  cardDescription: Damage based on secondary roll
+  cardDescription: Damage dealt is {int1} x secondary dice roll
   cardSprite: {fileID: -3761623330065976427, guid: a39bb8531147496438477882ccd5bb2c, type: 3}
   baseStats:
     damage: 0
@@ -38,3 +38,5 @@ MonoBehaviour:
   line2Color: {r: 1, g: 1, b: 1, a: 1}
   line3Color: {r: 1, g: 1, b: 1, a: 1}
   isUnlockedByDefault: 0
+  maxPlacements: 1
+  currentPlacements: 0

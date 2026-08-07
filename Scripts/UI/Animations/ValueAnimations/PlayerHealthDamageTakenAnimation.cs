@@ -6,12 +6,12 @@ public class PlayerHealthDamageTakenAnimation : ValueAnimation
 
     private void OnEnable()
     {
-        CombatManager.Instance.PlayerHealthDamageTaken += HandlePlayerDamageTaken;
+        combatManager.PlayerHealthDamageTaken += HandlePlayerDamageTaken;
     }
 
     private void OnDisable()
     {
-        CombatManager.Instance.PlayerHealthDamageTaken -= HandlePlayerDamageTaken;
+        combatManager.PlayerHealthDamageTaken -= HandlePlayerDamageTaken;
     }
 
     private void HandlePlayerDamageTaken(int amount)

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DamagePotion
   m_EditorClassIdentifier: 
   cardName: Damage Potion
-  cardDescription: Increases damage for the couple attacks
+  cardDescription: Increases damage by 50% for the next {int1} turns.
   cardSprite: {fileID: 1009049853055315898, guid: 453f69b279efb374cbdec0df9db342e1, type: 3}
   baseStats:
     damage: 0
@@ -38,4 +38,6 @@ MonoBehaviour:
   line2Color: {r: 1, g: 1, b: 1, a: 1}
   line3Color: {r: 1, g: 1, b: 1, a: 1}
   isUnlockedByDefault: 0
+  maxPlacements: 1
+  currentPlacements: 0
   damagePotionEffect: {fileID: 11400000, guid: 35de2a0888f6c184ea38da57df01dd91, type: 2}

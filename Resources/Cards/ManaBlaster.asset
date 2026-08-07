@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: ManaBlaster
   m_EditorClassIdentifier: 
   cardName: ManaBlaster
-  cardDescription: Attacks up to 3 times depending on secondary dice roll
+  cardDescription: Attacks up to 3 times, dealing (damage) magic damage, depending
+    on secondary dice roll
   cardSprite: {fileID: 0}
   baseStats:
     damage: 10
@@ -38,3 +39,5 @@ MonoBehaviour:
   line2Color: {r: 1, g: 1, b: 1, a: 1}
   line3Color: {r: 1, g: 1, b: 1, a: 1}
   isUnlockedByDefault: 0
+  maxPlacements: 1
+  currentPlacements: 0

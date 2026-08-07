@@ -153,6 +153,7 @@ public class CombatManager : MonoBehaviour
             yield return new WaitForSeconds(1f);
         }
 
+        player.StatusEffects.RemoveEffectsThatExpireAtTurnEnd(true);
         player.StatusEffects.TriggerEffects(StatusEffectTrigger.EndOfTurn, ctx);
         playerUI.UpdateTexts();
         PlayerTurnEnded?.Invoke();
@@ -191,6 +192,7 @@ public class CombatManager : MonoBehaviour
         currentEnemy.TriggerSpecialEffect(SpecialEffectTrigger.AfterNTurns, eotContext);
         enemyUI.UpdateTexts();
 
+        currentEnemy.StatusEffects.RemoveEffectsThatExpireAtTurnEnd(false);
         currentEnemy.StatusEffects.TriggerEffects(StatusEffectTrigger.EndOfTurn, ctx);
         currentEnemy.IncreaseTurnStats(currentStage); // Increase enemy stats based on turn increases
 

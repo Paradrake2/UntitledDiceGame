@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Weaken
   m_EditorClassIdentifier: 
   cardName: Weaken
-  cardDescription: Weaken physical damage by 50%
+  cardDescription: Weaken physical damage by 50% for {int1} turns.
   cardSprite: {fileID: 3758734644524211337, guid: ba0f14b791066254ab72160ad0ab05c3, type: 3}
   baseStats:
     damage: 0
@@ -38,4 +38,6 @@ MonoBehaviour:
   line2Color: {r: 1, g: 1, b: 1, a: 1}
   line3Color: {r: 1, g: 1, b: 1, a: 1}
   isUnlockedByDefault: 0
+  maxPlacements: 1
+  currentPlacements: 0
   statusEffect: {fileID: 11400000, guid: 218b8fae250c3524c81f83bfe7df2644, type: 2}

@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Stunner
   m_EditorClassIdentifier: 
   cardName: Stunner
-  cardDescription: Deals physical damage with a change to stun
+  cardDescription: Deals {damage} physical damage with a {percentage1} chance to
+    stun
   cardSprite: {fileID: 0}
   baseStats:
     damage: 15

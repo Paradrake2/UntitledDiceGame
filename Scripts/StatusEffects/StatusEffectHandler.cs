@@ -110,6 +110,32 @@ public class StatusEffectHandler
         }
         return false;
     }
+    public void RemoveEffectsThatExpireAtTurnEnd(bool isPlayerEffect)
+    {
+        for (int i = activeEffects.Count - 1; i >= 0; i--)
+        {
+            StatusEffectInstance instance = activeEffects[i];
+            if (instance.Effect.Trigger != StatusEffectTrigger.OnPhysicalAttack &&
+                instance.Effect.Trigger != StatusEffectTrigger.OnMagicAttack)
+            {
+                continue;
+            }
+
+            activeEffects.RemoveAt(i);
+            if (CombatManager.Instance != null)
+            {
+                if (isPlayerEffect)
+                {
+                    CombatManager.Instance.NotifyPlayerStatusEffectRemoved(instance.Effect);
+                }
+                else
+                {
+                    CombatManager.Instance.NotifyEnemyStatusEffectRemoved(instance.Effect);
+                }
+            }
+        }
+    }
+
     public void RemoveEffect(StatusEffect effect)
     {
         for (int i = 0; i < activeEffects.Count; i++)

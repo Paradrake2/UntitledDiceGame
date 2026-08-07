@@ -12,6 +12,7 @@ public abstract class ValueAnimation : MonoBehaviour
     [SerializeField] private float fadeDuration = 0.5f;
     [SerializeField] private Color textColor = Color.white;
     [SerializeField] private Vector3 spawnOffset;
+    [SerializeField] protected CombatManager combatManager;
 
     public void PlayAnimation(int value, Transform anchor = null)
     {

@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: RitualBlast
   m_EditorClassIdentifier: 
   cardName: RitualBlast
-  cardDescription: Sacrifice 15% of health to deal massive magic damage
+  cardDescription: Sacrifice 15% of health to deal magic damage equivalent to {percentage1}
+    of the enemy's max health.
   cardSprite: {fileID: 0}
   baseStats:
     damage: 0

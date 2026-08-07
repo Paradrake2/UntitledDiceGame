@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BasicShield
   m_EditorClassIdentifier: 
   cardName: Basic Shield
-  cardDescription: Gain some shield
+  cardDescription: Gain {shield} shield
   cardSprite: {fileID: 7920836889999231377, guid: 42a65d4d40080ba498a72b5dde1f2791, type: 3}
   baseStats:
     damage: 0
@@ -38,3 +38,5 @@ MonoBehaviour:
   line2Color: {r: 1, g: 1, b: 1, a: 1}
   line3Color: {r: 1, g: 1, b: 1, a: 1}
   isUnlockedByDefault: 1
+  maxPlacements: 2
+  currentPlacements: 0

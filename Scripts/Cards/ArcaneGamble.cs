@@ -32,7 +32,7 @@ public class ArcaneGamble : Card
                 DamageManager.Instance.ApplyDamageToEnemy(enemy, player, damage4, true, index);
                 break;
             case 6:
-                int damage5 = Mathf.RoundToInt(Damage * 5 * multiplier) + player.OutgoingDamageBonus;
+                int damage5 = Mathf.RoundToInt(Damage * 4 * multiplier) + player.OutgoingDamageBonus;
                 DamageManager.Instance.ApplyDamageToEnemy(enemy, player, damage5, true, index);
                 break;
             default:
