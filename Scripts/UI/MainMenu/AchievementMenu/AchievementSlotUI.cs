@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 public class AchievementSlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private Image iconImage;
+    [SerializeField] private Image backgroundImage;
     [SerializeField] private Achievement achievement;
     [SerializeField] private AchievementMenuUI achievementMenuUI;
     public void SetAchievement(Achievement achievement, AchievementMenuUI achievementMenuUI)
@@ -13,6 +14,7 @@ public class AchievementSlotUI : MonoBehaviour, IPointerEnterHandler, IPointerEx
         this.achievement = achievement;
         iconImage.sprite = achievement.Icon;
         this.achievementMenuUI = achievementMenuUI;
+        this.backgroundImage.color = achievement.BgColor;
     }
     private void IsUnlocked()
     {

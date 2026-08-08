@@ -5,6 +5,57 @@ TextureImporter:
   - first:
       213: 2702702223008800224
     second: 5OfAKind_0
+  - first:
+      213: -8118893508228018070
+    second: 5OfAKind_1
+  - first:
+      213: 3349838596835910831
+    second: 5OfAKind_2
+  - first:
+      213: -7730154536620519506
+    second: 5OfAKind_3
+  - first:
+      213: -3361924665300190628
+    second: 5OfAKind_4
+  - first:
+      213: 139165525365549557
+    second: 5OfAKind_5
+  - first:
+      213: -4585139839010613002
+    second: 5OfAKind_6
+  - first:
+      213: 9063269884702867142
+    second: 5OfAKind_7
+  - first:
+      213: 5482273590090486974
+    second: 5OfAKind_8
+  - first:
+      213: 8783661160253801037
+    second: 5OfAKind_9
+  - first:
+      213: -6313268042454011256
+    second: 5OfAKind_10
+  - first:
+      213: 8856395672569159188
+    second: 5OfAKind_11
+  - first:
+      213: 251087032391348224
+    second: 5OfAKind_12
+  - first:
+      213: 8977058840342615326
+    second: 5OfAKind_13
+  - first:
+      213: -2767542839374014218
+    second: 5OfAKind_14
+  - first:
+      213: -1816023211304941560
+    second: 5OfAKind_15
+  - first:
+      213: 1735211756635647806
+    second: 5OfAKind_16
+  - first:
+      213: 8045965636731790852
+    second: 5OfAKind_17
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,20 +154,20 @@ TextureImporter:
       name: 5OfAKind_0
       rect:
         serializedVersion: 2
-        x: 161
-        y: 126
-        width: 670
-        height: 646
+        x: 108
+        y: 23
+        width: 800
+        height: 800
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 0ed19103a5de18520800000000000000
-      internalID: 2702702223008800224
+      spriteID: a9c5aac0c4dc2fc448ca155b54d1f520
+      internalID: 234272991
       vertices: []
       indices: 
       edges: []
@@ -125,7 +176,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: b68fee5a3acdccd46a2cb6f83f6c9506
     internalID: 0
     vertices: []
     indices: 
@@ -134,7 +185,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      5OfAKind_0: 234272991
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

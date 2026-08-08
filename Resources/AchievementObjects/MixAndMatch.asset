@@ -16,5 +16,7 @@ MonoBehaviour:
   displayName: Mix and match
   description: Start a round with 6 unique cards
   icon: {fileID: 0}
+  bgColor: {r: 1, g: 1, b: 1, a: 1}
   condition: {fileID: 11400000, guid: 84704625c544dcc429aa4bca7ee2bab9, type: 2}
-  cardToUnlock: {fileID: 0}
+  cardToUnlock: {fileID: 11400000, guid: ba8f404a7eec37f4c98b27b3018d7914, type: 2}
+  isUnlocked: 0

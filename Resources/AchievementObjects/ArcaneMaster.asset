@@ -15,7 +15,8 @@ MonoBehaviour:
   achievementId: ArcaneMaster
   displayName: Arcane master
   description: Deal 100 magic damage in a single turn
-  icon: {fileID: 671561930053674472, guid: bbc874349278e4e41bace709a17a2260, type: 3}
+  icon: {fileID: -7539809169045144060, guid: 315440cb1e3b8db4c8485d0f5c9cd2c6, type: 3}
+  bgColor: {r: 0.5943396, g: 0, b: 0.5831698, a: 1}
   condition: {fileID: 11400000, guid: 86a28868d81c03943b6e78d57bcf2292, type: 2}
   cardToUnlock: {fileID: 11400000, guid: e6d59d11eea83b346a3430f884d1ebd1, type: 2}
   isUnlocked: 0

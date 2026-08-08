@@ -15,7 +15,8 @@ MonoBehaviour:
   achievementId: 4OfAKind
   displayName: 4 of a kind
   description: Roll 4 of the same number in a single turn
-  icon: {fileID: -4751097303248838341, guid: 3f22d9cbb5a5d8840943ab368e2eec1b, type: 3}
+  icon: {fileID: 1721632695, guid: 3f22d9cbb5a5d8840943ab368e2eec1b, type: 3}
+  bgColor: {r: 0.59607846, g: 0.5803922, b: 0, a: 1}
   condition: {fileID: 11400000, guid: e8f8a21253d48da4eaa2be4c3b7b2661, type: 2}
   cardToUnlock: {fileID: 11400000, guid: e3a9af156c7a1b94eb8a4f3b7f965f5d, type: 2}
   isUnlocked: 0

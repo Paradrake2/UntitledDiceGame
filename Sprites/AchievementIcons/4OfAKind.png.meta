@@ -5,6 +5,51 @@ TextureImporter:
   - first:
       213: -4751097303248838341
     second: 4OfAKind_0
+  - first:
+      213: 217366685180721431
+    second: 4OfAKind_1
+  - first:
+      213: 122967923302290001
+    second: 4OfAKind_2
+  - first:
+      213: 8668181549873638204
+    second: 4OfAKind_3
+  - first:
+      213: -2579521613238037900
+    second: 4OfAKind_4
+  - first:
+      213: 5628127296512217610
+    second: 4OfAKind_5
+  - first:
+      213: -8388258500718118375
+    second: 4OfAKind_6
+  - first:
+      213: 7002226187159664719
+    second: 4OfAKind_7
+  - first:
+      213: 4521136036411042791
+    second: 4OfAKind_8
+  - first:
+      213: 5718407531951928912
+    second: 4OfAKind_9
+  - first:
+      213: -6718695226342422013
+    second: 4OfAKind_10
+  - first:
+      213: -8878590462706236126
+    second: 4OfAKind_11
+  - first:
+      213: 907274883436344193
+    second: 4OfAKind_12
+  - first:
+      213: -6540495077738481778
+    second: 4OfAKind_13
+  - first:
+      213: -8496113854912088058
+    second: 4OfAKind_14
+  - first:
+      213: -430237520065762177
+    second: 4OfAKind_15
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,20 +148,20 @@ TextureImporter:
       name: 4OfAKind_0
       rect:
         serializedVersion: 2
-        x: 161
-        y: 126
-        width: 670
-        height: 646
+        x: 97
+        y: 52
+        width: 800
+        height: 800
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: b316982dc26b01eb0800000000000000
-      internalID: -4751097303248838341
+      spriteID: 5fbd809f743f7434fa23f612a6e167fd
+      internalID: 1721632695
       vertices: []
       indices: 
       edges: []
@@ -125,7 +170,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 4cedc231508c4744db681ad3ed8eb50a
     internalID: 0
     vertices: []
     indices: 
@@ -134,7 +179,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      4OfAKind_0: 1721632695
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
