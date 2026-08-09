@@ -291,6 +291,25 @@ public class CombatManager : MonoBehaviour
     {
         //StartBattle(currentStage);
     }
+
+    public void ResumeBattleFromSave()
+    {
+        if (currentEnemy == null)
+        {
+            currentEnemy = DetermineEnemy();
+            if (currentEnemy != null)
+            {
+                currentEnemy.ModifyStats(currentStage);
+                currentEnemy.InitForBattle();
+            }
+        }
+
+        battleActive = true;
+        enemyUI?.SetEnemy(currentEnemy);
+        playerUI?.UpdateTexts();
+        cardManagerUI?.RefreshUI();
+        StartCoroutine(BattleLoop());
+    }
     public void NotifyPlayerStatusEffectRemoved(StatusEffect effect)
     {
         StatusEffectRemoved?.Invoke(effect, true);
@@ -345,4 +364,20 @@ public class CombatManager : MonoBehaviour
         => EnemyShieldHealed?.Invoke(amount);
     public void NotifyPlayerCoinsChangedUI(int amount)
         => PlayerCoinsChanged?.Invoke(amount);
+    public int GetCurrentStage() => currentStage;
+    public int GetTurnNumber() => turnNumber;
+    public Enemy GetCurrentEnemy() => currentEnemy;
+    public void SetCurrentEnemy(Enemy enemy)
+    {
+        currentEnemy = enemy;
+        enemyUI?.SetEnemy(currentEnemy);
+    }
+    public void SetTurnNumber(int turn)
+    {
+        turnNumber = turn;
+    }
+    public void SetCurrentStage(int stage)
+    {
+        currentStage = stage;
+    }
 }

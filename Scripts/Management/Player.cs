@@ -145,4 +145,26 @@ public class Player : MonoBehaviour
             Heal(heal);
         }
     }
+    public void SetCoins(int amount)
+    {
+        coins = amount;
+        playerUI?.UpdateTexts();
+        CombatManager.Instance?.NotifyPlayerCoinsChangedUI(coins); // for UI animation
+    }
+    public void SetCurrentHealth(int amount)
+    {
+        currentHealth = Mathf.Clamp(amount, 0, maxHealth);
+        playerUI?.UpdateTexts();
+    }
+    public void SetCurrentShield(int amount)
+    {
+        currentShield = Mathf.Max(0, amount);
+        playerUI?.UpdateTexts();
+    }
+
+    public void SetRevivesRemaining(int amount)
+    {
+        revivesRemaining = Mathf.Max(0, amount);
+        playerUI?.UpdateTexts();
+    }
 }

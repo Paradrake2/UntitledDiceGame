@@ -161,4 +161,12 @@ public class Enemy : ScriptableObject
     {
         return enemyStats.maxHealth;
     }
+    public void SetCurrentHealth(int health)
+    {
+        currentHealth = Mathf.Clamp(health, 0, enemyStats.maxHealth);
+    }
+    public void SetCurrentShield(int shield)
+    {
+        currentShield = Mathf.Max(0, shield);
+    }
 }

@@ -1,5 +1,6 @@
 using UnityEngine;
 
+// NOT USED
 public class ShopUpgradeManager
 {
     private static ShopUpgradeManager instance;
