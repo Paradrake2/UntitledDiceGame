@@ -13,31 +13,29 @@ MonoBehaviour:
   m_Name: Smite
   m_EditorClassIdentifier: 
   cardName: Smite
-  cardDescription: Deals {damage} / 2 physical and {damage} / 2 magic damage. If
-    secondary roll is even, deal {int1} magic damage. If secondary roll is odd, deal
-    {int1} physical damage.
-  cardSprite: {fileID: 0}
+  cardDescription: 'Deals {damage} magic damage plus {percentage1} of enemy max HP '
+  cardSprite: {fileID: 6756093008028955788, guid: 2d2de6d0b38347f44a9f5ad71eba5716, type: 3}
   baseStats:
     damage: 20
     shield: 0
     heal: 0
-    percentage1: 0
-    int1: 10
+    percentage1: 0.05
+    int1: 0
   statsPerLevel:
-    damage: 10
+    damage: 6
     shield: 0
     heal: 0
-    percentage1: 0
-    int1: 5
+    percentage1: 0.005
+    int1: 0
   line1Template: '{damage}'
-  line2Template: '{int1}'
+  line2Template: '{percentage1}'
   line3Template: 
   upgradeLevel: 0
-  baseUpgradeCost: 15
+  baseUpgradeCost: 20
   baseShopCost: 15
   maxUpgradeLevel: 20
-  line1Color: {r: 0.4811321, g: 0, b: 0, a: 1}
-  line2Color: {r: 0, g: 0.770165, b: 0.8018868, a: 1}
+  line1Color: {r: 0.42352942, g: 0, b: 1, a: 1}
+  line2Color: {r: 0.8, g: 0.7919633, b: 0, a: 1}
   line3Color: {r: 1, g: 1, b: 1, a: 1}
   isUnlockedByDefault: 0
   maxPlacements: 1
