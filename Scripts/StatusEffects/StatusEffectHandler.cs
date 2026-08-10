@@ -18,7 +18,7 @@ public class StatusEffectHandler
     /// </summary>
     public void AddEffect(StatusEffect effect, int duration)
     {
-        if (!effect.Stackable)
+        if (!effect.Stackable && activeEffects.Exists(i => i.Effect.GetType() == effect.GetType()))
         {
             StatusEffectInstance existing = activeEffects.Find(i => i.Effect.GetType() == effect.GetType());
             existing.ExtendDuration();
@@ -49,8 +49,9 @@ public class StatusEffectHandler
     }
 
     /// <summary>
-    /// Applies all active OnPhysicalAttack / OnMagicAttack modifier effects to an outgoing damage
-    /// value and consumes each one that fires. Call this inside a card before calling TakeDamage.
+    /// Applies all active outgoing-damage modifier effects to a damage value and consumes each one
+    /// that fires. This includes OnPhysicalAttack, OnMagicAttack, and OnDealDamage triggers.
+    /// Call this inside a card before calling TakeDamage.
     /// </summary>
     public int ModifyOutgoingDamage(int damage, bool isMagic, StatusEffectContext ctx)
     {
@@ -63,11 +64,12 @@ public class StatusEffectHandler
         for (int i = effectsCopy.Count - 1; i >= 0; i--)
         {
             StatusEffectInstance instance = effectsCopy[i];
-            if (instance.Effect.Trigger != relevantTrigger) continue;
+            if (instance.Effect.Trigger != relevantTrigger && instance.Effect.Trigger != StatusEffectTrigger.OnDealDamage)
+                continue;
             if (!activeEffects.Contains(instance))
                 continue;
 
-            damage = instance.Effect.ModifyOutgoingDamage(damage, isMagic, ctx);
+            damage = instance.Effect.ModifyOutgoingDamage(damage, isMagic, ctx, instance.RemainingDuration);
             if (instance.DecrementDuration() && activeEffects.Contains(instance))
                 activeEffects.RemoveAt(activeEffects.IndexOf(instance));
             CombatManager.Instance.NotifyStatusEffectTriggered(instance.Effect, ctx.IsPlayerEffect);

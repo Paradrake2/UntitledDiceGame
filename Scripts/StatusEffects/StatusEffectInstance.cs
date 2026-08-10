@@ -16,6 +16,7 @@ public class StatusEffectInstance
     /// <summary>Decrements duration and returns true when the effect has expired.</summary>
     public bool DecrementDuration()
     {
+        if (Effect.IsPermanent) return false;
         RemainingDuration--;
         return RemainingDuration <= 0;
     }

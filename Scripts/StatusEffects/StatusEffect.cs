@@ -17,28 +17,32 @@ public abstract class StatusEffect : ScriptableObject
     [SerializeField] private bool stackable = false;
     [SerializeField] protected int effectDuration = 1;
     [SerializeField] private TypeOfEffect typeOfEffect = TypeOfEffect.Buff;
+    [SerializeField] private bool isPermanent = false;
     public virtual int duration => effectDuration;
-    public bool Stackable => stackable;
+    public virtual bool Stackable => stackable;
     public Sprite EffectIcon => effectIcon;
     public TypeOfEffect TypeOfEffect => typeOfEffect;
 
     public string EffectName => effectName;
     public string EffectDescription => effectDescription;
+    public bool IsPermanent => isPermanent;
 
     /// <summary>Which game moment causes this effect to fire or be consumed.</summary>
     public abstract StatusEffectTrigger Trigger { get; }
 
     /// <summary>
     /// Called when the trigger fires (StartOfTurn, EndOfTurn).
-    /// OnPhysicalAttack / OnMagicAttack effects are handled via ModifyOutgoingDamage instead.
+    /// OnPhysicalAttack, OnMagicAttack, and OnDealDamage effects are handled via ModifyOutgoingDamage instead.
     /// SkipTurn effects are handled by ConsumeSkipTurn and do not use this method.
     /// </summary>
     public abstract void OnTrigger(StatusEffectContext ctx);
 
     /// <summary>
     /// Override to modify an outgoing damage value before it is applied (e.g., DamagePotion).
-    /// Only called for effects with Trigger == OnPhysicalAttack or OnMagicAttack.
+    /// Only called for effects with Trigger == OnPhysicalAttack, OnMagicAttack, or OnDealDamage.
     /// </summary>
     public virtual int ModifyOutgoingDamage(int damage, bool isMagic, StatusEffectContext ctx) => damage;
+    public virtual int ModifyOutgoingDamage(int damage, bool isMagic, StatusEffectContext ctx, int remainingDuration)
+        => ModifyOutgoingDamage(damage, isMagic, ctx);
     public virtual int ModifyIncomingDamage(int damage, bool isMagic, StatusEffectContext ctx) => damage;
 }
