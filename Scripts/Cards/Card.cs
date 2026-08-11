@@ -34,6 +34,7 @@ public abstract class Card : ScriptableObject
     [SerializeField] protected int baseUpgradeCost;
     [SerializeField] protected int baseShopCost;
     [SerializeField] protected int maxUpgradeLevel = 10;
+    [SerializeField] private bool isRuntimeCard;
     [SerializeField] protected Color line1Color = Color.white;
     [SerializeField] protected Color line2Color = Color.white;
     [SerializeField] protected Color line3Color = Color.white;
@@ -65,6 +66,7 @@ public abstract class Card : ScriptableObject
     public int BaseUpgradeCost => baseUpgradeCost;
     public int BaseShopCost => baseShopCost;
     public CardStats StatsPerLevel => statsPerLevel;
+    public bool IsRuntimeCard => isRuntimeCard;
 
     private string FormatTemplate(string template)
     {
@@ -86,7 +88,10 @@ public abstract class Card : ScriptableObject
 
     public virtual Card CloneCard()
     {
-        return Instantiate(this);
+        Card clone = Instantiate(this);
+        clone.isRuntimeCard = true;
+        clone.name = this.name;
+        return clone;
     }
 
     public void UpgradeCard()

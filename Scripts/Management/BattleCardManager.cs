@@ -21,6 +21,33 @@ public class BattleCardManager : MonoBehaviour
     [SerializeField] private CardUI pos6CardUI;
     public Card[] runCards; // array to hold all the cards the player has this run
     public event Action StartUp;
+
+    private bool ContainsCard(Card card)
+    {
+        if (runCards == null)
+            return false;
+
+        for (int i = 0; i < runCards.Length; i++)
+        {
+            if (runCards[i] == card)
+                return true;
+        }
+
+        return false;
+    }
+
+    private void PopulateRunCardsFromSlots()
+    {
+        if (runCards == null)
+            runCards = new Card[0];
+
+        for (int i = 1; i <= 6; i++)
+        {
+            Card slotCard = GetSlotCard(i);
+            if (slotCard != null)
+                AddCardToRunCards(slotCard);
+        }
+    }
     
     void Awake()
     {
@@ -107,7 +134,9 @@ public class BattleCardManager : MonoBehaviour
             case 6: pos6Card = card; break;
             default: Debug.LogError("Invalid card position: " + position); break;
         }
-        card.PlaceCard();
+
+        if (card != null)
+            card.PlaceCard();
     }
 
     private Card NormalizeCardReference(Card card)
@@ -120,7 +149,11 @@ public class BattleCardManager : MonoBehaviour
     {
         if (card == null) return;
 
-        Card runtimeCard = NormalizeCardReference(card);
+        if (runCards == null)
+            runCards = new Card[0];
+
+        if (ContainsCard(card))
+            return;
 
         int newSize = runCards.Length + 1;
         Card[] newRunCards = new Card[newSize];
@@ -128,7 +161,7 @@ public class BattleCardManager : MonoBehaviour
         {
             newRunCards[i] = runCards[i];
         }
-        newRunCards[newSize - 1] = runtimeCard;
+        newRunCards[newSize - 1] = card;
         runCards = newRunCards;
     }
     public Card[] GetRunCards()
@@ -138,9 +171,15 @@ public class BattleCardManager : MonoBehaviour
             runCards = new Card[0];
         }
 
+        if (runCards.Length == 0)
+        {
+            PopulateRunCardsFromSlots();
+        }
+
         for (int i = 0; i < runCards.Length; i++)
         {
-            runCards[i] = NormalizeCardReference(runCards[i]);
+            if (runCards[i] != null)
+                runCards[i] = NormalizeCardReference(runCards[i]);
         }
 
         if (runCards.Length == 0)
@@ -174,7 +213,7 @@ public class BattleCardManager : MonoBehaviour
         NormalizeSlotCard(5, pos5Card);
         NormalizeSlotCard(6, pos6Card);
 
-        if (runCards.Length == 0 && CardManager.Instance != null && CardManager.Instance.defaultCards != null)
+        if (runCards.Length == 0)
         {
             GetRunCards();
         }

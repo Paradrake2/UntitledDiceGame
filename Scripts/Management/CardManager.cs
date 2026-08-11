@@ -36,11 +36,11 @@ public class CardManager : MonoBehaviour
     public Card CreateRuntimeCard(Card template)
     {
         if (template == null) return null;
+        if (template.IsRuntimeCard) return template;
         if (runtimeCardCache.TryGetValue(template, out Card existingRuntimeCard))
             return existingRuntimeCard;
 
         Card runtimeCard = template.CloneCard();
-        runtimeCard.name = template.name;
         runtimeCardCache[template] = runtimeCard;
         return runtimeCard;
     }

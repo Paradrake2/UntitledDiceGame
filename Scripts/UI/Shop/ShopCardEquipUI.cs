@@ -22,14 +22,27 @@ public class ShopCardEquipUI : MonoBehaviour
         ShopManager.OnShopOpened += HandleCardSelection;
         ShopManager.OnShopClosed += FinalizeCardSelection;
         ShopManager.OnCardUpgraded += RefreshEquippedCardPreview;
-        BattleCardManager.Instance.StartUp += PopulateSelectedCards; // Subscribe to the StartUp event
+
+        if (BattleCardManager.Instance != null)
+        {
+            BattleCardManager.Instance.StartUp += PopulateSelectedCards;
+        }
+        else
+        {
+            Debug.LogWarning("BattleCardManager is not ready yet; selected cards will be populated once the battle manager initializes.");
+        }
     }
+
     void OnDisable()
     {
         ShopManager.OnShopOpened -= HandleCardSelection;
         ShopManager.OnShopClosed -= FinalizeCardSelection;
         ShopManager.OnCardUpgraded -= RefreshEquippedCardPreview;
-        BattleCardManager.Instance.StartUp -= PopulateSelectedCards; // Unsubscribe from the StartUp event
+
+        if (BattleCardManager.Instance != null)
+        {
+            BattleCardManager.Instance.StartUp -= PopulateSelectedCards;
+        }
     }
     // the way this is intended to work is that it populates the selectedCards array with the cards currently in the BattleCardManager when the shop is opened,
     // and then when the shop is closed, it sets all the cards in the BattleCardManager to the selected cards in the shop

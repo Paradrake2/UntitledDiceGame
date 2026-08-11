@@ -117,7 +117,6 @@ public class ShopManager : MonoBehaviour
             Debug.LogWarning("No available cards for upgrades. Returning empty array.");
             return new Card[0];
         }
-        
         // Limit numberOfItems to the number of available cards to avoid infinite loop
         int itemsToReturn = Mathf.Min(numberOfItems, availableCards.Length);
         Card[] returnedCards = new Card[itemsToReturn];

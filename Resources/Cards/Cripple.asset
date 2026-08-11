@@ -17,13 +17,13 @@ MonoBehaviour:
     damage by 30% for one turn
   cardSprite: {fileID: 0}
   baseStats:
-    damage: 0
+    damage: 12
     shield: 0
     heal: 0
     percentage1: 0
     int1: 0
   statsPerLevel:
-    damage: 0
+    damage: 6
     shield: 0
     heal: 0
     percentage1: 0
@@ -32,12 +32,13 @@ MonoBehaviour:
   line2Template: 
   line3Template: 
   upgradeLevel: 0
-  baseUpgradeCost: 0
-  baseShopCost: 0
+  baseUpgradeCost: 15
+  baseShopCost: 15
   maxUpgradeLevel: 10
-  line1Color: {r: 1, g: 1, b: 1, a: 1}
+  line1Color: {r: 0.48235294, g: 0, b: 0, a: 1}
   line2Color: {r: 1, g: 1, b: 1, a: 1}
   line3Color: {r: 1, g: 1, b: 1, a: 1}
   isUnlockedByDefault: 0
   maxPlacements: 1
   currentPlacements: 0
+  effect: {fileID: 11400000, guid: cb5ca6c4dd24e04409f2ace1811b7c06, type: 2}
