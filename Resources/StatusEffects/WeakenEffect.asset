@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc80bc2b838234a46bb259eeda9e5a97, type: 3}
   m_Name: WeakenEffect
   m_EditorClassIdentifier: 
-  effectName: Weaken
+  effectName: Weakened
   effectIcon: {fileID: 0}
-  effectDescription: Reduce physical damage by 50%
-  stackable: 0
+  effectDescription: Physical damage reduced by 50%
+  stackable: 1
   effectDuration: 1
   typeOfEffect: 1
+  isPermanent: 0
+  damageReductionMultiplier: 0.5

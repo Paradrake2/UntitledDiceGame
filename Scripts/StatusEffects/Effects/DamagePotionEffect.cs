@@ -12,7 +12,6 @@ public class DamagePotionEffect : StatusEffect
 
     public override int ModifyOutgoingDamage(int damage, bool isMagic, StatusEffectContext ctx)
     {
-        if (isMagic) return damage;
         return Mathf.RoundToInt(damage * damageMultiplier);
     }
 }

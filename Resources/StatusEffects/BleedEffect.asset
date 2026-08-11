@@ -9,13 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b96232e94a0e8f4db90c111bb031743, type: 3}
-  m_Name: EmpoweredEffect
+  m_Script: {fileID: 11500000, guid: 33690beb81599144c857d368f7a153fc, type: 3}
+  m_Name: BleedEffect
   m_EditorClassIdentifier: 
-  effectName: Empowered
+  effectName: Bleed
   effectIcon: {fileID: 0}
-  effectDescription: 'Increases damage by 10% for each stack '
-  stackable: 0
+  effectDescription: Deals 5% of the enemy's max HP as damage every turn
+  stackable: 1
   effectDuration: 1
-  typeOfEffect: 0
-  isPermanent: 1
+  typeOfEffect: 1
+  isPermanent: 0
