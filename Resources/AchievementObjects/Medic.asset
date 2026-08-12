@@ -15,7 +15,8 @@ MonoBehaviour:
   achievementId: Medic
   displayName: Medic
   description: Heal 75 health in a single turn
-  icon: {fileID: 0}
+  icon: {fileID: -7525584540864557403, guid: f8ab489580dd4c24cb5597624577e471, type: 3}
+  bgColor: {r: 1, g: 1, b: 1, a: 1}
   condition: {fileID: 11400000, guid: 8a0b479688050f14ba185533f31a1f64, type: 2}
   cardToUnlock: {fileID: 11400000, guid: e770dc92da0eccd4498af6ab295b393e, type: 2}
   isUnlocked: 0

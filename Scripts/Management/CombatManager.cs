@@ -185,6 +185,7 @@ public class CombatManager : MonoBehaviour
         yield return StartCoroutine(EnemyMagicAttacks());
         
         currentEnemy.Heal(currentEnemy.EnemyStats.healAmount);
+        // trigger heal special effects
         currentEnemy.AddShield(currentEnemy.EnemyStats.shieldAmount);
         var eotContext = new SpecialEffectContext(currentEnemy, player, turnNumber, damageAttempted: 0, damageTaken: 0, isMagic: false);
         currentEnemy.TriggerSpecialEffect(SpecialEffectTrigger.EndOfTurn, eotContext);

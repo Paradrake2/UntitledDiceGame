@@ -128,6 +128,12 @@ public class Enemy : ScriptableObject
     }
     public void Heal(int amount)
     {
+        // if has recovery block effect, prevent healing
+        if (statusEffects.HasStatusEffectOfType<RecoveryBlockEffect>())
+        {
+            Debug.Log($"{enemyName} is under Recovery Block effect and cannot be healed.");
+            return;
+        }
         currentHealth = Mathf.Min(enemyStats.maxHealth, currentHealth + amount);
         if (amount > 0)CombatManager.Instance?.NotifyEnemyHealthHealedUI(amount); // for UI animation
         Debug.Log("" + enemyName + " healed for " + amount + " health. Current health: " + currentHealth);

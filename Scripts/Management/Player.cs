@@ -47,10 +47,8 @@ public class Player : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Physical damage hits shield first; magic damage bypasses shield entirely.
-    /// Damage reduction from upgrades is applied before shield calculations.
-    /// </summary>
+    // Physical damage hits shield first; magic damage bypasses shield entirely.
+    // Damage reduction from upgrades is applied before shield calculations.
     public int TakeDamage(int amount, bool isMagic)
     {
         // DamageContext context = new DamageContext(amount, isMagic, currentShield > 0, null, this); // will be used later
@@ -79,6 +77,10 @@ public class Player : MonoBehaviour
 
     public void Heal(int amount)
     {
+        if (statusEffects.HasStatusEffectOfType<RecoveryBlockEffect>()) // if has recovery block effect, prevent healing
+        {
+            return;
+        }
         currentHealth = Mathf.Min(maxHealth, currentHealth + amount);
         Debug.Log($"Player healed for {amount}. Current health: {currentHealth}/{maxHealth}");
         if (playerUI != null) playerUI.UpdateTexts();
@@ -110,10 +112,10 @@ public class Player : MonoBehaviour
         CombatManager.Instance?.NotifyPlayerCoinsGained(amount);
         CombatManager.Instance?.NotifyPlayerCoinsChangedUI(coins); // for UI animation
     }
-    /// <summary>
-    /// Consumes one revive charge, restoring the player to full health.
-    /// Returns true if a revive was available.
-    /// </summary>
+
+    // Consumes one revive charge, restoring the player to full health.
+    // Returns true if a revive was available.
+
     public bool TryRevive()
     {
         if (revivesRemaining <= 0) return false;

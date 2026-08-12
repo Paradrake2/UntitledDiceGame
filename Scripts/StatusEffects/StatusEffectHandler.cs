@@ -167,4 +167,15 @@ public class StatusEffectHandler
     {
         activeEffects.Clear();
     }
+    public bool HasStatusEffectOfType<T>() where T : StatusEffect
+    {
+        foreach (var effectInstance in activeEffects)
+        {
+            if (effectInstance.Effect is T)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 }

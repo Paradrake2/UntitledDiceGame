@@ -1,7 +1,11 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Hammer", menuName = "Scriptable Objects/Hammer")]
-public class Hammer : ScriptableObject
+[CreateAssetMenu(fileName = "Hammer", menuName = "Cards2/Hammer")]
+public class Hammer : Card
 {
-    // deals random damage, chance to apply stun effect
+    // deals random damage, chance to apply shattered effect
+    public override void PlayCard(Enemy enemy, Player player, int index, float multiplier = 1)
+    {
+        throw new System.NotImplementedException();
+    }
 }
