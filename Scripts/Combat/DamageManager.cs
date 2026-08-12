@@ -31,7 +31,7 @@ public class DamageManager : MonoBehaviour
         damage = player.StatusEffects.ModifyOutgoingDamage(damage, isMagic, ctx);
         damage = IncreaseDamageFromUpgrades(damage, isMagic);
 
-        CombatManager.Instance?.NotifyEnemyDamageDealt(damage, isMagic);
+        CombatManager.Instance.NotifyEnemyDamageDealt(damage, isMagic);
         enemy.TakeDamage(damage, isMagic, 1f, cardIndex);
     }
     public void ApplyDamageToPlayer(Player player, int damage, bool isMagic)

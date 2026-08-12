@@ -334,7 +334,10 @@ public class CombatManager : MonoBehaviour
     }
 
     public void NotifyEnemyDamageDealt(int amount, bool isMagic)
-        => EnemyDamageDealt?.Invoke(amount, isMagic);
+    {
+        EnemyDamageDealt?.Invoke(amount, isMagic);
+        Debug.Log($"[CombatManager] Enemy damage dealt: {amount} (Magic: {isMagic})");
+    }
 
     public void NotifyPlayerShieldGained(int amount)
         => PlayerShieldGained?.Invoke(amount);

@@ -1,12 +1,11 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-/// <summary>
-/// Singleton orchestrator for the achievement system.
-/// Subscribes to game events, maintains AchievementStats, evaluates all conditions,
-/// and persists unlock state via PlayerPrefs.
-/// </summary>
+// Singleton orchestrator for the achievement system.
+// Subscribes to game events, maintains AchievementStats, evaluates all conditions,
+// and persists unlock state via PlayerPrefs.
 public class AchievementManager : MonoBehaviour
 {
     public static AchievementManager Instance { get; private set; }
@@ -15,6 +14,10 @@ public class AchievementManager : MonoBehaviour
 
     private readonly HashSet<string>  unlockedIds = new HashSet<string>();
     private readonly AchievementStats stats       = new AchievementStats();
+
+    private bool isSubscribed;
+    private CombatManager subscribedCombatManager;
+    private DiceManager subscribedDiceManager;
 
     private const string SavePrefix = "Achievement_Unlocked_";
     public Achievement[] Achievements => achievements;
@@ -32,6 +35,12 @@ public class AchievementManager : MonoBehaviour
         LoadUnlocks();
     }
 
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        RefreshSubscriptions();
+    }
+
     private void Start()
     {
         // Sync persistent stats before subscribing
@@ -41,57 +50,89 @@ public class AchievementManager : MonoBehaviour
             stats.TotalEnemiesDefeated = GameStatistics.Instance.TotalEnemiesDefeated;
         }
         stats.ResetPerRun();
-        SubscribeToEvents();
+        RefreshSubscriptions();
     }
 
-    private void OnDestroy() => UnsubscribeFromEvents();
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+        UnsubscribeFromEvents();
+    }
+
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+        UnsubscribeFromEvents();
+    }
 
     // ── Event Subscriptions ───────────────────────────────────────────────────
 
+    private void RefreshSubscriptions()
+    {
+        UnsubscribeFromEvents();
+        SubscribeToEvents();
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        RefreshSubscriptions();
+    }
+
     private void SubscribeToEvents()
     {
+        if (isSubscribed) return;
+
         if (CombatManager.Instance != null)
         {
-            CombatManager.Instance.BattleStarted       += OnBattleStarted;
-            CombatManager.Instance.BattleWon           += OnBattleWon;
-            CombatManager.Instance.RunEnded            += OnRunEnded;
-            CombatManager.Instance.PlayerTurnEnded     += OnPlayerTurnEnded;
-            CombatManager.Instance.StageIncreased      += OnStageIncreased;
-            CombatManager.Instance.PlayerDamageTaken   += OnPlayerDamageTaken;
-            CombatManager.Instance.PlayerHealingReceived += OnPlayerHealingReceived;
-            CombatManager.Instance.PlayerShieldGained  += OnPlayerShieldGained;
-            CombatManager.Instance.EnemyDamageDealt    += OnEnemyDamageDealt;
-            CombatManager.Instance.PlayerCoinsGained   += OnCoinsGained;
+            subscribedCombatManager = CombatManager.Instance;
+            subscribedCombatManager.BattleStarted         += OnBattleStarted;
+            subscribedCombatManager.BattleWon             += OnBattleWon;
+            subscribedCombatManager.RunEnded              += OnRunEnded;
+            subscribedCombatManager.PlayerTurnEnded       += OnPlayerTurnEnded;
+            subscribedCombatManager.StageIncreased        += OnStageIncreased;
+            subscribedCombatManager.PlayerDamageTaken     += OnPlayerDamageTaken;
+            subscribedCombatManager.PlayerHealingReceived += OnPlayerHealingReceived;
+            subscribedCombatManager.PlayerShieldGained    += OnPlayerShieldGained;
+            subscribedCombatManager.EnemyDamageDealt      += OnEnemyDamageDealt;
+            subscribedCombatManager.PlayerCoinsGained     += OnCoinsGained;
         }
 
         if (DiceManager.Instance != null)
-            DiceManager.Instance.OnDiceFinalized += OnDiceFinalized;
+        {
+            subscribedDiceManager = DiceManager.Instance;
+            subscribedDiceManager.OnDiceFinalized += OnDiceFinalized;
+        }
 
-        ShopManager.OnCardUpgraded         += OnCardUpgraded;
-        UpgradeManager.OnUpgradePurchased  += OnGemUpgradePurchased;
+        ShopManager.OnCardUpgraded        += OnCardUpgraded;
+        UpgradeManager.OnUpgradePurchased += OnGemUpgradePurchased;
+        isSubscribed = true;
     }
 
     private void UnsubscribeFromEvents()
     {
-        if (CombatManager.Instance != null)
+        if (subscribedCombatManager != null)
         {
-            CombatManager.Instance.BattleStarted         -= OnBattleStarted;
-            CombatManager.Instance.BattleWon             -= OnBattleWon;
-            CombatManager.Instance.RunEnded              -= OnRunEnded;
-            CombatManager.Instance.PlayerTurnEnded       -= OnPlayerTurnEnded;
-            CombatManager.Instance.StageIncreased        -= OnStageIncreased;
-            CombatManager.Instance.PlayerDamageTaken     -= OnPlayerDamageTaken;
-            CombatManager.Instance.PlayerHealingReceived -= OnPlayerHealingReceived;
-            CombatManager.Instance.PlayerShieldGained    -= OnPlayerShieldGained;
-            CombatManager.Instance.EnemyDamageDealt      -= OnEnemyDamageDealt;
-            CombatManager.Instance.PlayerCoinsGained     -= OnCoinsGained;
+            subscribedCombatManager.BattleStarted         -= OnBattleStarted;
+            subscribedCombatManager.BattleWon             -= OnBattleWon;
+            subscribedCombatManager.RunEnded              -= OnRunEnded;
+            subscribedCombatManager.PlayerTurnEnded       -= OnPlayerTurnEnded;
+            subscribedCombatManager.StageIncreased        -= OnStageIncreased;
+            subscribedCombatManager.PlayerDamageTaken     -= OnPlayerDamageTaken;
+            subscribedCombatManager.PlayerHealingReceived -= OnPlayerHealingReceived;
+            subscribedCombatManager.PlayerShieldGained    -= OnPlayerShieldGained;
+            subscribedCombatManager.EnemyDamageDealt      -= OnEnemyDamageDealt;
+            subscribedCombatManager.PlayerCoinsGained     -= OnCoinsGained;
         }
 
-        if (DiceManager.Instance != null)
-            DiceManager.Instance.OnDiceFinalized -= OnDiceFinalized;
+        if (subscribedDiceManager != null)
+            subscribedDiceManager.OnDiceFinalized -= OnDiceFinalized;
 
         ShopManager.OnCardUpgraded        -= OnCardUpgraded;
         UpgradeManager.OnUpgradePurchased -= OnGemUpgradePurchased;
+
+        subscribedCombatManager = null;
+        subscribedDiceManager = null;
+        isSubscribed = false;
     }
 
     // ── Event Handlers ────────────────────────────────────────────────────────
@@ -173,6 +214,7 @@ public class AchievementManager : MonoBehaviour
     {
         if (isMagic) stats.MagicalDamageThisTurn  += amount;
         else         stats.PhysicalDamageThisTurn += amount;
+        Debug.Log($"[AchievementManager] Enemy damage dealt: {amount} (Magic: {isMagic})");
         EvaluateAll();
     }
 
@@ -246,8 +288,8 @@ public class AchievementManager : MonoBehaviour
         unlockedIds.Add(achievement.AchievementId);
         PlayerPrefs.SetInt(SavePrefix + achievement.AchievementId, 1);
         PlayerPrefs.Save();
-        OnAchievementUnlocked?.Invoke(achievement);
         Debug.Log($"[Achievements] Unlocked: {achievement.DisplayName}");
+        OnAchievementUnlocked?.Invoke(achievement);
     }
 
     // ── Public API ────────────────────────────────────────────────────────────
