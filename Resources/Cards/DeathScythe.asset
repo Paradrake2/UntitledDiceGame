@@ -35,6 +35,7 @@ MonoBehaviour:
   baseUpgradeCost: 15
   baseShopCost: 20
   maxUpgradeLevel: 20
+  isRuntimeCard: 0
   line1Color: {r: 0.48235294, g: 0, b: 0, a: 1}
   line2Color: {r: 0.12192824, g: 0.5566038, b: 0.028880388, a: 1}
   line3Color: {r: 1, g: 1, b: 1, a: 1}

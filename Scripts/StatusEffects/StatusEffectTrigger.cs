@@ -7,5 +7,7 @@ public enum StatusEffectTrigger
     SkipTurn,
     OnReceiveDamage,
     OnDealDamage,
-    OnHeal
+    OnHeal,
+    OnReceiveShield,
+    OnReceiveStatusEffect,
 }

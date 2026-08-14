@@ -141,6 +141,11 @@ public class Enemy : ScriptableObject
 
     public void AddShield(int amount)
     {
+        if (statusEffects.HasStatusEffectOfType<ShatteredEffect>()) // if has shattered effect, reduce shield gain by 70%
+        {
+            amount = Mathf.RoundToInt(amount * 0.3f);
+            Debug.Log($"{enemyName} is under Shattered effect. Shield gain reduced to {amount}.");
+        }
         currentShield += amount;
         if (amount > 0) CombatManager.Instance?.NotifyEnemyShieldHealedUI(amount); // for UI animation
         Debug.Log("" + enemyName + " gained " + amount + " shield. Current shield: " + currentShield);

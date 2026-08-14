@@ -3,7 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Stunner", menuName = "Cards2/Stunner")]
 public class Stunner : Card
 {
-    // Deals medium physical damage and has a chance to stun
+    // Deals medium physical damage and has a low chance to stun
     [SerializeField] private StunEffect stunEffect;
     public override void PlayCard(Enemy enemy, Player player, int index, float multiplier = 1)
     {

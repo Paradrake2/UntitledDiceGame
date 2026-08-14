@@ -30,17 +30,15 @@ public abstract class StatusEffect : ScriptableObject
     /// <summary>Which game moment causes this effect to fire or be consumed.</summary>
     public abstract StatusEffectTrigger Trigger { get; }
 
-    /// <summary>
-    /// Called when the trigger fires (StartOfTurn, EndOfTurn).
-    /// OnPhysicalAttack, OnMagicAttack, and OnDealDamage effects are handled via ModifyOutgoingDamage instead.
-    /// SkipTurn effects are handled by ConsumeSkipTurn and do not use this method.
-    /// </summary>
+    // Called when the trigger fires (StartOfTurn, EndOfTurn).
+    // OnPhysicalAttack, OnMagicAttack, and OnDealDamage effects are handled via ModifyOutgoingDamage instead.
+    // SkipTurn effects are handled by ConsumeSkipTurn and do not use this method.
     public abstract void OnTrigger(StatusEffectContext ctx);
 
-    /// <summary>
-    /// Override to modify an outgoing damage value before it is applied (e.g., DamagePotion).
-    /// Only called for effects with Trigger == OnPhysicalAttack, OnMagicAttack, or OnDealDamage.
-    /// </summary>
+
+    // Override to modify an outgoing damage value before it is applied (e.g., DamagePotion).
+    // Only called for effects with Trigger == OnPhysicalAttack, OnMagicAttack, or OnDealDamage.
+
     public virtual int ModifyOutgoingDamage(int damage, bool isMagic, StatusEffectContext ctx) => damage;
     public virtual int ModifyOutgoingDamage(int damage, bool isMagic, StatusEffectContext ctx, int remainingDuration)
         => ModifyOutgoingDamage(damage, isMagic, ctx);

@@ -9,36 +9,37 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d78c0d033da972409b4ccca033f3dd7, type: 3}
-  m_Name: Bleeder
+  m_Script: {fileID: 11500000, guid: 088295631b94fb4499c64f3a4bb51916, type: 3}
+  m_Name: Hammer
   m_EditorClassIdentifier: 
-  cardName: Bleeder
-  cardDescription: Applys a Bleed effect for {int1} turns
+  cardName: Hammer
+  cardDescription: Deals {damage} physical damage and shatters the enemy's shield
+    for 2 turns
   cardSprite: {fileID: 0}
   baseStats:
-    damage: 0
+    damage: 10
     shield: 0
     heal: 0
     percentage1: 0
-    int1: 1
+    int1: 0
   statsPerLevel:
-    damage: 0
+    damage: 3
     shield: 0
     heal: 0
     percentage1: 0
-    int1: 1
-  line1Template: '{int1} turns'
-  line2Template: 
+    int1: 0
+  line1Template: '{damage}'
+  line2Template: 2 turns
   line3Template: 
   upgradeLevel: 0
-  baseUpgradeCost: 40
-  baseShopCost: 20
-  maxUpgradeLevel: 3
+  baseUpgradeCost: 0
+  baseShopCost: 0
+  maxUpgradeLevel: 10
   isRuntimeCard: 0
-  line1Color: {r: 0.745283, g: 0.6274463, b: 0, a: 1}
-  line2Color: {r: 1, g: 1, b: 1, a: 1}
+  line1Color: {r: 0.48235294, g: 0, b: 0, a: 1}
+  line2Color: {r: 0.5377358, g: 0.5162279, b: 0, a: 1}
   line3Color: {r: 1, g: 1, b: 1, a: 1}
   isUnlockedByDefault: 0
   maxPlacements: 1
   currentPlacements: 0
-  bleedEffect: {fileID: 11400000, guid: 6deecf0d7021b584a904510c7102647d, type: 2}
+  shatteredEffect: {fileID: 11400000, guid: 40c5dfb92a0f0e140bee2848727111ba, type: 2}
