@@ -50,6 +50,8 @@ public class CombatManager : MonoBehaviour
     public event Action<int> EnemyShieldDamageTaken; // for UI purposes
     public event Action<int> EnemyShieldHealed; // for UI purposes
     public event Action<int> PlayerCoinsChanged; // for UI purposes
+    public event Action EnemyPhysicalAttack;
+    public event Action EnemyMagicalAttack;
     private void Awake()
     {
         if (Instance != null && Instance != this) { Destroy(gameObject); return; }
@@ -205,6 +207,7 @@ public class CombatManager : MonoBehaviour
     {
         for (int i = 0; i < currentEnemy.EnemyStats.physicalAttackAmount; i++)
         {
+            EnemyPhysicalAttack?.Invoke();
             enemyUI.FlashPhysicalDamageText();
             int damage = currentEnemy.EnemyStats.physicalAttackDamage;
             int damageTaken = player.TakeDamage(damage, false);
@@ -222,6 +225,7 @@ public class CombatManager : MonoBehaviour
     {
         for (int i = 0; i < currentEnemy.EnemyStats.magicalAttackAmount; i++)
         {
+            EnemyMagicalAttack?.Invoke();
             enemyUI.FlashMagicalDamageText();
             int damage = currentEnemy.EnemyStats.magicalAttackDamage;
             int damageTaken = player.TakeDamage(damage, true);
@@ -268,6 +272,7 @@ public class CombatManager : MonoBehaviour
     {
         var ctx = new SpecialEffectContext(currentEnemy, player, turnNumber, damageAttempted: 0, damageTaken: 0, isMagic: false);
         currentEnemy.TriggerSpecialEffect(SpecialEffectTrigger.EndOfBattle, ctx);
+        diceManager.diceManagerUI.ClearDiceUI();
         ShopManager.Instance.OpenShop();
     }
 

@@ -15,7 +15,15 @@ MonoBehaviour:
   enemyTiers:
   - tier: 1
     enemies:
-    - enemy: {fileID: 11400000, guid: c86b4ce92a0ff4b44a8ec929cfa0520b, type: 2}
+    - enemy: {fileID: 11400000, guid: a0c07258812224740842aad07bfd817e, type: 2}
+      weight: 1
+    - enemy: {fileID: 11400000, guid: fd4a82dddf3ba314981dfa1ffc0fa6e5, type: 2}
+      weight: 1
+    - enemy: {fileID: 11400000, guid: 9149082f0f87d76469c58291284bd869, type: 2}
+      weight: 1
+    - enemy: {fileID: 11400000, guid: 485b394d76866e04c860522a2d071dcd, type: 2}
+      weight: 1
+    - enemy: {fileID: 11400000, guid: bbd8e4ceaec50654f8f543fb82e823d0, type: 2}
       weight: 1
   - tier: 2
     enemies: []

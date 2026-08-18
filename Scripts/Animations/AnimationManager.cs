@@ -14,6 +14,10 @@ Order of operations for animations:
 **/
 public class AnimationManager : MonoBehaviour
 {
+    [SerializeField] private GameObject physicalAttackAnimationPrefab;
+    [SerializeField] private GameObject magicalAttackAnimationPrefab;
+    [SerializeField] private GameObject animationAnchor;
+    [SerializeField] private CombatManager cm;
     private static AnimationManager _instance;
 
     private void Awake()
@@ -86,5 +90,21 @@ public class AnimationManager : MonoBehaviour
     public void InvokeTurnNumberAnimationCompleted()
     {
         TurnNumberAnimationCompleted?.Invoke();
+    }
+    void OnEnable()
+    {
+        cm.EnemyPhysicalAttack += PlayEnemyPhysicalAttackAnimation;
+    }
+    void OnDisable()
+    {
+        cm.EnemyPhysicalAttack -= PlayEnemyPhysicalAttackAnimation;
+    }
+    void PlayEnemyPhysicalAttackAnimation()
+    {
+        if (physicalAttackAnimationPrefab != null)
+        {
+            GameObject pa = Instantiate(physicalAttackAnimationPrefab, animationAnchor.transform);
+            Destroy(pa, 0.15f);
+        }
     }
 }
