@@ -9,7 +9,7 @@ public class CoinSmash : Card
         int coins = player.Coins;
         int maxDmg = Mathf.RoundToInt(Int1 * multiplier);
         int damage = Mathf.RoundToInt(coins * Percentage1 * multiplier + player.OutgoingDamageBonus);
-        int finalDamage = Mathf.Max(maxDmg, damage);
+        int finalDamage = Mathf.Min(maxDmg, damage);
         DamageManager.Instance.ApplyDamageToEnemy(enemy, player, finalDamage, false, index);
     }
 }

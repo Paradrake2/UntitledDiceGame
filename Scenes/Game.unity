@@ -665,6 +665,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 138779369}
+  - component: {fileID: 138779370}
   m_Layer: 5
   m_Name: TurnNumber
   m_TagString: Untagged
@@ -692,6 +693,20 @@ RectTransform:
   m_AnchoredPosition: {x: -450, y: 450}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &138779370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 138779368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1062f11008a64b438c00a195dadb855, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turnNumberText: {fileID: 380877104}
+  combatManager: {fileID: 331813136}
 --- !u!1 &142329519
 GameObject:
   m_ObjectHideFlags: 0
@@ -1630,7 +1645,7 @@ GameObject:
   - component: {fileID: 380877105}
   - component: {fileID: 380877104}
   m_Layer: 5
-  m_Name: StageNumberText
+  m_Name: TurnNumberText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4166,6 +4181,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 842129803}
+  - component: {fileID: 842129804}
   m_Layer: 5
   m_Name: StageNumber
   m_TagString: Untagged
@@ -4193,6 +4209,19 @@ RectTransform:
   m_AnchoredPosition: {x: -550, y: 450}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &842129804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 842129802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7a1f5604e018524f87310478994e80a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stageNumberText: {fileID: 2019887470}
 --- !u!224 &848110219 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1738216383044151123, guid: ba2c574cb7aba2d4aa584c45d57da3a4, type: 3}
