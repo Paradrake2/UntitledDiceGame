@@ -4,11 +4,12 @@ using UnityEngine;
 public class BulwarkEffect : SpecialEffect
 {
     // cannot be debuffed while the shield is up
-    public override void ApplyEffect(SpecialEffectContext context)
+    public override bool TryNegateDebuff(SpecialEffectContext context)
     {
         if (context.enemy.EnemyStats.HasShield)
         {
-            
+            return true;
         }
+        return false;
     }
 }

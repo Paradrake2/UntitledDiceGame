@@ -180,4 +180,20 @@ public class Enemy : ScriptableObject
     {
         currentShield = Mathf.Max(0, shield);
     }
+    public bool InflictDebuff(StatusEffect debuff, int turns)
+    {
+        if (!specialEffect.TryNegateDebuff(new SpecialEffectContext(this, null, turns, 0, 0, false)))
+        {
+            statusEffects.AddEffect(debuff, turns);
+            Debug.Log($"{enemyName} has been inflicted with {debuff.EffectName}.");
+            // Trigger special effect if it responds to debuffs
+            TriggerSpecialEffect(SpecialEffectTrigger.OnDebuffed, new SpecialEffectContext(this, null, turns, 0, 0, false));
+            return true;
+        }
+        else
+        {
+            Debug.Log($"{enemyName}'s special effect negated the debuff {debuff.EffectName}.");
+            return false;
+        }
+    }
 }

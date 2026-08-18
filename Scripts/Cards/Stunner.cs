@@ -12,8 +12,7 @@ public class Stunner : Card
         float chance = Random.Range(0f, 1f);
         if (chance <= Percentage1)
         {
-            enemy.StatusEffects.AddEffect(stunEffect, 1);
-            CombatManager.Instance.NotifyEnemyStatusEffectApplied(stunEffect);
+            if(enemy.InflictDebuff(stunEffect, 1)) CombatManager.Instance.NotifyEnemyStatusEffectApplied(stunEffect);
         }
     }
 }

@@ -9,7 +9,6 @@ public class Hammer : Card
     {
         int damage = Mathf.RoundToInt(Damage * multiplier) + player.OutgoingDamageBonus;
         DamageManager.Instance.ApplyDamageToEnemy(enemy, player, damage, false, index);
-        enemy.StatusEffects.AddEffect(shatteredEffect, 2);
-        CombatManager.Instance.NotifyEnemyStatusEffectApplied(shatteredEffect);
+        if (enemy.InflictDebuff(shatteredEffect, 2)) CombatManager.Instance.NotifyEnemyStatusEffectApplied(shatteredEffect);
     }
 }

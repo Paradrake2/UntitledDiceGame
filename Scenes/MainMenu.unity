@@ -607,6 +607,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3d55731014aa1ed41adccf1517a0d316, type: 2}
   - {fileID: 11400000, guid: e918a9215e23d07448485544f9222623, type: 2}
   - {fileID: 11400000, guid: a33ba98957fa4dd4599bcd09f668720b, type: 2}
+  - {fileID: 11400000, guid: 208a9818ae093704a9676e507f64e14b, type: 2}
+  - {fileID: 11400000, guid: de48d74840ff31b4db37c043106dcbf6, type: 2}
+  - {fileID: 11400000, guid: 762c3ece90094cf40915f41f1be48d92, type: 2}
+  - {fileID: 11400000, guid: 82f42a5f4db9158409801289f73d344e, type: 2}
   gems: 10000
 --- !u!4 &310921065
 Transform:

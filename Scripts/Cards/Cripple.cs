@@ -9,7 +9,6 @@ public class Cripple : Card
     {
         int damage = Mathf.RoundToInt(Damage * multiplier) + player.OutgoingDamageBonus;
         DamageManager.Instance.ApplyDamageToEnemy(enemy, player, damage, false, index);
-        enemy.StatusEffects.AddEffect(effect, 1);
-        CombatManager.Instance.NotifyEnemyStatusEffectApplied(effect);
+        if(enemy.InflictDebuff(effect, 1)) CombatManager.Instance.NotifyEnemyStatusEffectApplied(effect);
     }
 }

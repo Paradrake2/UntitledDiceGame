@@ -8,18 +8,6 @@ public class BurnEffect : StatusEffect
     public override int duration => 4;
     public override void OnTrigger(StatusEffectContext ctx)
     {
-        if (duration <= 0)
-        {
-            if (ctx.IsPlayerEffect)
-            {
-                ctx.Player.StatusEffects.RemoveEffect(this);
-            }
-            else
-            {
-                ctx.Enemy.StatusEffects.RemoveEffect(this);
-            }
-            return;
-        }
         if (ctx.IsPlayerEffect)
         {
             int damage = Mathf.Max(1, Mathf.RoundToInt(ctx.Player.MaxHealth * 0.15f));

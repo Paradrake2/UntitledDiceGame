@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Hydra
   m_EditorClassIdentifier: 
   enemyName: Hydra
-  enemySprite: {fileID: 0}
+  enemySprite: {fileID: -6467499720295795977, guid: 98a98e774d5df684f9374777629b4ffb, type: 3}
   baseMaxHealth: 200
   baseShield: 0
   basePhysicalAttackDamage: 30

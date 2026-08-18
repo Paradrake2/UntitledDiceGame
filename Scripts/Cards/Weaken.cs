@@ -7,7 +7,6 @@ public class Weaken : Card
     // weakens enemy, reducing their damage for a few turns based on upgrade level
     public override void PlayCard(Enemy enemy, Player player, int index, float multiplier = 1)
     {
-        enemy.StatusEffects.AddEffect(statusEffect, Int1);
-        CombatManager.Instance.NotifyEnemyStatusEffectApplied(statusEffect);
+        if(enemy.InflictDebuff(statusEffect, Int1)) CombatManager.Instance.NotifyEnemyStatusEffectApplied(statusEffect);
     }
 }

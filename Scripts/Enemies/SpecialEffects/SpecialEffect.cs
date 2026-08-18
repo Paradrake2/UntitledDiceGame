@@ -9,10 +9,10 @@ public enum SpecialEffectTrigger
     PlayerTurn,
     OnDamageTaken,
     OnDamageDealt,
-    EndOfBattle
+    EndOfBattle,
+    OnDebuffed
 }
 
-// Abstract — use [CreateAssetMenu] on concrete subclasses, not here.
 public abstract class SpecialEffect : ScriptableObject
 {
     [SerializeField] protected string effectName;
@@ -36,5 +36,5 @@ public abstract class SpecialEffect : ScriptableObject
     public virtual void ResetRuntimeState() { }
     public virtual void ModifyOutgoingDamage(DamageContext context) { }
     public virtual void ModifyEnemyHealing(Enemy enemy, int amount) { }
-    
+    public virtual bool TryNegateDebuff(SpecialEffectContext context) { return false; }
 }

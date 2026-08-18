@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f909a1119f74d44aab54973ea6ac8a0, type: 3}
-  m_Name: RagingBull
+  m_Name: Dragon
   m_EditorClassIdentifier: 
-  enemyName: RagingBull
-  enemySprite: {fileID: -5415018260670805256, guid: 6f31713d1fd263944b3929ee09779f97, type: 3}
-  baseMaxHealth: 150
-  baseShield: 0
-  basePhysicalAttackDamage: 65
-  baseMagicalAttackDamage: 0
-  basePhysicalAttackAmount: 1
+  enemyName: Dragon
+  enemySprite: {fileID: 0}
+  baseMaxHealth: 200
+  baseShield: 30
+  basePhysicalAttackDamage: 0
+  baseMagicalAttackDamage: 30
+  basePhysicalAttackAmount: 0
   baseMagicalAttackAmount: 0
   baseHealAmount: 0
   baseShieldAmount: 0
-  coinReward: 15
+  coinReward: 20
   enemyStats:
     maxHealth: 0
     shield: 0
@@ -32,9 +32,9 @@ MonoBehaviour:
     magicalAttackAmount: 0
     healAmount: 0
     shieldAmount: 0
-  specialEffect: {fileID: 11400000, guid: 7990bd04399ce5a4099bad106aeb3d19, type: 2}
-  tier: 1
+  specialEffect: {fileID: 0}
+  tier: 3
   shieldTurnIncrease: 0
   healTurnIncrease: 0
-  physicalAttackTurnIncrease: 8
-  magicalAttackTurnIncrease: 0
+  physicalAttackTurnIncrease: 0
+  magicalAttackTurnIncrease: 10
