@@ -208,12 +208,14 @@ public class CombatManager : MonoBehaviour
         for (int i = 0; i < currentEnemy.EnemyStats.physicalAttackAmount; i++)
         {
             EnemyPhysicalAttack?.Invoke();
-            enemyUI.FlashPhysicalDamageText();
             int damage = currentEnemy.EnemyStats.physicalAttackDamage;
-            int damageTaken = player.TakeDamage(damage, false);
-            PlayerDamageTaken?.Invoke(damage);
+            var dcontext = new DamageContext(damage, false, currentEnemy.CurrentShield > 0, currentEnemy, player, index: i);
+            currentEnemy.TriggerSpecialEffect(SpecialEffectTrigger.DealingDamage, null, dcontext);
+            int damageTaken = player.TakeDamage(damage + dcontext.Amount, false);
             var pcontext = new SpecialEffectContext(currentEnemy, player, turnNumber, damageAttempted: damage, damageTaken: damageTaken, isMagic: false);
-            currentEnemy.TriggerSpecialEffect(SpecialEffectTrigger.OnDamageDealt, pcontext);
+            currentEnemy.TriggerSpecialEffect(SpecialEffectTrigger.OnDamageDealt, pcontext, dcontext);
+            enemyUI.FlashPhysicalDamageText();
+            PlayerDamageTaken?.Invoke(damage);
 
             playerUI.UpdateTexts();
             enemyUI.UpdateTexts();
@@ -226,13 +228,15 @@ public class CombatManager : MonoBehaviour
         for (int i = 0; i < currentEnemy.EnemyStats.magicalAttackAmount; i++)
         {
             EnemyMagicalAttack?.Invoke();
-            enemyUI.FlashMagicalDamageText();
             int damage = currentEnemy.EnemyStats.magicalAttackDamage;
-            int damageTaken = player.TakeDamage(damage, true);
-            PlayerDamageTaken?.Invoke(damageTaken);
+            var dcontext = new DamageContext(damage, false, currentEnemy.CurrentShield > 0, currentEnemy, player, index: i);
+            currentEnemy.TriggerSpecialEffect(SpecialEffectTrigger.DealingDamage, null, dcontext);
+            int damageTaken = player.TakeDamage(damage + dcontext.Amount, true);
+            
             var mcontext = new SpecialEffectContext(currentEnemy, player, turnNumber, damageAttempted: damage, damageTaken: damageTaken, isMagic: true);
-            currentEnemy.TriggerSpecialEffect(SpecialEffectTrigger.OnDamageDealt, mcontext);
-
+            currentEnemy.TriggerSpecialEffect(SpecialEffectTrigger.OnDamageDealt, mcontext, dcontext);
+            enemyUI.FlashMagicalDamageText();
+            PlayerDamageTaken?.Invoke(damageTaken);
             playerUI.UpdateTexts();
             enemyUI.UpdateTexts();
             yield return new WaitForSeconds(1f);

@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effectName: Vampire
   effectDescription: 'Heals 50% of damage dealt '
-  trigger: 6
+  trigger: 7
   turnThreshold: 1
   lifeStealPercentage: 0.5

@@ -51,7 +51,7 @@ public class Player : MonoBehaviour
     // Damage reduction from upgrades is applied before shield calculations.
     public int TakeDamage(int amount, bool isMagic)
     {
-        // DamageContext context = new DamageContext(amount, isMagic, currentShield > 0, null, this); // will be used later
+        DamageContext context = new DamageContext(amount, isMagic, currentShield > 0, null, this, null); // will be used later
         int reduced = Mathf.Max(0, amount - damageReduction);
         if (isMagic)
         {
@@ -74,7 +74,6 @@ public class Player : MonoBehaviour
         playerUI.UpdateTexts();
         return reduced;
     }
-
     public void Heal(int amount)
     {
         if (statusEffects.HasStatusEffectOfType<RecoveryBlockEffect>()) // if has recovery block effect, prevent healing

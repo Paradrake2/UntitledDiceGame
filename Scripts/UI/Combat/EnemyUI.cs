@@ -67,13 +67,4 @@ public class EnemyUI : MonoBehaviour
         text.color = originalColor;
     }
 
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
 }

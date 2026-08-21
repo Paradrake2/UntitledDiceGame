@@ -16,10 +16,10 @@ MonoBehaviour:
   enemySprite: {fileID: 0}
   baseMaxHealth: 200
   baseShield: 30
-  basePhysicalAttackDamage: 0
+  basePhysicalAttackDamage: 20
   baseMagicalAttackDamage: 30
-  basePhysicalAttackAmount: 0
-  baseMagicalAttackAmount: 0
+  basePhysicalAttackAmount: 1
+  baseMagicalAttackAmount: 2
   baseHealAmount: 0
   baseShieldAmount: 0
   coinReward: 20
@@ -32,7 +32,7 @@ MonoBehaviour:
     magicalAttackAmount: 0
     healAmount: 0
     shieldAmount: 0
-  specialEffect: {fileID: 0}
+  specialEffect: {fileID: 11400000, guid: 2f4a99f026f495343b215ede5a722621, type: 2}
   tier: 3
   shieldTurnIncrease: 0
   healTurnIncrease: 0

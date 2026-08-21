@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Shield DMG Reduction", menuName = "Special Effects/Shield DMG Reduction")]
+[CreateAssetMenu(fileName = "Shield DMG Reduction", menuName = "Special Effects/Shield DMG Reduction")]
 public class ShieldDMGReduction : SpecialEffect
 {
     public float damageReductionPercentage = 0.3f;

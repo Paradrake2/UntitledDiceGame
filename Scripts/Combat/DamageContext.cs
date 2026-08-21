@@ -1,5 +1,6 @@
 using UnityEngine;
 
+// Used when enemy takes damage
 public class DamageContext
 {
     public int Amount;

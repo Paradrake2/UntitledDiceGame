@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effectName: Poisoner
   effectDescription: 50% chance to inflict poison on player
-  trigger: 6
+  trigger: 7
   turnThreshold: 1
   poisonChance: 0.5
   statusEffect: {fileID: 11400000, guid: 2f1a35915edbd5344b05b4cf5d5b8ccb, type: 2}

@@ -152,11 +152,27 @@ public class Enemy : ScriptableObject
     }
 
     /// <summary>Fires the special effect if its trigger condition is met.</summary>
-    public void TriggerSpecialEffect(SpecialEffectTrigger trigger, SpecialEffectContext ctx)
+    public void TriggerSpecialEffect(SpecialEffectTrigger trigger, SpecialEffectContext ctx = null, DamageContext damageContext = null)
     {
         if (specialEffect == null) return;
-        if (specialEffect.ShouldTrigger(trigger, ctx.turnNumber))
-            specialEffect.ApplyEffect(ctx);
+        if (ctx != null)
+        {
+            if (specialEffect.ShouldTrigger(trigger, ctx.turnNumber))
+            {
+                specialEffect.ApplyEffect(ctx);
+                specialEffect.TryNegateDebuff(ctx);
+                // specialEffect.ModifyEnemyHealing(this, ctx.AmountHealed);
+            }
+        }
+        if (damageContext != null)
+        {
+            if (specialEffect.ShouldTrigger(trigger, 0, true)) // turn number is not relevant for damage triggers
+            {
+                specialEffect.ModifyIncomingDamage(damageContext);
+                specialEffect.ModifyOutgoingDamage(damageContext);
+                specialEffect.TryNegateIncomingDamage(damageContext);
+            }
+        }
     }
 
     public void ModifyStats(int stage)
@@ -195,5 +211,17 @@ public class Enemy : ScriptableObject
             Debug.Log($"{enemyName}'s special effect negated the debuff {debuff.EffectName}.");
             return false;
         }
+    }
+    public int GetModifiedPhysicalAttackDamage()
+    {
+        int modifiedDamage = enemyStats.physicalAttackDamage;
+        modifiedDamage = statusEffects.ModifyOutgoingDamage(modifiedDamage, false, new StatusEffectContext(FindAnyObjectByType<Player>(), this, isPlayerEffect: false));
+        return modifiedDamage;
+    }
+    public int GetModifiedMagicalAttackDamage()
+    {
+        int modifiedDamage = enemyStats.magicalAttackDamage;
+        modifiedDamage = statusEffects.ModifyOutgoingDamage(modifiedDamage, true, new StatusEffectContext(FindAnyObjectByType<Player>(), this, isPlayerEffect: false));
+        return modifiedDamage;
     }
 }

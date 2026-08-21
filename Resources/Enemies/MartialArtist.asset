@@ -32,7 +32,7 @@ MonoBehaviour:
     magicalAttackAmount: 0
     healAmount: 0
     shieldAmount: 0
-  specialEffect: {fileID: 0}
+  specialEffect: {fileID: 11400000, guid: 2e203f3fc9dba4749aad958745c6fa55, type: 2}
   tier: 1
   shieldTurnIncrease: 0
   healTurnIncrease: 0

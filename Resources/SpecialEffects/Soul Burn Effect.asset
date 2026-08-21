@@ -9,10 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa1a1d3a38d3edf44aefc7026b6248e7, type: 3}
-  m_Name: BulwarkEffect
+  m_Script: {fileID: 11500000, guid: 21967f47f26870e4aa41a4d797d3343f, type: 3}
+  m_Name: Soul Burn Effect
   m_EditorClassIdentifier: 
-  effectName: Bulwark
-  effectDescription: Cannot be debuffed when shield is up
-  trigger: 9
+  effectName: Soul Burn
+  effectDescription: Deals an additional 5-10% of the player's max hp as magic damage
+  trigger: 6
   turnThreshold: 1
+  minPercentage: 0.05
+  maxPercentage: 0.1

@@ -15,6 +15,6 @@ MonoBehaviour:
   effectName: GoldenGiant
   effectDescription: After 10 turns, end the battle and award coins based on damage
     dealt to the enemy
-  trigger: 7
+  trigger: 8
   turnThreshold: 1
   turnLimit: 10
