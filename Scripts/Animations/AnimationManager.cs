@@ -30,6 +30,11 @@ public class AnimationManager : MonoBehaviour
 
         _instance = this;
 
+        if (cm == null)
+        {
+            cm = FindFirstObjectByType<CombatManager>();
+        }
+
         if (Application.isPlaying)
         {
             DontDestroyOnLoad(gameObject);
@@ -42,6 +47,17 @@ public class AnimationManager : MonoBehaviour
         {
             _instance = null;
         }
+    }
+
+    public static AnimationManager TryGetInstance()
+    {
+        if (_instance != null)
+        {
+            return _instance;
+        }
+
+        _instance = FindFirstObjectByType<AnimationManager>();
+        return _instance;
     }
 
     public static AnimationManager Instance
@@ -93,11 +109,17 @@ public class AnimationManager : MonoBehaviour
     }
     void OnEnable()
     {
-        cm.EnemyPhysicalAttack += PlayEnemyPhysicalAttackAnimation;
+        if (cm != null)
+        {
+            cm.EnemyPhysicalAttack += PlayEnemyPhysicalAttackAnimation;
+        }
     }
     void OnDisable()
     {
-        cm.EnemyPhysicalAttack -= PlayEnemyPhysicalAttackAnimation;
+        if (cm != null)
+        {
+            cm.EnemyPhysicalAttack -= PlayEnemyPhysicalAttackAnimation;
+        }
     }
     void PlayEnemyPhysicalAttackAnimation()
     {

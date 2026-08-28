@@ -13,6 +13,9 @@ public class EnemyUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI physicalDamageText;
     [SerializeField] private TextMeshProUGUI magicalDamageText;
     [SerializeField] private TextMeshProUGUI effectDescriptionText;
+    [SerializeField] private TextMeshProUGUI healthGainText;
+    [SerializeField] private TextMeshProUGUI shieldGainText;
+
 
     public void UpdateTexts()
     {
@@ -24,6 +27,8 @@ public class EnemyUI : MonoBehaviour
             physicalDamageText.text = enemy.EnemyStats.physicalAttackDamage.ToString() + " x" + enemy.EnemyStats.physicalAttackAmount.ToString();
             magicalDamageText.text = enemy.EnemyStats.magicalAttackDamage.ToString() + " x" + enemy.EnemyStats.magicalAttackAmount.ToString();
             effectDescriptionText.text = enemy.SpecialEffect != null ? enemy.SpecialEffect.EffectDescription : "No special effect";
+            healthGainText.text = enemy.EnemyStats.healAmount.ToString();
+            shieldGainText.text = enemy.EnemyStats.shieldAmount.ToString();
         }
     }
 

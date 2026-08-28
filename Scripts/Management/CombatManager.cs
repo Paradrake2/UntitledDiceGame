@@ -65,6 +65,7 @@ public class CombatManager : MonoBehaviour
         currentEnemy.ModifyStats(currentStage);
         currentEnemy.InitForBattle();
         player.InitForBattle();
+        playerUI.UpdateTexts();
 
         turnNumber = 0;
         EnemySelected?.Invoke(currentEnemy);

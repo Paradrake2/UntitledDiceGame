@@ -9,14 +9,30 @@ public class RollButton : MonoBehaviour
     [SerializeField] private bool isEnabled = false; // used to determine whether the button is enabled or not
     void OnEnable()
     {
-        diceManager.OnDiceFinalized += SetHasRolled;
-        AnimationManager.Instance.TurnNumberAnimationCompleted += EnableButton;
+        if (diceManager != null)
+        {
+            diceManager.OnDiceFinalized += SetHasRolled;
+        }
+
+        var animationManager = AnimationManager.TryGetInstance();
+        if (animationManager != null)
+        {
+            animationManager.TurnNumberAnimationCompleted += EnableButton;
+        }
         // CombatManager.Instance.<event> += EnableButton; // enable the button when the intro animation is completed
     }
     void OnDisable()
     {
-        diceManager.OnDiceFinalized -= SetHasRolled;
-        AnimationManager.Instance.TurnNumberAnimationCompleted -= EnableButton;
+        if (diceManager != null)
+        {
+            diceManager.OnDiceFinalized -= SetHasRolled;
+        }
+
+        var animationManager = AnimationManager.TryGetInstance();
+        if (animationManager != null)
+        {
+            animationManager.TurnNumberAnimationCompleted -= EnableButton;
+        }
     }
     void EnableButton()
     {
