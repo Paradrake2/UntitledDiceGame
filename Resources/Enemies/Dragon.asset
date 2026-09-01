@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Dragon
   m_EditorClassIdentifier: 
   enemyName: Dragon
-  enemySprite: {fileID: 0}
+  enemySprite: {fileID: 1372335161102834277, guid: 15a6113c92e4da34688909d78818bae5, type: 3}
   baseMaxHealth: 200
   baseShield: 30
   basePhysicalAttackDamage: 20

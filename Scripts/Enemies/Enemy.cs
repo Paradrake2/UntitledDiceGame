@@ -179,9 +179,9 @@ public class Enemy : ScriptableObject
     {
         enemyStats.maxHealth = baseMaxHealth + stage * 25;
         if (enemyStats.shield != 0) enemyStats.shield = baseShield + stage * 10;
-        if(basePhysicalAttackDamage != 0) enemyStats.physicalAttackDamage = basePhysicalAttackDamage + stage * 5;
-        if(baseMagicalAttackDamage != 0) enemyStats.magicalAttackDamage = baseMagicalAttackDamage + stage * 5;
-        if(enemyStats.healAmount != 0) enemyStats.healAmount = baseHealAmount + stage * 5;
+        if (basePhysicalAttackDamage != 0) enemyStats.physicalAttackDamage = basePhysicalAttackDamage + stage * 5;
+        if (baseMagicalAttackDamage != 0) enemyStats.magicalAttackDamage = baseMagicalAttackDamage + stage * 5;
+        if (enemyStats.healAmount != 0) enemyStats.healAmount = baseHealAmount + stage * 5;
         if (enemyStats.shieldAmount != 0) enemyStats.shieldAmount = baseShieldAmount + stage * 5;
     }
     public int GetMaxHealth()
