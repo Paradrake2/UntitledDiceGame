@@ -49,27 +49,41 @@ public class Player : MonoBehaviour
 
     // Physical damage hits shield first; magic damage bypasses shield entirely.
     // Damage reduction from upgrades is applied before shield calculations.
-    public int TakeDamage(int amount, bool isMagic)
+    public int TakeDamage(int amount, bool isMagic, bool dealDamage = true)
     {
         DamageContext context = new DamageContext(amount, isMagic, currentShield > 0, null, this, null); // will be used later
         int reduced = Mathf.Max(0, amount - damageReduction);
-        if (isMagic)
+        Debug.Log("Damage:" + reduced);
+        if (dealDamage)
         {
-            currentHealth = Mathf.Max(0, currentHealth - reduced);
-            // call player health damage taken
-            CombatManager.Instance?.NotifyPlayerHealthDamageTakenUI(reduced); // for UI animation
-        }
-        else
-        {
-            int shieldAbsorbed = Mathf.Min(currentShield, reduced);
-            currentShield -= shieldAbsorbed;
-            if (shieldAbsorbed > 0)
+            if (isMagic)
             {
-                CombatManager.Instance?.NotifyPlayerShieldDamageTakenUI(shieldAbsorbed); // for UI animation
+                currentHealth = Mathf.Max(0, currentHealth - reduced);
+                // call player health damage taken
+                CombatManager.Instance?.NotifyPlayerHealthDamageTakenUI(reduced); // for UI animation
             }
-            int remaining = reduced - shieldAbsorbed;
-            if (remaining >0 ) CombatManager.Instance?.NotifyPlayerHealthDamageTakenUI(remaining); // for UI animation
-            currentHealth = Mathf.Max(0, currentHealth - remaining);
+            else
+            {
+                int shieldAbsorbed = Mathf.Min(currentShield, reduced);
+                currentShield -= shieldAbsorbed;
+                if (shieldAbsorbed > 0)
+                {
+                    CombatManager.Instance?.NotifyPlayerShieldDamageTakenUI(shieldAbsorbed); // for UI animation
+                }
+                int remaining = reduced - shieldAbsorbed;
+                if (remaining >0 ) CombatManager.Instance?.NotifyPlayerHealthDamageTakenUI(remaining); // for UI animation
+                currentHealth = Mathf.Max(0, currentHealth - remaining);
+            }
+        } else
+        {
+            if (!isMagic)
+            {
+                int shieldAbsorbed = Mathf.Min(currentShield, reduced);
+                int fakeShield = currentShield;
+                fakeShield -= shieldAbsorbed;
+                int remaining = reduced - shieldAbsorbed;
+                Debug.Log("Debug Damage: " + remaining);
+            }
         }
         playerUI.UpdateTexts();
         return reduced;

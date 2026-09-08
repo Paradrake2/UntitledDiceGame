@@ -4,11 +4,16 @@ using UnityEngine;
 public class SacrificeEffect : SpecialEffect
 {
     public float sacrificePercentage = 0.1f; // 10% of current health sacrificed
-    // sacrifices a portion of enemy's health to deal damage
-    public override void ApplyEffect(SpecialEffectContext context)
+
+    public override void ModifyOutgoingDamage(DamageContext context)
     {
-        int sacrificeAmount = Mathf.RoundToInt(context.enemy.CurrentHealth * sacrificePercentage); // sacrifice 10% of current health
-        context.enemy.TakeDamage(sacrificeAmount, true); // ignores shield
-        context.damageAttempted += sacrificeAmount; // add the sacrificed amount to the damage attempted
+        if (context?.Enemy == null) return;
+
+        int sacrificeAmount = Mathf.RoundToInt(context.Enemy.CurrentHealth * sacrificePercentage);
+        if (sacrificeAmount <= 0) return;
+
+        context.Amount += sacrificeAmount; // add the sacrificed amount to the outgoing damage
+        context.Enemy.TakeDamage(sacrificeAmount, true); // ignores shieldD
+        Debug.Log("Sacrifice amount: " + sacrificeAmount);
     }
 }

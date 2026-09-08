@@ -212,7 +212,7 @@ public class CombatManager : MonoBehaviour
             int damage = currentEnemy.EnemyStats.physicalAttackDamage;
             var dcontext = new DamageContext(damage, false, currentEnemy.CurrentShield > 0, currentEnemy, player, index: i);
             currentEnemy.TriggerSpecialEffect(SpecialEffectTrigger.DealingDamage, null, dcontext);
-            int damageTaken = player.TakeDamage(damage + dcontext.Amount, false);
+            int damageTaken = player.TakeDamage(dcontext.Amount, false);
             var pcontext = new SpecialEffectContext(currentEnemy, player, turnNumber, damageAttempted: damage, damageTaken: damageTaken, isMagic: false);
             currentEnemy.TriggerSpecialEffect(SpecialEffectTrigger.OnDamageDealt, pcontext, dcontext);
             enemyUI.FlashPhysicalDamageText();
@@ -230,9 +230,10 @@ public class CombatManager : MonoBehaviour
         {
             EnemyMagicalAttack?.Invoke();
             int damage = currentEnemy.EnemyStats.magicalAttackDamage;
+            Debug.Log("Enemy magic damage: " + damage);
             var dcontext = new DamageContext(damage, false, currentEnemy.CurrentShield > 0, currentEnemy, player, index: i);
             currentEnemy.TriggerSpecialEffect(SpecialEffectTrigger.DealingDamage, null, dcontext);
-            int damageTaken = player.TakeDamage(damage + dcontext.Amount, true);
+            int damageTaken = player.TakeDamage(dcontext.Amount, true);
             
             var mcontext = new SpecialEffectContext(currentEnemy, player, turnNumber, damageAttempted: damage, damageTaken: damageTaken, isMagic: true);
             currentEnemy.TriggerSpecialEffect(SpecialEffectTrigger.OnDamageDealt, mcontext, dcontext);
