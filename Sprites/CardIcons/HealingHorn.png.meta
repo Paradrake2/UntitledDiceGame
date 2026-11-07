@@ -159,7 +159,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      HealingHorn_0: 1312299549508181413
+      HealingHorn_1: -7750335819245601059
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

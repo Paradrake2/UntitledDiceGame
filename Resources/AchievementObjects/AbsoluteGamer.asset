@@ -15,6 +15,6 @@ MonoBehaviour:
   achievementId: AbsoluteGamer
   displayName: Absolute Gamer
   description: Play 30 games
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: fa766e1a77415c7d870e1b62b8493a77, type: 3}
   condition: {fileID: 11400000, guid: 42ddfa1a6093c3541a8c4e484c58ecd3, type: 2}
   cardToUnlock: {fileID: 0}

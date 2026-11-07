@@ -15,6 +15,6 @@ MonoBehaviour:
   achievementId: Upgrader
   displayName: Upgrader
   description: Have a card reach level 10
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 00b28e0c3f345ac188295ec68340a9be, type: 3}
   condition: {fileID: 11400000, guid: 9f6afe0dbd9783f45bc4574240252dac, type: 2}
   cardToUnlock: {fileID: 0}

@@ -15,6 +15,6 @@ MonoBehaviour:
   achievementId: Leprechaun
   displayName: Leprechaun
   description: Roll at least 3 Sixes, 3 turns in a row!
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: ed8fc265c86955f4b8f733222700325e, type: 3}
   condition: {fileID: 11400000, guid: a860591f390f33e43b8acc22bfc76e61, type: 2}
   cardToUnlock: {fileID: 0}

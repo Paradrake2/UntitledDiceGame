@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: StunEffect
   m_EditorClassIdentifier: 
   effectName: Stun
-  effectIcon: {fileID: 0}
+  effectIcon: {fileID: 21300000, guid: a656cc9a4f015d738fb407ec1b785970, type: 3}
   effectDescription: Skips a turn
   stackable: 0
   effectDuration: 1

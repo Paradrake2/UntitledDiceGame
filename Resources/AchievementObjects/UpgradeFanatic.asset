@@ -15,6 +15,6 @@ MonoBehaviour:
   achievementId: UpgradeFanatic
   displayName: Upgrade Fanatic
   description: Upgrade cards 50 times in a single game
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 615cec7877e95b828d3acfb6e8c6b2b6, type: 3}
   condition: {fileID: 11400000, guid: 54be4975e6e8e7b4a8698a98ead5d767, type: 2}
   cardToUnlock: {fileID: 0}

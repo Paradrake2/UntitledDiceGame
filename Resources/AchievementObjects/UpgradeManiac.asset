@@ -15,6 +15,6 @@ MonoBehaviour:
   achievementId: UpgradeManiac
   displayName: Upgrade Maniac
   description: Upgrade cards 20 times in a single game
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 0f99182662bf5ac191be59bc5ab965a0, type: 3}
   condition: {fileID: 11400000, guid: bca0be470c1aa884b947d684f6e1038b, type: 2}
   cardToUnlock: {fileID: 0}

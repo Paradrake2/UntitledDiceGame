@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeName: Coin Bonus
   description: Extra coins when defeating an enemy
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: e3cfdced09025e6a899fe01b75a2ef15, type: 3}
   upgradeType: 2
   maxLevel: 10
   gemCostPerLevel: 25

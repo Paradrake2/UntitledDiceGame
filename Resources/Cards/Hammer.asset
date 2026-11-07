@@ -15,7 +15,7 @@ MonoBehaviour:
   cardName: Hammer
   cardDescription: Deals {damage} physical damage and shatters the enemy's shield
     for 2 turns
-  cardSprite: {fileID: 0}
+  cardSprite: {fileID: 21300000, guid: 6926fccc020150fd8d1c72b685a0ea0a, type: 3}
   baseStats:
     damage: 10
     shield: 0

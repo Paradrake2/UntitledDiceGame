@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Naga
   m_EditorClassIdentifier: 
   enemyName: Naga
-  enemySprite: {fileID: 0}
+  enemySprite: {fileID: 6098439916603084394, guid: 0e7cea5823a21be478b6c8cd39d4a00c, type: 3}
   baseMaxHealth: 120
   baseShield: 40
   basePhysicalAttackDamage: 35

@@ -15,6 +15,6 @@ MonoBehaviour:
   achievementId: NoDMGWin
   displayName: Untouchable
   description: Win a battle without taking any damage
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: b400c38c71f85807b49b0c1eed2cb4bd, type: 3}
   condition: {fileID: 11400000, guid: ff08439f042d45c4ab6a495c73a82ee7, type: 2}
   cardToUnlock: {fileID: 0}

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeName: Flat Damage Reduction
   description: Flat damage reduction
-  icon: {fileID: 0}
+  icon: {fileID: -4671709556095864983, guid: c2c05eaa599b2cf4ea97df3ec4fedcd5, type: 3}
   upgradeType: 1
   maxLevel: 10
   gemCostPerLevel: 25

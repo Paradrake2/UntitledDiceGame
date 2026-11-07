@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effectName: Sacrifice
   effectDescription: Sacrifice a portion of HP to deal extra damage
-  trigger: 1
+  trigger: 6
   turnThreshold: 1
   sacrificePercentage: 0.1

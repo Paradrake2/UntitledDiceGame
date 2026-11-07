@@ -15,7 +15,7 @@ MonoBehaviour:
   cardName: Empower
   cardDescription: Permanently increase damage by 10% for the current battle and
     recover {percentage1} of max health
-  cardSprite: {fileID: 0}
+  cardSprite: {fileID: 21300000, guid: fb4df08829f45b9eb13d5f5fdb0aa8f2, type: 3}
   baseStats:
     damage: 0
     shield: 0

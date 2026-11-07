@@ -15,6 +15,6 @@ MonoBehaviour:
   achievementId: Survivor
   displayName: Survivor
   description: Reach stage 11
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 3e19d3eed17e5938b143863f91624e72, type: 3}
   condition: {fileID: 11400000, guid: 0e6bf02900c539244a7a53dc4daf4f9e, type: 2}
   cardToUnlock: {fileID: 0}

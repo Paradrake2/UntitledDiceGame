@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeName: Physical Damage Bonus
   description: Percentage increase to physical damage
-  icon: {fileID: 0}
+  icon: {fileID: 8372636031085406590, guid: 3ec35901fc58df147a3ada046b2abe19, type: 3}
   upgradeType: 15
   maxLevel: 10
   gemCostPerLevel: 10

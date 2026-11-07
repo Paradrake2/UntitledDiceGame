@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BloodMage
   m_EditorClassIdentifier: 
   enemyName: BloodMage
-  enemySprite: {fileID: 0}
+  enemySprite: {fileID: -1674759687773654159, guid: dfa046c0d48eb424f9a73d1e19bbd353, type: 3}
   baseMaxHealth: 160
   baseShield: 0
   basePhysicalAttackDamage: 0

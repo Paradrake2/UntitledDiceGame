@@ -15,6 +15,6 @@ MonoBehaviour:
   achievementId: Conqueror
   displayName: Conqueror
   description: Reach stage 41
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: fe495534da8251f0bc4c88f89f48ff99, type: 3}
   condition: {fileID: 11400000, guid: f8ea0d4973a921f4d85050e95ee979a8, type: 2}
   cardToUnlock: {fileID: 0}

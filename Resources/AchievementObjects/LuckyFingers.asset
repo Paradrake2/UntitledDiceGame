@@ -15,6 +15,6 @@ MonoBehaviour:
   achievementId: LuckyFingers
   displayName: Lucky Fingers
   description: Roll at least 3 Sixes, 2 turns in a row
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: cbe84b40a62250478239dfa3b2389eec, type: 3}
   condition: {fileID: 11400000, guid: 13bd989953fc34b48bab847245a47dd7, type: 2}
   cardToUnlock: {fileID: 0}

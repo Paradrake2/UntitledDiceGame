@@ -15,6 +15,6 @@ MonoBehaviour:
   achievementId: Fighter
   displayName: Fighter
   description: Reach stage 21
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: a3a5e74b89e859ac828a22d0eff0d7c2, type: 3}
   condition: {fileID: 11400000, guid: 8d1f023245cb28f4aba8108790e029bf, type: 2}
   cardToUnlock: {fileID: 0}

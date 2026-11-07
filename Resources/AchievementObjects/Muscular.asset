@@ -15,6 +15,6 @@ MonoBehaviour:
   achievementId: Muscular
   displayName: Muscular
   description: Deal 100 physical damage in a single turn
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 3fa9f0617ce45bbda1756d61ce1eb787, type: 3}
   condition: {fileID: 11400000, guid: adf246961a8f2af48ab3aa88416b2ed9, type: 2}
   cardToUnlock: {fileID: 11400000, guid: 5bd47aea8f200684dbdcf8def0fbbaae, type: 2}

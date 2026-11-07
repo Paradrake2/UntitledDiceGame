@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      DeathScytheCard_0: 9211530242379426460
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

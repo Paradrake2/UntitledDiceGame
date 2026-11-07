@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AncientConstruct
   m_EditorClassIdentifier: 
   enemyName: AncientConstruct
-  enemySprite: {fileID: 0}
+  enemySprite: {fileID: -4380661805104404496, guid: fe65f64c1f81ef64bab7dfec051ce65e, type: 3}
   baseMaxHealth: 170
   baseShield: 40
   basePhysicalAttackDamage: 45

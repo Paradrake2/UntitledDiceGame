@@ -15,6 +15,6 @@ MonoBehaviour:
   achievementId: Guardian
   displayName: Guardian
   description: Gain 50 shield in a single turn
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: d101ac2801bd5368bd9f4aa1f5a9d54e, type: 3}
   condition: {fileID: 11400000, guid: b6b3fbb8e6a59384b9465440fc990cae, type: 2}
   cardToUnlock: {fileID: 0}

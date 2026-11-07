@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeName: Revive
   description: Revives you once per run
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 572ff04ba6635e99bad8b2bcda7a0b16, type: 3}
   upgradeType: 6
   maxLevel: 1
   gemCostPerLevel: 1000

@@ -15,7 +15,7 @@ MonoBehaviour:
   cardName: Cripple
   cardDescription: Deal {damage} physical damage and weaken enemy physical attack
     damage by 30% for one turn
-  cardSprite: {fileID: 0}
+  cardSprite: {fileID: 21300000, guid: 00d849dde90c53dfaf6e93ef70788841, type: 3}
   baseStats:
     damage: 12
     shield: 0

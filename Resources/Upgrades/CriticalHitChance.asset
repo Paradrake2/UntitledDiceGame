@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 821f0ba6e1442da4b89a3165f85600e0, type: 3}
   m_Name: CriticalHitChance
   m_EditorClassIdentifier: 
-  upgradeName: 
-  description: 
-  icon: {fileID: 0}
+  upgradeName: Critical Hit Chance
+  description: Chance to land a critical hit
+  icon: {fileID: 21300000, guid: 0d49a75c756b5969a5bf819d3bd4ce5c, type: 3}
   upgradeType: 19
   maxLevel: 10
   gemCostPerLevel: 10

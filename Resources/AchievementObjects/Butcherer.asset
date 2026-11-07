@@ -15,6 +15,6 @@ MonoBehaviour:
   achievementId: Butcherer
   displayName: Butcherer
   description: Defeat 50 enemies
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 54e2b71a60d059bd963977cf3d0b6490, type: 3}
   condition: {fileID: 11400000, guid: 4d6ee123beff7134e899da083b99744e, type: 2}
   cardToUnlock: {fileID: 11400000, guid: 80b6d31a3ad9185419d032ac8bbb0b06, type: 2}

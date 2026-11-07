@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      RagingBull_0: -5415018260670805256
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

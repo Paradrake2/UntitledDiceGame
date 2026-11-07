@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Retaliator
   m_EditorClassIdentifier: 
   enemyName: Retaliator
-  enemySprite: {fileID: 0}
+  enemySprite: {fileID: 21300000, guid: 152d3abe729f5f36b2fcdec86ce23b40, type: 3}
   baseMaxHealth: 90
   baseShield: 80
   basePhysicalAttackDamage: 20

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: WeakenEffect
   m_EditorClassIdentifier: 
   effectName: Weakened
-  effectIcon: {fileID: 0}
+  effectIcon: {fileID: 3758734644524211337, guid: 0a778270d0243af4bb25d19b19e4ad07, type: 3}
   effectDescription: Physical damage reduced by 50%
   stackable: 1
   effectDuration: 1

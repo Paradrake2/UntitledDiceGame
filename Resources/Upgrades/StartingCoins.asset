@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeName: Starting Coins
   description: Increases the number of coins you start with
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: d5f9b0a4c5275763bed97a1b152fcc68, type: 3}
   upgradeType: 13
   maxLevel: 10
   gemCostPerLevel: 10

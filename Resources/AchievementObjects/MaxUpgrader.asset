@@ -15,6 +15,6 @@ MonoBehaviour:
   achievementId: MaxUpgrader
   displayName: Max Upgrader
   description: Have a card reach level 20
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 326041d6faa25024844a82626ee41665, type: 3}
   condition: {fileID: 11400000, guid: 68872eae98bd376489b930060769da71, type: 2}
   cardToUnlock: {fileID: 0}

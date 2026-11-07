@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BleedEffect
   m_EditorClassIdentifier: 
   effectName: Bleed
-  effectIcon: {fileID: 0}
+  effectIcon: {fileID: 21300000, guid: 50fe38763b4f5fa1acd2fe3c90e7a0f2, type: 3}
   effectDescription: Deals 5% of the enemy's max HP as damage every turn
   stackable: 1
   effectDuration: 1

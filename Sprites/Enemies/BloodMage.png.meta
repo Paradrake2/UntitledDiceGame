@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      BloodMage_0: -1674759687773654159
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

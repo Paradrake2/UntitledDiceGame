@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GoldenGiant
   m_EditorClassIdentifier: 
   enemyName: GoldenGiant
-  enemySprite: {fileID: 0}
+  enemySprite: {fileID: 21300000, guid: 7223acb4cd7755f5a179c967d0985c98, type: 3}
   baseMaxHealth: 3000
   baseShield: 0
   basePhysicalAttackDamage: 100

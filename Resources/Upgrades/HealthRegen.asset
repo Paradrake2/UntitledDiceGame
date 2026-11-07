@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeName: Health Regen
   description: Regeneration of health
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: d6674697c3b359d4b93f2bc073a3243e, type: 3}
   upgradeType: 10
   maxLevel: 5
   gemCostPerLevel: 10

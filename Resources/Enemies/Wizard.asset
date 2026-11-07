@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Wizard
   m_EditorClassIdentifier: 
   enemyName: Wizard
-  enemySprite: {fileID: 0}
+  enemySprite: {fileID: 21300000, guid: dfc5a156efd45323820132b62b7dec58, type: 3}
   baseMaxHealth: 75
   baseShield: 30
   basePhysicalAttackDamage: 0

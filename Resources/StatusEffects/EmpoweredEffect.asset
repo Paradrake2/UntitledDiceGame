@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: EmpoweredEffect
   m_EditorClassIdentifier: 
   effectName: Empowered
-  effectIcon: {fileID: 0}
+  effectIcon: {fileID: 21300000, guid: fb4df08829f45b9eb13d5f5fdb0aa8f2, type: 3}
   effectDescription: 'Increases damage by 10% for each stack '
   stackable: 0
   effectDuration: 1

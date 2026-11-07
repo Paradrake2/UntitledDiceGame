@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      TenderizeIcon_0: 8723068707584747111
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

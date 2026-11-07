@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MartialArtist
   m_EditorClassIdentifier: 
   enemyName: MartialArtist
-  enemySprite: {fileID: 0}
+  enemySprite: {fileID: 21300000, guid: 890935bb73355c7d915ed7e3e5345fe4, type: 3}
   baseMaxHealth: 160
   baseShield: 0
   basePhysicalAttackDamage: 35

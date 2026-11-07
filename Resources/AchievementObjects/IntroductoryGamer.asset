@@ -15,6 +15,6 @@ MonoBehaviour:
   achievementId: IntroGamer
   displayName: Introductory Gamer
   description: Play 10 games
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 8505a794463a53fdb2f8e42f1e51dde5, type: 3}
   condition: {fileID: 11400000, guid: 12505b428c90c844fa6e8be2b81a2d67, type: 2}
   cardToUnlock: {fileID: 0}

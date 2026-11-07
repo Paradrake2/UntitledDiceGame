@@ -15,6 +15,6 @@ MonoBehaviour:
   achievementId: Slaughterer
   displayName: Slaughterer
   description: Defeat 250 enemies
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 60f38cc36e8351baa45aad9fad083f7c, type: 3}
   condition: {fileID: 11400000, guid: c21a2d8d2f4854c408b80843a6cb49bd, type: 2}
   cardToUnlock: {fileID: 0}

@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      GoblinRedHatHead_0: 285070121151529184
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

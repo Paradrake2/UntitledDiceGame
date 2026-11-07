@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: WeakenCrippleEffect
   m_EditorClassIdentifier: 
   effectName: Crippled
-  effectIcon: {fileID: 0}
+  effectIcon: {fileID: 21300000, guid: 00d849dde90c53dfaf6e93ef70788841, type: 3}
   effectDescription: Physical damage reduced by 30%
   stackable: 1
   effectDuration: 1

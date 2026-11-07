@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeName: Magic Damage Bonus
   description: Percentage increase to magic damage
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 2d17cf246f43507087323c1afc3dac5b, type: 3}
   upgradeType: 16
   maxLevel: 10
   gemCostPerLevel: 10

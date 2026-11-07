@@ -15,6 +15,6 @@ MonoBehaviour:
   achievementId: MediumGamer
   displayName: Medium Gamer
   description: Play 20 games
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 894fdb48e3175826a5f691f8fa7464e0, type: 3}
   condition: {fileID: 11400000, guid: afc3db45f94590345a7e5b092ed4ca02, type: 2}
   cardToUnlock: {fileID: 0}

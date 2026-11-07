@@ -15,6 +15,6 @@ MonoBehaviour:
   achievementId: MoneyFanatic
   displayName: Money Fanatic
   description: Gain at least 75 coins in a single turn
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 6d036144dd89505680f43cbe69ba7d3f, type: 3}
   condition: {fileID: 11400000, guid: 4c57be219a1635447ac084d10823bfca, type: 2}
   cardToUnlock: {fileID: 11400000, guid: 496b6d01d90ff6243978fe3814f62114, type: 2}

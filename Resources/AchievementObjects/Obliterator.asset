@@ -15,6 +15,6 @@ MonoBehaviour:
   achievementId: Obliterator
   displayName: Obliterator
   description: Deal 200 total damage in a single turn
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: d76a3e497f04507e90fa28df58943c4b, type: 3}
   condition: {fileID: 11400000, guid: d7dd1b2feee89144d817f241173ddf76, type: 2}
   cardToUnlock: {fileID: 11400000, guid: e65c5f1328db2f444997bd663ed93aae, type: 2}

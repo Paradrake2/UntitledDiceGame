@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Swarm
   m_EditorClassIdentifier: 
   enemyName: Swarm
-  enemySprite: {fileID: 0}
+  enemySprite: {fileID: 21300000, guid: 34319c41727756b48abf45c3d87a0be4, type: 3}
   baseMaxHealth: 160
   baseShield: 30
   basePhysicalAttackDamage: 15
