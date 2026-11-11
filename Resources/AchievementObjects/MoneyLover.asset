@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   achievementId: MoneyLover
   displayName: Money Lover
-  description: Gain 30 coins in a single turn
+  description: Gain at least 30 coins in a single turn
   icon: {fileID: 21300000, guid: 08d280fccfea5a5b869620b420287f5f, type: 3}
+  bgColor: {r: 1, g: 1, b: 1, a: 1}
   condition: {fileID: 11400000, guid: c80f311af2449474f9598af2a4024605, type: 2}
   cardToUnlock: {fileID: 11400000, guid: 3a9901aea9dfc234abf70c99cdb2b772, type: 2}
+  isUnlocked: 0
